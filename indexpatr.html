@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrick T Multimedia</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        header, footer {
+            background-color: #1f2937; /* Dark grey for header/footer */
+            color: white;
+            padding: 1.5em;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ffcc00; /* Bright yellow for navigation links */
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff6600; /* Orange hover effect for navigation links */
+        }
+
+        .container {
+            padding: 2em;
+            text-align: center;
+        }
+
+        .section {
+            padding: 2em;
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin-bottom: 2em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #2563eb; /* Blue for headings */
+        }
+
+        p {
+            color: #6b7280;
+        }
+
+        .service-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5em;
+        }
+
+        .service-tile {
+            background-color: #ffffff;
+            padding: 1.5em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-tile:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-tile h3 {
+            color: #1f2937; /* Dark grey for service titles */
+            margin-bottom: 1em;
+        }
+
+        .service-tile p {
+            color: #6b7280;
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 2em;
+            padding: 0.75em 2em;
+            background-color: #2563eb; /* Bright blue for the call-to-action button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cta:hover {
+            background-color: #174bb2; /* Darker blue on hover */
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Icon Colors */
+        i {
+            color: #ffcc00; /* Yellow color for icons */
+        }
+
+        i:hover {
+            color: #ff6600; /* Orange on hover */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1><i class="fas fa-video"></i> Patrick T Multimedia</h1>
+    <nav>
+        <a href="#services"><i class="fas fa-concierge-bell"></i> Services</a>
+        <a href="#testimonials"><i class="fas fa-comments"></i> Témoignages</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section id="home" class="section">
+        <h2><i class="fas fa-home"></i> Bienvenue chez Patrick T Multimedia</h2>
+        <p>Transfert de cassettes, bobines film 8mm, super8, photos/diapos, montage photos/diapos, disques vinyles, etc. Nous offrons également un service de réparation et support informatique à domicile et à distance.</p>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Nos Services</h2>
+        <div class="service-section">
+            <div class="service-tile">
+                <h3><i class="fas fa-film"></i> Transfert de cassettes vidéo</h3>
+                <p>Conversion de VHS, VHS-C, MiniDV, 8mm (Hi8), et autres formats vidéo sur support numérique.</p>
+            </div>
+            <div class="service-tile">
+                <h3><i class="fas fa-video"></i> Transfert de films 8mm & Super8</h3>
+                <p>Récupération et numérisation de bobines film 8mm et Super8 pour les visionner à nouveau.</p>
+            </div>
+            <div class="service-tile">
+                <h3><i class="fas fa-record-vinyl"></i> Numérisation de vinyles et cassettes audio</h3>
+                <p>Restaurer et conserver vos précieux vinyles et cassettes audio en formats numériques.</p>
+            </div>
+            <div class="service-tile">
+                <h3><i class="fas fa-images"></i> Numérisation de photos et diapositives</h3>
+                <p>Préservez vos souvenirs en numérisant vos photos, diapositives, et négatifs.</p>
+            </div>
+            <div class="service-tile">
+                <h3><i class="fas fa-tools"></i> Support et réparation informatique</h3>
+                <p>Assistance à domicile et à distance pour la réparation et la maintenance informatique.</p>
+            </div>
+        </div>
+        <a href="tarifs.pdf" class="cta"><i class="fas fa-file-alt"></i> Consultez nos tarifs</a>
+    </section>
+
+    <section id="testimonials" class="section">
+        <h2><i class="fas fa-comments"></i> Témoignages</h2>
+        <p class="quote">"M. Tremblay, vous faites du bon travail, très satisfait, bravo !"</p>
+        <p class="quote-source">Pierre Gill, Éditeur de la revue Pekuakamiulnuatsh, Mashteuiatsh (Lac St-Jean)</p>
+        <p class="quote">"Nous avons donné un contrat à M. Patrick Tremblay Multimédia pour convertir des cassettes film de différents formats. Nous sommes très satisfaits du résultat."</p>
+        <p class="quote-source">M. Fleury, Métabetchouan (Lac-St-Jean)</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2><i class="fas fa-phone"></i> Contact</h2>
+        <p><i class="fas fa-phone"></i> 418-879-1421</p>
+        <p><i class="fas fa-envelope"></i> patrickt@patricktmultimedia.com</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2023 Patrick T Multimedia - Plus de 25 ans d'expérience</p>
+</footer>
+</body>
+</html>
