@@ -5,8 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patrick T Multimedia</title>
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Services de transfert de cassettes vidéo, bobines film, vinyles, et plus chez Patrick T Multimedia. Découvrez nos tarifs, services, et témoignages.">
+    <meta name="keywords" content="Transfert de cassettes, film, super8, vinyles, diapos, numérisation, support informatique, réparation informatique">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.patricktmultimedia.com">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Patrick T Multimedia">
+    <meta property="og:description" content="Services de transfert de cassettes vidéo, film 8mm et Super8, et vinyles. Consultez nos services et tarifs.">
+    <meta property="og:image" content="https://www.patricktmultimedia.com/og-image.jpg">
+    <meta property="og:url" content="https://www.patricktmultimedia.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Patrick T Multimedia">
+    <meta name="twitter:description" content="Patrick T Multimedia propose des services de transfert et de numérisation de cassettes vidéo, films 8mm et Super8, et vinyles.">
+    <meta name="twitter:image" content="https://www.patricktmultimedia.com/twitter-image.jpg">
+
     <!-- Link to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -81,15 +102,6 @@
             transform: translateY(-5px);
         }
 
-        .service-tile h3 {
-            color: #e0e0e0;
-            margin-bottom: 1em;
-        }
-
-        .service-tile p {
-            color: #bdbdbd;
-        }
-
         .cta {
             display: inline-block;
             margin-top: 2em;
@@ -102,6 +114,34 @@
 
         .cta:hover {
             background-color: #42a5f5;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #1f2937;
+            color: #ffffff;
+            padding: 2em;
+            border-radius: 10px;
+            margin-top: 2em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact h2 {
+            margin-bottom: 1em;
+        }
+
+        address {
+            font-style: normal;
+            color: #bdbdbd;
+        }
+
+        .contact a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            color: #ff6600;
         }
 
         footer p {
@@ -120,6 +160,7 @@
 </head>
 
 <body>
+
     <header>
         <h1><i class="fas fa-video"></i> Patrick T Multimedia</h1>
         <nav>
@@ -174,24 +215,36 @@
                     <li>3050 pieds et + : <strong>demandez soumission</strong></li>
                     <li style="margin-top: 1.5em;"><strong>Transfert sur DVD</strong></li>
                     <li>Transfert (2h) : <strong>15$</strong></li>
-                    <li>Copie additionnelle : <strong>5$</strong></li>
-                    <li style="margin-top: 1.5em;"><strong>CASSETTES VIDÉOS</strong></li>
-                    <li>Cassette 2h et moins : <strong>5-15$</strong></li>
-                    <li>Cassette 3h et plus : <strong>20-35$</strong></li>
-                    <li style="margin-top: 1.5em;"><strong>CASSETTES AUDIOS + Disques Vinyles</strong></li>
-                    <li>Numérisation (par cassette ou disque) : <strong>10$</strong></li>
-                    <li>Transfert sur CD : <strong>5$</strong></li>
-                    <li style="margin-top: 1.5em;"><strong>NUMÉRISATION: Diapos/Négatifs</strong></li>
-                    <li>Résolution et quantité : <strong>0,45c à 1$</strong></li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="testimonials" class="section">
-            <h2><i class="fas fa-comments"></i> Témoignages</h2>
-            <p class="quote">"M. Tremblay, vous faites du bon travail, très satisfait, bravo !"</p>
-        </section>
-    </div>
-</body>
-
-</html>
+                    <li>Copie additionnelle :
+                        <li>Transfert (2h) : <strong>15$</strong></li>
+                        <li>Copie additionnelle : <strong>5$</strong></li>
+                        <li style="margin-top: 1.5em;"><strong>CASSETTES VIDÉOS</strong></li>
+                        <li>Cassette 2h et moins : <strong>5-15$</strong></li>
+                        <li>Cassette 3h et plus : <strong>20-35$</strong></li>
+                        <li style="margin-top: 1.5em;"><strong>CASSETTES AUDIOS + Disques Vinyles</strong></li>
+                        <li>Numérisation (par cassette ou disque) : <strong>10$</strong></li>
+                        <li>Transfert sur CD : <strong>5$</strong></li>
+                        <li style="margin-top: 1.5em;"><strong>NUMÉRISATION: Diapos/Négatifs</strong></li>
+                        <li>Résolution et quantité : <strong>0,45c à 1$</strong></li>
+                    </ul>
+                </div>
+            </section>
+    
+            <!-- Contact Section -->
+            <section id="contact" class="contact">
+                <h2><i class="fas fa-envelope"></i> Contact</h2>
+                <address>
+                    Patrick T Multimedia<br>
+                    Téléphone: <a href="tel:+14188791421">418-879-1421</a><br>
+                    Email: <a href="mailto:patrickt@patricktmultimedia.com">patrickt@patricktmultimedia.com</a>
+                </address>
+            </section>
+        </div>
+    
+        <footer>
+            <p>&copy; 2024 Patrick T Multimedia</p>
+        </footer>
+    
+    </body>
+    </html>
+    
