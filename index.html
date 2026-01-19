@@ -1,266 +1,88 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yves Daoust - Electroacoustic Music Composer</title>
+    <title>YouTube Embed Test</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
- 
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.8;
-            color: #333;
-            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
-            min-height: 100vh;
-        }
- 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
- 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
- 
-        h1 {
-            font-size: 3em;
-            color: #1e1e2e;
-            margin-bottom: 10px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
- 
-        .subtitle {
-            font-size: 1.3em;
-            color: #666;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
- 
-        .birth-info {
-            font-size: 1em;
-            color: #888;
-            margin-top: 10px;
-        }
- 
-        section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
- 
-        h2 {
-            font-size: 2em;
-            color: #2d2d44;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #5a5a7d;
-            padding-bottom: 10px;
-            font-weight: 400;
-        }
- 
-        h3 {
-            font-size: 1.5em;
-            color: #3d3d5c;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
- 
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            text-align: justify;
-        }
- 
-        .highlight {
-            background: linear-gradient(120deg, #f0e6ff 0%, #e6f0ff 100%);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 30px 0;
-            border-left: 5px solid #5a5a7d;
-        }
- 
-        .quote {
-            font-style: italic;
-            font-size: 1.2em;
-            color: #4a4a6a;
-            padding: 20px 30px;
-            border-left: 4px solid #8a8aaa;
-            margin: 25px 0;
-            background: rgba(240, 240, 250, 0.5);
-        }
- 
-        ul {
-            list-style-position: inside;
-            margin: 20px 0;
-        }
- 
-        li {
-            margin: 10px 0;
-            font-size: 1.1em;
-            padding-left: 20px;
-        }
- 
-        .influences {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
- 
-        .influence-tag {
-            background: #5a5a7d;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
             color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.95em;
         }
- 
-        footer {
-            text-align: center;
-            color: #ccc;
-            padding: 30px;
-            font-size: 0.9em;
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-bottom: 40px;
+            background: #000;
         }
- 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
- 
-            section {
-                padding: 25px;
-            }
- 
-            .subtitle {
-                font-size: 1.1em;
-            }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
+        .status {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .warning { background: #8B4513; }
+        .info { background: #2a2a5a; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Yves Daoust</h1>
-            <div class="subtitle">Electroacoustic Music Composer</div>
-            <div class="birth-info">Born April 10, 1946 · Longueuil, Quebec, Canada</div>
-        </header>
- 
-        <section>
-            <h2>About</h2>
-            <p>
-                Yves Daoust is recognized as one of Canada's pioneers in electroacoustic music, distinguished
-                as a composer, producer, and pedagogue. His remarkable career has spanned over five decades,
-                during which he has profoundly influenced the landscape of contemporary electroacoustic
-                composition in Canada and beyond.
-            </p>
- 
-            <div class="highlight">
-                <h3>Early Musical Journey</h3>
-                <p>
-                    Daoust began his musical studies at the age of seven, studying piano with Alice Vigeant.
-                    His fascination with electroacoustic music emerged early—at sixteen, he produced his first
-                    experiments when he "prepared" the family piano to create the soundtrack for a friend's
-                    8mm experimental film. At nineteen, he completed his first electronic work: an hour of
-                    music for a gestural theater piece that premiered in Berlin, Germany, at an international
-                    amateur theater festival.
-                </p>
-            </div>
-        </section>
- 
-        <section>
-            <h2>Education & Training</h2>
-            <ul>
-                <li>Studied piano with <strong>Irving Heller</strong></li>
-                <li>Analysis and composition with <strong>Gilles Tremblay</strong> at the Conservatoire de musique du Québec à Montréal (1966-71)</li>
-                <li>Music for films with <strong>Maurice Blackburn</strong> and <strong>Norman McLaren</strong> at the National Film Board (1970-1)</li>
-                <li>Electroacoustic composition in France with <strong>Alain Savouret</strong>, <strong>Gilbert Amy</strong>, and the Groupe de musique expérimentale de Bourges</li>
-            </ul>
-        </section>
- 
-        <section>
-            <h2>Career Highlights</h2>
- 
-            <h3>Professional Positions</h3>
-            <p>
-                Upon returning to Canada, Daoust worked in the sound studio of the National Film Board
-                (1976-79). In 1978, he joined the staff of the Conservatoire de musique du Québec, teaching
-                in both Montreal and Quebec City. He taught solfège and analysis, and beginning in 1981,
-                electroacoustic composition. He directed the electroacoustic composition programme at the
-                Conservatoire de musique et d'Art dramatique du Québec from 1980 until his retirement in 2011.
-            </p>
- 
-            <h3>Founding Contributions</h3>
-            <p>
-                In 1978, Daoust was instrumental in founding and developing the <strong>Association pour
-                la création et la recherche électroacoustiques du Québec (ACREQ)</strong>, the first
-                organization in Canada devoted to the promotion and presentation of electroacoustic music.
-            </p>
-        </section>
- 
-        <section>
-            <h2>Musical Aesthetic</h2>
- 
-            <div class="quote">
-                Daoust describes himself as "figurative," preferring natural sounds, sound archives,
-                and musical quotations to aid his visual approach to composition.
-            </div>
- 
-            <h3>Influences</h3>
-            <p>His artistic vision has been shaped by diverse sources:</p>
-            <div class="influences">
-                <span class="influence-tag">Film Scores</span>
-                <span class="influence-tag">John Cage</span>
-                <span class="influence-tag">Iannis Xenakis</span>
-                <span class="influence-tag">Mauricio Kagel</span>
-                <span class="influence-tag">Luc Ferrari</span>
-                <span class="influence-tag">Alain Savouret</span>
-                <span class="influence-tag">Karlheinz Stockhausen</span>
-                <span class="influence-tag">Ludwig van Beethoven</span>
-                <span class="influence-tag">Robert Schumann</span>
-                <span class="influence-tag">René Magritte</span>
-            </div>
-        </section>
- 
-        <section>
-            <h2>Recognition</h2>
-            <div class="highlight">
-                <h3>Prix Serge-Garant (2009)</h3>
-                <p>
-                    In recognition of his lifetime achievements and contributions to electroacoustic music,
-                    Yves Daoust received the prestigious <strong>Prix Serge-Garant</strong> from the
-                    Fondation Émile-Nelligan in 2009.
-                </p>
-            </div>
-        </section>
- 
-        <section>
-            <h2>Legacy</h2>
-            <p>
-                Through his compositions, teaching, and advocacy, Yves Daoust has played a pivotal role
-                in establishing electroacoustic music as a vital art form in Canada. His work continues
-                to inspire new generations of composers exploring the intersection of technology, sound,
-                and artistic expression.
-            </p>
-        </section>
- 
-        <footer>
-            <p>&copy; 2026 - Yves Daoust Tribute Website</p>
-        </footer>
+    <h1>YouTube Embed Test</h1>
+    
+    <div class="status warning">
+        <strong>⚠️ If videos don't play:</strong><br>
+        1. You may be opening this file locally (file://) - YouTube blocks local embeds<br>
+        2. Try: <code>python -m http.server 8000</code> then visit <code>localhost:8000</code><br>
+        3. Or upload to any web server
     </div>
+
+    <div class="status info">
+        <strong>Protocol check:</strong> <span id="protocol"></span>
+    </div>
+
+    <h2>Video 1: Rain Sounds</h2>
+    <div class="video-wrapper">
+        <iframe 
+            src="https://www.youtube.com/embed/q76bMs-NwRk" 
+            title="Test Video 1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <h2>Video 2: Costa Rica 4K</h2>
+    <div class="video-wrapper">
+        <iframe 
+            src="https://www.youtube.com/embed/LXb3EKWsInQ" 
+            title="Test Video 2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <script>
+        // Check if opened locally
+        const protocol = window.location.protocol;
+        const protocolEl = document.getElementById('protocol');
+        
+        if (protocol === 'file:') {
+            protocolEl.innerHTML = '<span style="color: #ff6b6b;">❌ FILE:// - YouTube will NOT work! Use a web server.</span>';
+        } else {
+            protocolEl.innerHTML = '<span style="color: #69db7c;">✓ ' + protocol + ' - Should work!</span>';
+        }
+    </script>
 </body>
 </html>
