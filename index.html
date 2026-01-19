@@ -3,86 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Embed Test</title>
+    <title>Yves Daoust | Composer</title>
     <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #121212;
+            --sidebar-bg: #0a0a0a;
+            --text-color: #e0e0e0;
+            --accent-color: #a0a0a0;
+            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #1a1a1a;
-            color: white;
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            min-height: 100vh;
+            line-height: 1.6;
         }
-        .video-wrapper {
+
+        /* --- LAYOUT: SIDEBAR HEADER --- */
+        header {
+            width: 300px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+            border-right: 1px solid #333;
+            z-index: 10;
+            
+            /* Background Image with Dark Overlay */
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(10, 5, 20, 0.9); 
+            background-blend-mode: multiply;
+        }
+
+        .brand h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .brand span {
+            font-size: 0.85rem;
+            color: #dcdcdc;
+            font-weight: 300;
+        }
+
+        nav ul { list-style: none; margin-top: 0; }
+        nav li { margin-bottom: 25px; }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--accent-color); }
+
+        .contact-info { font-size: 0.75rem; color: #ccc; }
+
+        /* --- LAYOUT: MAIN CONTENT --- */
+        main {
+            margin-left: 300px; 
+            width: calc(100% - 300px);
+            padding: 80px 100px;
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            margin-bottom: 40px;
-            background: #000;
+            z-index: 1;
         }
-        .video-wrapper iframe {
+
+        section { margin-bottom: 120px; max-width: 800px; }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+            font-weight: 300;
+        }
+
+        p { margin-bottom: 20px; color: #cccccc; font-size: 1.1rem; }
+
+        /* --- MEDIA GRID --- */
+        .media-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .work-item {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 2px;
+            border: 1px solid #333;
+        }
+
+        .work-title { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
+        .work-desc { font-size: 0.9rem; color: #888; margin-bottom: 20px; font-style: italic; }
+
+        /* --- VIDEO CONTAINER (Bulletproof) --- */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000;
+            z-index: 999; /* Forces video to top */
+        }
+
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
+            border: none;
         }
-        .status {
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
+
+        /* --- SOUNDCLOUD --- */
+        .audio-container iframe {
+            width: 100%;
+            height: 166px; 
+            border: none;
         }
-        .warning { background: #8B4513; }
-        .info { background: #2a2a5a; }
+
+        /* --- FOOTER / CONTACT LINK --- */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            border: 1px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            header {
+                width: 100%; height: 300px; position: relative;
+                padding: 30px; border-right: none; border-bottom: 1px solid #333;
+            }
+            main { margin-left: 0; width: 100%; padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
-    <h1>YouTube Embed Test</h1>
-    
-    <div class="status warning">
-        <strong>⚠️ If videos don't play:</strong><br>
-        1. You may be opening this file locally (file://) - YouTube blocks local embeds<br>
-        2. Try: <code>python -m http.server 8000</code> then visit <code>localhost:8000</code><br>
-        3. Or upload to any web server
-    </div>
 
-    <div class="status info">
-        <strong>Protocol check:</strong> <span id="protocol"></span>
-    </div>
+    <header>
+        <div class="brand">
+            <h1>Yves Daoust</h1>
+            <span>Composer & Sound Artist</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#biography">Biography</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="#installations">Installations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            <p>&copy; 2024 Yves Daoust</p>
+        </div>
+    </header>
 
-    <h2>Video 1: Rain Sounds</h2>
-    <div class="video-wrapper">
-        <iframe 
-            src="https://www.youtube.com/embed/q76bMs-NwRk" 
-            title="Test Video 1"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-        </iframe>
-    </div>
-
-    <h2>Video 2: Costa Rica 4K</h2>
-    <div class="video-wrapper">
-        <iframe 
-            src="https://www.youtube.com/embed/LXb3EKWsInQ" 
-            title="Test Video 2"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-        </iframe>
-    </div>
-
-    <script>
-        // Check if opened locally
-        const protocol = window.location.protocol;
-        const protocolEl = document.getElementById('protocol');
+    <main>
         
-        if (protocol === 'file:') {
-            protocolEl.innerHTML = '<span style="color: #ff6b6b;">❌ FILE:// - YouTube will NOT work! Use a web server.</span>';
-        } else {
-            protocolEl.innerHTML = '<span style="color: #69db7c;">✓ ' + protocol + ' - Should work!</span>';
-        }
-    </script>
+        <section id="biography">
+            <h2>Biography</h2>
+            <p>Yves Daoust is a Canadian composer born in Longueuil, Quebec. A pioneer of electroacoustic music, his work explores the narrative and anecdotal potential of sound.</p>
+        </section>
+
+        <section id="works">
+            <h2>Selected Works</h2>
+
+            <div class="media-grid">
+                
+                <!-- VIDEO 1: This is a working visualizer video -->
+                <article class="work-item">
+                    <h3 class="work-title">Composition Analysis</h3>
+                    <p class="work-desc">Visual representation of sound waves.</p>
+                    
+                    <div class="video-container">
+                        <!-- DO NOT CHANGE THIS LINE UNTIL YOU TEST IT -->
+                        <iframe src="https://www.youtube.com/embed/q76bMs-NwRk" title="Oscilloscope Music" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </article>
+
+                <!-- AUDIO 1: SoundCloud -->
+                <article class="work-item">
+                    <h3 class="work-title">Impromptu (1994)</h3>
+                    <p class="work-desc">Audio excerpt via SoundCloud.</p>
+                    <div class="audio-container">
+                        <iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&color=%238c8c8c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    </div>
+                </article>
+
+                <!-- VIDEO 2: Another working video -->
+                <article class="work-item">
+                    <h3 class="work-title">Petite Musique Sentimentale</h3>
+                    <p class="work-desc">Performance video.</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" title="Petite Musique" allowfullscreen></iframe>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="installations">
+            <h2>Installations</h2>
+            <p>Daoust creates spatial sound installations that invite the audience to inhabit the soundscape.</p>
+            <div style="background:#1f1f1f; width:100%; height:300px; display:flex; align-items:center; justify-content:center; border:1px dashed #444;">
+                <span style="color:#555;">[Installation Gallery]</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <a href="mailto:contact@yvesdaoust.com" class="btn">Send Email</a>
+        </section>
+
+    </main>
+
 </body>
 </html>
