@@ -1,200 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yves Daoust | Composer & Inventor</title>
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --card: #141414;
-            --gold: #C5A059;
-            --text: #ffffff;
-            --text-dim: #999;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yves Daoust | Composer & Inventor</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #141414;
+      --gold: #C5A059;
+      --gold-light: #d4b47a;
+      --text: #ffffff;
+      --text-dim: #999;
+      --border: #222;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            background: var(--bg); color: var(--text); line-height: 1.7;
-            scroll-behavior: smooth;
-        }
+    /* ‚îÄ‚îÄ NAVIGATION ‚îÄ‚îÄ */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,10,0.97);
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    nav .brand {
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    nav .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 0;
+    }
+    nav .links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-left: 22px;
+      letter-spacing: 1.5px;
+      transition: color 0.25s;
+    }
+    nav .links a:hover { color: var(--gold); }
 
-        /* NAVIGATION */
-        nav {
-            position: fixed; width: 100%; top: 0; padding: 20px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(10,10,10,0.95); z-index: 100; border-bottom: 1px solid #222;
-        }
-        nav .brand { font-weight: 700; letter-spacing: 4px; color: var(--gold); text-decoration: none; }
-        nav .links a { color: var(--text); text-decoration: none; font-size: 11px; text-transform: uppercase; margin-left: 25px; letter-spacing: 1px; transition: 0.3s; }
-        nav .links a:hover { color: var(--gold); }
+    /* ‚îÄ‚îÄ HEADER ‚îÄ‚îÄ */
+    header {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.85)),
+                  url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2560&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 200;
+      margin-bottom: 12px;
+      letter-spacing: 3px;
+    }
+    header h1 span { color: var(--gold); font-style: italic; }
+    header .sub-brand {
+      letter-spacing: 8px;
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 30px;
+    }
+    .header-tags {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .header-tags span {
+      border: 1px solid #444;
+      color: #888;
+      padding: 4px 14px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-        /* HEADER */
-        header { 
-            height: 80vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-        header h1 { font-size: 4rem; font-weight: 300; margin-bottom: 10px; letter-spacing: 2px; }
-        header h1 span { color: var(--gold); font-style: italic; }
-        header .sub-brand { letter-spacing: 8px; color: #aaa; text-transform: uppercase; font-size: 0.8rem; }
+    /* ‚îÄ‚îÄ LAYOUT ‚îÄ‚îÄ */
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 90px 20px;
+    }
+    section { border-bottom: 1px solid #181818; }
 
-        /* CONTENT LAYOUT */
-        .container { max-width: 900px; margin: 0 auto; padding: 100px 20px; }
-        section { border-bottom: 1px solid #1a1a1a; padding-bottom: 80px; margin-bottom: 40px; }
-        .section-title { color: var(--gold); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 50px; font-size: 1.8rem; text-align: left; font-weight: 300; border-bottom: 1px solid #222; padding-bottom: 10px; }
+    /* ‚îÄ‚îÄ SECTION TITLE ‚îÄ‚îÄ */
+    .section-title {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 50px;
+      font-size: 1.6rem;
+      font-weight: 300;
+      border-bottom: 1px solid #222;
+      padding-bottom: 14px;
+    }
+    .section-title small {
+      display: block;
+      font-size: 0.6rem;
+      color: #555;
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
 
-        /* TEXT STYLING */
-        .content-body { font-size: 1.1rem; color: #ccc; }
-        .content-body p { margin-bottom: 25px; }
-        .content-body h3 { color: #fff; margin: 40px 0 20px; font-weight: 400; font-size: 1.4rem; }
-        .work-highlight { color: var(--gold); font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; }
+    /* ‚îÄ‚îÄ CONTENT BODY ‚îÄ‚îÄ */
+    .content-body { font-size: 1.05rem; color: #ccc; }
+    .content-body p { margin-bottom: 22px; }
+    .content-body h3 {
+      color: #fff;
+      margin: 40px 0 16px;
+      font-weight: 400;
+      font-size: 1.3rem;
+    }
+    .work-highlight {
+      color: var(--gold);
+      font-weight: bold;
+      display: block;
+      margin-top: 18px;
+      margin-bottom: 4px;
+    }
 
-        /* MEDIA GRID */
-        .media-stack { display: flex; flex-direction: column; gap: 40px; }
-        .media-card { background: var(--card); border-radius: 4px; overflow: hidden; border: 1px solid #222; padding: 30px; }
-        
-        .video-container { 
-            position: relative; width: 100%; padding-bottom: 56.25%; height: 0; background: #000; margin-bottom: 20px;
-        }
-        .video-container iframe { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
-        }
-        
-        .card-info h4 { color: var(--gold); margin-bottom: 10px; font-weight: 400; font-size: 1.2rem; }
-        .card-info p { color: var(--text-dim); font-size: 0.9rem; font-style: italic; }
+    /* ‚îÄ‚îÄ CARDS / MEDIA ‚îÄ‚îÄ */
+    .media-stack { display: flex; flex-direction: column; gap: 35px; }
+    .media-card {
+      background: var(--card);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      background: #000;
+      margin-bottom: 18px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .card-info h4 {
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-weight: 400;
+      font-size: 1.15rem;
+    }
+    .card-info p { color: var(--text-dim); font-size: 0.9rem; font-style: italic; }
 
-        /* BUTTONS */
-        .btn-gold { 
-            display: inline-block; padding: 12px 30px; border: 1px solid var(--gold);
-            color: var(--gold); text-decoration: none; font-weight: bold; margin-top: 10px; 
-            text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; font-size: 0.8rem;
-        }
-        .btn-gold:hover { background: var(--gold); color: #000; }
+    /* ‚îÄ‚îÄ TWO-COLUMN GRID ‚îÄ‚îÄ */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    @media (max-width: 620px) { .two-col { grid-template-columns: 1fr; } }
 
-        footer { text-align: center; padding: 60px; font-size: 10px; color: #444; letter-spacing: 2px; }
-    </style>
+    /* ‚îÄ‚îÄ PILL TAGS ‚îÄ‚îÄ */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .tag {
+      background: #1c1c1c;
+      border: 1px solid #333;
+      color: #888;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ‚îÄ‚îÄ PUBLICATION LIST ‚îÄ‚îÄ */
+    .pub-list { display: flex; flex-direction: column; gap: 20px; }
+    .pub-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+    }
+    .pub-item .pub-title {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .pub-item .pub-meta {
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      font-style: italic;
+    }
+    .pub-item .pub-year {
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    /* ‚îÄ‚îÄ COLLAB CARDS ‚îÄ‚îÄ */
+    .collab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 620px) { .collab-grid { grid-template-columns: 1fr; } }
+    .collab-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px;
+      position: relative;
+    }
+    .collab-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+    .collab-card .collab-type {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .collab-card h4 {
+      color: #fff;
+      font-weight: 400;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .collab-card p { color: #888; font-size: 0.9rem; }
+
+    /* ‚îÄ‚îÄ TEACHING BLOCKS ‚îÄ‚îÄ */
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 720px) { .teaching-grid { grid-template-columns: 1fr; } }
+    .teaching-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 26px 22px;
+      text-align: center;
+    }
+    .teaching-card .t-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .teaching-card h4 {
+      color: var(--gold);
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .teaching-card p { color: #777; font-size: 0.85rem; }
+
+    /* ‚îÄ‚îÄ TIMELINE ‚îÄ‚îÄ */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px; top: 0; bottom: 0;
+      width: 1px;
+      background: #2a2a2a;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .timeline-item .t-year {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .timeline-item h4 {
+      color: #fff;
+      font-weight: 400;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .timeline-item p { color: #777; font-size: 0.9rem; }
+
+    /* ‚îÄ‚îÄ BUTTON ‚îÄ‚îÄ */
+    .btn-gold {
+      display: inline-block;
+      padding: 11px 28px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.25s;
+      font-size: 0.78rem;
+    }
+    .btn-gold:hover { background: var(--gold); color: #000; }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+
+    /* ‚îÄ‚îÄ DIVIDER ‚îÄ‚îÄ */
+    .gold-rule {
+      border: none;
+      border-top: 1px solid #222;
+      margin: 50px 0;
+    }
+
+    /* ‚îÄ‚îÄ QUOTE ‚îÄ‚îÄ */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 14px 24px;
+      margin: 30px 0;
+      background: #111;
+      color: #aaa;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+
+    /* ‚îÄ‚îÄ FOOTER ‚îÄ‚îÄ */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 10px;
+      color: #333;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="brand">YVES DAOUST</a>
-        <div class="links">
-            <a href="#works">Works</a>
-            <a href="#fonofone">Fonofone</a>
-            <a href="#bio">Biography</a>
-            <a href="#contact">Contact</a>
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+     NAVIGATION
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<nav>
+  <a href="#" class="brand">YVES DAOUST</a>
+  <div class="links">
+    <a href="#music">Music</a>
+    <a href="#fonofone">Fonofone</a>
+    <a href="#collaborations">Collaborations</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#bio">Biography</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+     HEADER
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<header>
+  <div class="content">
+    <h1>Yves <span>Daoust</span></h1>
+    <div class="sub-brand">The Art of Sound</div>
+    <div class="header-tags">
+      <span>Electroacoustic Composer</span>
+      <span>Inventor</span>
+      <span>Educator</span>
+      <span>Qu√©bec</span>
+    </div>
+  </div>
+</header>
+
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+     MUSIC ‚Äî main section
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<section id="music">
+  <div class="container">
+    <h2 class="section-title">
+      Music
+      <small>Electroacoustic ¬∑ Mixed ¬∑ Instrumental</small>
+    </h2>
+
+    <div class="content-body">
+      <p>Spanning five decades, Yves Daoust's catalogue embraces electroacoustic, mixed, and instrumental composition‚Äîeach work treating listening itself as a dramatic act. His music has been performed and broadcast internationally, and is distributed on the empreintes DIGITALes label.</p>
+    </div>
+
+    <div class="media-stack">
+
+      <article class="media-card">
+        <div class="card-info">
+          <h4>Selected Recordings ‚Äî <em>Docu-fictions</em></h4>
+          <p>Available on empreintes DIGITALes. Stream or purchase the full album below.</p>
         </div>
-    </nav>
-
-    <header>
-        <div class="content">
-            <h1>Yves <span>Daoust</span></h1>
-            <div class="sub-brand">THE ART OF SOUND</div>
+        <div style="margin-top:20px;">
+          <iframe style="border:0;width:100%;height:120px;"
+            src="https://bandcamp.com/EmbeddedPlayer/album=1461539059/size=large/bgcol=1a1a1a/linkcol=C5A059/tracklist=false/artwork=small/transparent=true/"
+            seamless></iframe>
         </div>
-    </header>
+      </article>
 
-    <section id="works" class="container">
-        <h2 class="section-title">Selected Works</h2>
-        <div class="media-stack">
-            
-            
-            <article class="media-card">
-                <div class="card-info">
-                    <h4>Selected Recordings</h4>
-                    <p>From the album "Docu-fictions" on empreintes DIGITALes.</p>
-                </div>
-                <div style="margin-top:20px;">
-                    <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1461539059/size=large/bgcol=1a1a1a/linkcol=C5A059/tracklist=false/artwork=small/transparent=true/" seamless></iframe>
-                </div>
-            </article>
-
-            <article class="media-card">
-                <div class="card-info">
-                    <h4>Composition Analysis</h4>
-                    <p>Visual representation of sound waves.</p>
-                </div>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/bLV_YBqo4UM" title="Composition Analysis" allowfullscreen></iframe>
-                </div>
-            </article>
-
-
+      <article class="media-card">
+        <div class="card-info">
+          <h4>Composition Analysis</h4>
+          <p>Visual spectral analysis of a Daoust electroacoustic work ‚Äî exploring the spatial architecture of sound.</p>
         </div>
-    </section>
-
-    <section id="fonofone" class="container">
-        <h2 class="section-title">Fonofone</h2>
-        <div class="content-body">
-            <h3>Transmission & Innovation</h3>
-            <p>Committed to artistic transmission, Daoust designed Fonofone (also known as Musicolateur)—a sound-creation instrument intended to awaken musical creativity in young people. Since 2004, this project has remained a vital part of his artistic and pedagogical engagement, echoing his belief that listening is a learned, creative act.</p>
-            
-            <article class="media-card">
-                <div class="card-info">
-                    <h4>Fonofone Launch Performance</h4>
-                    <p>Young fonofonists from Hélène-Boullé Elementary School perform at the PHI Centre, Montréal.</p>
-                </div>
-                <div class="video-container" style="margin-top:20px;">
-                    <iframe src="https://www.youtube-nocookie.com/embed/TjP9VnDqiqE" title="Fonofone Launch" allowfullscreen></iframe>
-                </div>
-            </article>
-            
-            <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Explore Fonofone.ca</a>
+        <div class="video-container" style="margin-top:18px;">
+          <iframe src="https://www.youtube-nocookie.com/embed/bLV_YBqo4UM"
+            title="Composition Analysis" allowfullscreen></iframe>
         </div>
-    </section>
+      </article>
 
-    <section id="bio" class="container">
-        <h2 class="section-title">Biography</h2>
-        <div class="content-body">
-            <h3>Internationally Renowned Composer and Pioneer of Electroacoustic Music</h3>
-            <p>Born in Longueuil, Québec, Yves Daoust is one of the most distinctive and influential voices in contemporary electroacoustic music. His work stands at the crossroads of concert music, cinema, pedagogy, and sound research. Few composers have so consistently transformed listening itself into an artistic experience, positioning Daoust as a central figure in electroacoustic and mixed music on the world stage.</p>
+    </div>
 
-            <p>A decisive encounter with Maurice Blackburn led Daoust to the National Film Board of Canada (NFB), where he undertook specialized training in film music techniques. Immersed in the legendary Sound Workshop, he developed a refined sensitivity to sound-image relationships, narrative listening, and spatial perception. During this period, he notably collaborated with media theorist Marshall McLuhan, an encounter that profoundly shaped his thinking on media, perception, and the cognitive dimensions of sound.</p>
+    <hr class="gold-rule">
 
-            <p>Daoust pursued advanced training at the Institut international de musique électroacoustique de Bourges (IMEB), one of the world's most important centers for electroacoustic creation. At Bourges, he was deeply influenced by the artistic processes of Alain Savouret, particularly the concept of "virtual cinema," which treats sound as a dramaturgical space in itself. This approach became foundational to Daoust's aesthetic: music not merely as structure, but as a lived, cinematic experience for the ear.</p>
+    <h3 class="content-body" style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Key Works</h3>
+    <div class="pub-list">
 
-            <p>In 1978, Daoust co-founded ACREQ (Association pour la création et la recherche électroacoustiques du Québec)—an organization that would later evolve into Elektra. Through concerts, site-specific events, and international forums, ACREQ played a decisive role in the global diffusion of electroacoustic music. Daoust's leadership helped establish Québec as a major hub of electroacoustic innovation.</p>
+      <div class="pub-item">
+        <div class="pub-year">1976</div>
+        <div class="pub-title">Paris, les Grands-Magasins</div>
+        <div class="pub-meta">Electroacoustic ‚Äî A phonographic journey through urban Parisian soundscapes captured with cinematic intensity.</div>
+      </div>
 
-            <p>In 1981, he was appointed professor at the Conservatoire de musique et d'art dramatique du Québec, mandated to design and implement comprehensive electroacoustic programs. His pedagogical vision shaped generations of composers and institutionalized electroacoustic composition as a rigorous artistic discipline.</p>
+      <div class="pub-item">
+        <div class="pub-year">1979</div>
+        <div class="pub-title">Quatuor</div>
+        <div class="pub-meta">Musique concr√®te ‚Äî Revisiting musical heritage through radical transformations of cultural sound sources.</div>
+      </div>
 
-            <h3>Key Works and Artistic Trajectory</h3>
-            <p>Since his professional debut in 1978, Daoust has composed at a remarkably steady pace—nearly one major work per year—across electroacoustic, mixed, instrumental, and interdisciplinary genres. Notable compositions include:</p>
-            
-            <span class="work-highlight">Paris, les Grands-Magasins (1976)</span>
-            <p>A landmark work using phonography and urban sounds to capture lived experience with cinematic intensity.</p>
+      <div class="pub-item">
+        <div class="pub-year">1981</div>
+        <div class="pub-title">Valse</div>
+        <div class="pub-meta">Mixed ‚Äî For ensemble and tape; the first of his major mixed works where instrumental and electroacoustic layers coexist in parallel discourses.</div>
+      </div>
 
-            <span class="work-highlight">Quatuor (1979)</span>
-            <p>A foundational musique concrète piece grounded in culture, revisiting musical heritage through radical sound transformation.</p>
+      <div class="pub-item">
+        <div class="pub-year">2007 ‚Äì 2008</div>
+        <div class="pub-title">Chorals orn√©s</div>
+        <div class="pub-meta">Electroacoustic ‚Äî A mature synthesis: nature and culture unfold simultaneously without fusion, affirming a unique compositional voice.</div>
+      </div>
 
-            <span class="work-highlight">Valse (1981)</span>
-            <p>A seminal mixed work for ensemble and tape, where instrumental and electroacoustic layers coexist in parallel discourses.</p>
+    </div>
 
-            <span class="work-highlight">Chorals ornés (2007–2008)</span>
-            <p>A mature synthesis of his aesthetic, where nature and culture unfold simultaneously without fusion, affirming his unique compositional voice.</p>
+    <div class="tag-list">
+      <span class="tag">Electroacoustic</span>
+      <span class="tag">Mixed Music</span>
+      <span class="tag">Musique Concr√®te</span>
+      <span class="tag">Instrumental</span>
+      <span class="tag">Sound Art</span>
+      <span class="tag">empreintes DIGITALes</span>
+    </div>
 
-            <h3>Recognition</h3>
-            <p>In recognition of his lifelong contribution to musical creation, innovation, and transmission, Yves Daoust received the <strong>Prix Serge-Garant</strong> from the Fondation Émile-Nelligan in 2009.</p>
+  </div>
+</section>
+
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+     FONOFONE ‚Äî publications & project
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<section id="fonofone">
+  <div class="container">
+    <h2 class="section-title">
+      Fonofone
+      <small>Publications ¬∑ Instrument ¬∑ Educational Project</small>
+    </h2>
+
+    <div class="content-body">
+      <blockquote>
+        "Listening is a learned, creative act ‚Äî Fonofone gives young people the tools to discover that for themselves."
+      </blockquote>
+      <p>
+        Fonofone (also known as <em>Musicolateur</em>) is a sound-creation instrument conceived by Yves Daoust in 2004 to awaken musical creativity in young people. Designed to be intuitive yet musically rich, it has become the cornerstone of a sustained pedagogical engagement reaching thousands of students across Qu√©bec and beyond.
+      </p>
+    </div>
+
+    <div class="media-stack">
+
+      <article class="media-card">
+        <div class="card-info">
+          <h4>Fonofone Launch Performance</h4>
+          <p>Young fonofonists from H√©l√®ne-Boull√© Elementary School perform at the PHI Centre, Montr√©al.</p>
         </div>
-    </section>
-
-    <section id="contact" class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="content-body">
-            <p>For inquiries regarding scores, commissions, or the Fonofone project:</p>
-            <a href="mailto:yvdt@videotron.ca" class="btn-gold">Send Email</a>
+        <div class="video-container" style="margin-top:18px;">
+          <iframe src="https://www.youtube-nocookie.com/embed/TjP9VnDqiqE"
+            title="Fonofone Launch" allowfullscreen></iframe>
         </div>
-    </section>
+      </article>
 
-    <footer>
-        © 2026 ARCHIVE YVES DAOUST | ALL RIGHTS RESERVED
-    </footer>
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 class="content-body" style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Publications & Documentation</h3>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2004 ‚Äî Ongoing</div>
+        <div class="pub-title">Fonofone Instrument ‚Äî Concept & Design</div>
+        <div class="pub-meta">Original conception and ongoing development of the Fonofone instrument, distributed to schools and cultural institutions.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Educational Material</div>
+        <div class="pub-title">Pedagogical Guides & Workshop Kits</div>
+        <div class="pub-meta">A series of educator resources developed alongside the instrument to support in-class and concert use. Available via fonofone.ca.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Performances & Events</div>
+        <div class="pub-title">Concert Productions ‚Äî Schools & Festivals</div>
+        <div class="pub-meta">Large-scale student performances at the PHI Centre (Montr√©al), Elektra Festival, and partner schools across Qu√©bec.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Press & Research</div>
+        <div class="pub-title">Coverage in Electroacoustic & Music Education Journals</div>
+        <div class="pub-meta">The Fonofone project has been documented in academic and professional publications on music pedagogy and instrument design.</div>
+      </div>
+
+    </div>
+
+    <div class="btn-row">
+      <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Explore Fonofone.ca</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+     COLLABORATIONS ‚Äî theater & cinema
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<section id="collaborations">
+  <div class="container">
+    <h2 class="section-title">
+      Collaborations
+      <small>Theater ¬∑ Cinema ¬∑ Interdisciplinary</small>
+    </h2>
+
+    <div class="content-body">
+      <p>Throughout his career, Daoust has extended his sonic language into stage and screen ‚Äî composing for theater productions and working closely with directors, dramaturges, and visual artists. His time at the National Film Board of Canada forged deep instincts for sound-image narrative, which continue to inform every collaboration.</p>
+    </div>
+
+    <div class="collab-grid">
+
+      <div class="collab-card">
+        <div class="collab-type">Cinema</div>
+        <h4>National Film Board of Canada</h4>
+        <p>Specialized training in film music under Maurice Blackburn. Developed a refined sensitivity to sound-image relationships and spatial narrative at the legendary Sound Workshop.</p>
+      </div>
+
+      <div class="collab-card">
+        <div class="collab-type">Cinema ¬∑ Theory</div>
+        <h4>Collaboration with Marshall McLuhan</h4>
+        <p>During his NFB residency, Daoust collaborated with media theorist Marshall McLuhan ‚Äî an encounter that shaped his understanding of media, perception, and the cognitive architecture of listening.</p>
+      </div>
+
+      <div class="collab-card">
+        <div class="collab-type">Cinema ¬∑ Aesthetics</div>
+        <h4>Virtual Cinema ‚Äî Institut de Bourges</h4>
+        <p>At IMEB, Bourges, Daoust was deeply influenced by Alain Savouret's concept of "virtual cinema": treating electroacoustic sound as a dramaturgical space in its own right ‚Äî music as a lived, cinematic experience for the ear.</p>
+      </div>
+
+      <div class="collab-card">
+        <div class="collab-type">Theater ¬∑ Interdisciplinary</div>
+        <h4>Stage & Performance Works</h4>
+        <p>Daoust's compositional practice encompasses works for theatrical contexts ‚Äî mixed pieces that position sound as dramaturgy, exploring the relationship between performer, space, and electroacoustic environment.</p>
+      </div>
+
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 class="content-body" style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Selected Interdisciplinary Projects</h3>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">NFB ‚Äî Film Music</div>
+        <div class="pub-title">Sound Design & Composition for Documentary Film</div>
+        <div class="pub-meta">Electroacoustic sound design and original scores created during his tenure at the National Film Board of Canada.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Mixed Works</div>
+        <div class="pub-title">Valse (1981) ‚Äî Ensemble + Tape</div>
+        <div class="pub-meta">A seminal mixed work for live ensemble and electroacoustic tape ‚Äî one of the first to place both voices in dramatic co-existence without hierarchy.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Site-Specific</div>
+        <div class="pub-title">ACREQ / Elektra ‚Äî Site Events & International Forums</div>
+        <div class="pub-meta">Through ACREQ (co-founded 1978, later Elektra), Daoust organized concerts and site-specific performances that advanced the global reach of electroacoustic music.</div>
+      </div>
+
+    </div>
+
+    <div class="tag-list">
+      <span class="tag">Cinema</span>
+      <span class="tag">Theater</span>
+      <span class="tag">NFB</span>
+      <span class="tag">Mixed Music</span>
+      <span class="tag">Site-Specific</span>
+      <span class="tag">Interdisciplinary</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+     TEACHING
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<section id="teaching">
+  <div class="container">
+    <h2 class="section-title">
+      Teaching
+      <small>Conservatoire ¬∑ Workshops ¬∑ Pedagogy</small>
+    </h2>
+
+    <div class="content-body">
+      <p>A central pillar of Daoust's practice is transmission ‚Äî the conviction that listening, creativity, and sonic awareness can and must be taught. From founding electroacoustic programs at one of Qu√©bec's most prestigious institutions to placing instruments in the hands of children, pedagogy runs through every dimension of his work.</p>
+    </div>
+
+    <div class="teaching-grid">
+      <div class="teaching-card">
+        <span class="t-icon">üéì</span>
+        <h4>Conservatoire de Musique</h4>
+        <p>Appointed professor in 1981 at the Conservatoire de musique et d'art dramatique du Qu√©bec. Designed and implemented the institution's first comprehensive electroacoustic programs.</p>
+      </div>
+      <div class="teaching-card">
+        <span class="t-icon">üéπ</span>
+        <h4>Fonofone in Schools</h4>
+        <p>Since 2004, the Fonofone instrument has been deployed in elementary and secondary schools across Qu√©bec, offering students a direct path to musical creation and sonic exploration.</p>
+      </div>
+      <div class="teaching-card">
+        <span class="t-icon">üéß</span>
+        <h4>Listening as Practice</h4>
+        <p>Daoust's pedagogical philosophy is rooted in the idea that active listening is itself a creative discipline ‚Äî a skill to be cultivated with the same rigour as composition or performance.</p>
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 class="content-body" style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:30px;">Teaching Timeline</h3>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="t-year">1978</div>
+        <h4>Co-founded ACREQ</h4>
+        <p>Co-founded the Association pour la cr√©ation et la recherche √©lectroacoustiques du Qu√©bec ‚Äî a hub for electroacoustic education, concerts, and international exchange. Later evolved into Elektra.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-year">1981 ‚Äî Present</div>
+        <h4>Professor ‚Äî Conservatoire de musique et d'art dramatique du Qu√©bec</h4>
+        <p>Mandated to build electroacoustic programs from the ground up. Over four decades, shaped generations of composers and established electroacoustic composition as a rigorous academic discipline in Qu√©bec.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-year">2004 ‚Äî Present</div>
+        <h4>Fonofone Educational Program</h4>
+        <p>Designed the Fonofone instrument and its accompanying pedagogical framework. Deployed in schools and performed at major cultural venues including the PHI Centre, Montr√©al.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-year">2009</div>
+        <h4>Prix Serge-Garant ‚Äî Fondation √âmile-Nelligan</h4>
+        <p>Awarded in recognition of a lifetime of artistic creation, innovation, and transmission in Qu√©bec's musical landscape.</p>
+      </div>
+
+    </div>
+
+    <div class="btn-row">
+      <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Fonofone Project</a>
+      <a href="#contact" class="btn-gold">Inquire About Workshops</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+     BIOGRAPHY
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<section id="bio">
+  <div class="container">
+    <h2 class="section-title">
+      Biography
+      <small>Composer ¬∑ Pioneer ¬∑ Institution Builder</small>
+    </h2>
+    <div class="content-body">
+      <h3>Internationally Renowned Composer and Pioneer of Electroacoustic Music</h3>
+      <p>Born in Longueuil, Qu√©bec, Yves Daoust is one of the most distinctive and influential voices in contemporary electroacoustic music. His work stands at the crossroads of concert music, cinema, pedagogy, and sound research. Few composers have so consistently transformed listening itself into an artistic experience.</p>
+      <p>A decisive encounter with Maurice Blackburn led Daoust to the National Film Board of Canada (NFB), where he undertook specialized training in film music. Immersed in the legendary Sound Workshop, he developed a refined sensitivity to sound-image relationships, narrative listening, and spatial perception ‚Äî and notably collaborated with media theorist Marshall McLuhan.</p>
+      <p>Daoust pursued advanced training at the Institut international de musique √©lectroacoustique de Bourges (IMEB), where he was deeply influenced by the concept of "virtual cinema" ‚Äî treating sound as a dramaturgical space in itself. This approach became foundational to his aesthetic: music not merely as structure, but as a lived, cinematic experience for the ear.</p>
+      <p>In 1978, he co-founded ACREQ ‚Äî an organization that would later evolve into Elektra ‚Äî helping establish Qu√©bec as a major hub of electroacoustic innovation. In 1981, he was appointed professor at the Conservatoire de musique et d'art dramatique du Qu√©bec, where he designed and institutionalized comprehensive electroacoustic programs.</p>
+      <h3>Recognition</h3>
+      <p>In 2009, Yves Daoust received the <strong style="color:var(--gold);">Prix Serge-Garant</strong> from the Fondation √âmile-Nelligan in recognition of his lifelong contribution to musical creation, innovation, and transmission.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+     CONTACT
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="content-body">
+      <p>For inquiries regarding scores, commissions, Fonofone, teaching, or collaborations:</p>
+    </div>
+    <div class="btn-row">
+      <a href="mailto:yvdt@videotron.ca" class="btn-gold">Send Email</a>
+      <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Fonofone.ca</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  ¬© 2026 Archive Yves Daoust &nbsp;|&nbsp; All rights reserved
+</footer>
 
 </body>
 </html>
