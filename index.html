@@ -320,6 +320,63 @@
     }
     .timeline-item p { color: #777; font-size: 0.9rem; }
 
+    /* TESTIMONIALS */
+    .testimonials-intro { color: #777; font-size: 0.95rem; margin-bottom: 36px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card .quote-mark {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.4;
+      font-family: Georgia, serif;
+      margin-bottom: 12px;
+    }
+    .testimonial-card .testimonial-name {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .testimonial-card .testimonial-highlights {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+    }
+    .testimonial-card .testimonial-highlights li {
+      color: #ccc;
+      font-size: 0.82rem;
+      padding: 5px 0 5px 16px;
+      border-bottom: 1px solid #1e1e1e;
+      position: relative;
+    }
+    .testimonial-card .testimonial-highlights li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+    .testimonial-card .testimonial-body {
+      color: #666;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      flex: 1;
+    }
+
     /* BUTTON */
     .btn-gold {
       display: inline-block;
@@ -377,6 +434,7 @@
     <a href="#collaborations">Collaborations</a>
     <a href="#teaching">Teaching</a>
     <a href="#bio">Biography</a>
+    <a href="#works">Works</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -442,25 +500,104 @@
       <div class="pub-item">
         <div class="pub-year">1976</div>
         <div class="pub-title">Paris, les Grands-Magasins</div>
-        <div class="pub-meta">Electroacoustic &mdash; A phonographic journey through urban Parisian soundscapes captured with cinematic intensity.</div>
+        <div class="pub-meta">Electroacoustic &mdash; Phonography / daily environment sounds. His first major work, exploring nature through captured urban soundscapes.</div>
       </div>
 
       <div class="pub-item">
         <div class="pub-year">1979</div>
         <div class="pub-title">Quatuor</div>
-        <div class="pub-meta">Musique concr&egrave;te &mdash; Revisiting musical heritage through radical transformations of cultural sound sources.</div>
+        <div class="pub-meta">Musique concr&egrave;te &mdash; His first &ldquo;concrète&rdquo; work, revisiting musical heritage through cultural sound sources.</div>
       </div>
 
       <div class="pub-item">
         <div class="pub-year">1981</div>
         <div class="pub-title">Valse</div>
-        <div class="pub-meta">Mixed &mdash; For ensemble and tape; the first of his major mixed works where instrumental and electroacoustic layers coexist in parallel discourses.</div>
+        <div class="pub-meta">Mixed &mdash; Flute (and piccolo), Bb and Eb clarinets, alto/tenor/baritone saxophones, trumpet, electronic organ, amplified harpsichord, piano, electronic piano, violin, and tape. The starting point of a unique writing process where &ldquo;nature&rdquo; and &ldquo;culture&rdquo; cohabit in parallel discourses.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1984</div>
+        <div class="pub-title">Petite musique sentimentale</div>
+        <div class="pub-meta">Mixed &mdash; Piano and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1986</div>
+        <div class="pub-title">Adagio</div>
+        <div class="pub-meta">Mixed &mdash; Flute and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1986</div>
+        <div class="pub-title">Il &eacute;tait une fois&hellip; <em>(conte sans paroles)</em></div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1988</div>
+        <div class="pub-title">Variations sur un air d&rsquo;accord&eacute;on</div>
+        <div class="pub-meta">Mixed &mdash; Comedian-accordionist and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1991</div>
+        <div class="pub-title">L&rsquo;Entrevue</div>
+        <div class="pub-meta">Mixed &mdash; Accordion and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1991</div>
+        <div class="pub-title">Water Music</div>
+        <div class="pub-meta">Electroacoustic &mdash; Stereo support.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1995</div>
+        <div class="pub-title">Impromptu <em>[mixte]</em></div>
+        <div class="pub-meta">Mixed &mdash; Piano, synthesizer / sampler, and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1997 &ndash; 2001</div>
+        <div class="pub-title">Bruits</div>
+        <div class="pub-meta">Electroacoustic.</div>
       </div>
 
       <div class="pub-item">
         <div class="pub-year">2007 &ndash; 2008</div>
         <div class="pub-title">Chorals orn&eacute;s</div>
-        <div class="pub-meta">Electroacoustic &mdash; A mature synthesis: nature and culture unfold simultaneously without fusion, affirming a unique compositional voice.</div>
+        <div class="pub-meta">Mixed &mdash; Organ and stereo fixed medium. Follows in the footsteps of the parallel-based approach established with Valse.</div>
+      </div>
+
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Discography</h3>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">1991</div>
+        <div class="pub-title">Anecdotes</div>
+        <div class="pub-meta">empreintes DIGITALes &mdash; IMED 9106</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1996</div>
+        <div class="pub-title">Filmusique-Film op&eacute;ra <em>(with Maurice Blackburn)</em></div>
+        <div class="pub-meta">Analekta &mdash; AN 7005/06</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1998</div>
+        <div class="pub-title">Musiques na&iuml;ves</div>
+        <div class="pub-meta">empreintes DIGITALes &mdash; IMED 9843</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2001</div>
+        <div class="pub-title">Bruits</div>
+        <div class="pub-meta">empreintes DIGITALes &mdash; IMED 0156</div>
       </div>
 
     </div>
@@ -564,13 +701,7 @@
       <div class="collab-card">
         <div class="collab-type">Cinema</div>
         <h4>National Film Board of Canada</h4>
-        <p>Specialized training in film music under Maurice Blackburn. Developed a refined sensitivity to sound-image relationships and spatial narrative at the legendary Sound Workshop.</p>
-      </div>
-
-      <div class="collab-card">
-        <div class="collab-type">Cinema &mdash; Theory</div>
-        <h4>Collaboration with Marshall McLuhan</h4>
-        <p>During his NFB residency, Daoust collaborated with media theorist Marshall McLuhan &mdash; an encounter that shaped his understanding of media, perception, and the cognitive architecture of listening.</p>
+        <p>Specialized training in film music under Maurice Blackburn (1976&ndash;1979). Developed a refined sensitivity to sound-image relationships and spatial narrative at the legendary NFB Sound Workshop.</p>
       </div>
 
       <div class="collab-card">
@@ -666,9 +797,9 @@
       </div>
 
       <div class="timeline-item">
-        <div class="t-year">1981 &mdash; Present</div>
+        <div class="t-year">1981 &mdash; 2011</div>
         <h4>Professor &mdash; Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec</h4>
-        <p>Mandated to build electroacoustic programs from the ground up. Over four decades, shaped generations of composers and established electroacoustic composition as a rigorous academic discipline in Qu&eacute;bec.</p>
+        <p>Mandated to build electroacoustic programs from the ground up. Over three decades, shaped generations of composers and established electroacoustic composition as a rigorous academic discipline in Qu&eacute;bec. Retired from the Conservatoire in 2011.</p>
       </div>
 
       <div class="timeline-item">
@@ -681,6 +812,61 @@
         <div class="t-year">2009</div>
         <h4>Prix Serge-Garant &mdash; Fondation &Eacute;mile-Nelligan</h4>
         <p>Awarded in recognition of a lifetime of artistic creation, innovation, and transmission in Qu&eacute;bec&rsquo;s musical landscape.</p>
+      </div>
+
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:16px;">T&eacute;moignages d&rsquo;&eacute;tudiants</h3>
+    <p class="testimonials-intro">Paroles de compositeurs ayant suivi l&rsquo;enseignement d&rsquo;Yves Daoust.</p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="testimonial-name">Marc Tremblay</div>
+        <ul class="testimonial-highlights">
+          <li>Un lieu d&rsquo;ouverture radicale</li>
+          <li>L&rsquo;exploration du &laquo;&nbsp;total sonore&nbsp;&raquo;</li>
+          <li>Un atelier de discussion et de recherche</li>
+          <li>Un apprentissage du d&eacute;veloppement des id&eacute;es</li>
+          <li>Une p&eacute;dagogie fond&eacute;e sur la libert&eacute; artistique</li>
+          <li>Une invitation &agrave; &eacute;couter au-del&agrave; de ses pr&eacute;f&eacute;rences</li>
+        </ul>
+        <div class="testimonial-body">
+          Le point central qui ressort est que l&rsquo;enseignement d&rsquo;Yves Daoust est associ&eacute; &agrave; une grande ouverture d&rsquo;esprit. Son approche repose sur l&rsquo;id&eacute;e du &laquo;&nbsp;total sonore&nbsp;&raquo;&nbsp;: tout peut devenir mat&eacute;riau de composition. Il n&rsquo;y a pas de hi&eacute;rarchie rigide entre les sons, les r&eacute;f&eacute;rences ou les influences. Son cours prend la forme d&rsquo;un atelier vivant, presque un laboratoire de pens&eacute;e &mdash; un espace de discussion libre, de mise en commun des id&eacute;es, de questionnement et d&rsquo;exploration collective. L&rsquo;enseignement n&rsquo;est pas dogmatique&nbsp;; il cherche &agrave; provoquer la pens&eacute;e, &agrave; faire circuler les points de vue, et &agrave; nourrir la curiosit&eacute;. Il donnait le sentiment qu&rsquo;on &eacute;tait libre d&rsquo;&ecirc;tre ce qu&rsquo;on voulait &ecirc;tre artistiquement.
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="testimonial-name">Sylvain Carette</div>
+        <ul class="testimonial-highlights">
+          <li>Le travail de la boucle comme cœur de la d&eacute;marche</li>
+          <li>Le son qui se transforme par la r&eacute;p&eacute;tition</li>
+          <li>Une p&eacute;dagogie de stimulation, non de prescription</li>
+          <li>Respect profond de l&rsquo;autonomie cr&eacute;atrice</li>
+          <li>Exigence d&rsquo;un jugement objectif et formul&eacute;</li>
+        </ul>
+        <div class="testimonial-body">
+          Ce qui marque chez Carette, c&rsquo;est l&rsquo;importance de la boucle&nbsp;: &agrave; force de r&eacute;p&eacute;tition, le son cesse d&rsquo;&ecirc;tre &laquo;&nbsp;le son de quelque chose&nbsp;&raquo; et devient une mati&egrave;re sonore en soi. Son enseignement ne vise pas &agrave; imposer une mani&egrave;re de faire&nbsp;; il stimule les &eacute;tudiants &agrave; faire ce qu&rsquo;ils veulent faire, en restant en arri&egrave;re-plan comme guide et accompagnateur. Il pouvait montrer des œuvres qui allaient &agrave; l&rsquo;encontre de ses propres pr&eacute;f&eacute;rences, simplement pour exposer les &eacute;tudiants &agrave; d&rsquo;autres points de vue. Il ne suffisait pas de dire &laquo;&nbsp;j&rsquo;aime&nbsp;&raquo; ou &laquo;&nbsp;je n&rsquo;aime pas&nbsp;&raquo;&nbsp;; il fallait pouvoir formuler des raisons et d&eacute;velopper un jugement fond&eacute;.
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="testimonial-name">Fran&ccedil;ois Aubin</div>
+        <ul class="testimonial-highlights">
+          <li>Le cours le plus marquant de toute ma vie</li>
+          <li>Un v&eacute;ritable atelier, esprit ma&icirc;tre-&eacute;l&egrave;ve</li>
+          <li>Libert&eacute; de cr&eacute;er, d&rsquo;explorer et de partager</li>
+          <li>Ouverture totale &mdash; y compris &agrave; d&rsquo;autres courants</li>
+          <li>Grande libert&eacute; intellectuelle et artistique</li>
+        </ul>
+        <div class="testimonial-body">
+          J&rsquo;ai eu la chance de suivre le cours d&rsquo;Yves pendant deux ans, et cela demeure le cours le plus marquant que j&rsquo;aie suivi de toute ma vie. C&rsquo;&eacute;tait un enseignement qui prenait la forme d&rsquo;un v&eacute;ritable atelier, dans un esprit tr&egrave;s proche de la relation ma&icirc;tre-&eacute;l&egrave;ve. Les &eacute;tudiants y &eacute;taient libres de cr&eacute;er, d&rsquo;explorer et de partager leurs d&eacute;marches. Ce qui frappait chez Yves, c&rsquo;&eacute;tait son ouverture totale&nbsp;: il ne se limitait pas &agrave; pr&eacute;senter sa propre vision, il nous exposait aussi &agrave; d&rsquo;autres courants, y compris &agrave; des approches avec lesquelles il n&rsquo;&eacute;tait pas toujours en accord. Cette attitude donnait au cours une grande libert&eacute; intellectuelle et artistique, et nous apprenait &agrave; &eacute;couter, &agrave; r&eacute;fl&eacute;chir et &agrave; construire notre propre jugement.
+        </div>
       </div>
 
     </div>
@@ -703,11 +889,186 @@
     <div class="content-body">
       <h3>Internationally Renowned Composer and Pioneer of Electroacoustic Music</h3>
       <p>Born in Longueuil, Qu&eacute;bec, Yves Daoust is one of the most distinctive and influential voices in contemporary electroacoustic music. His work stands at the crossroads of concert music, cinema, pedagogy, and sound research. Few composers have so consistently transformed listening itself into an artistic experience.</p>
-      <p>A decisive encounter with Maurice Blackburn led Daoust to the National Film Board of Canada (NFB), where he undertook specialized training in film music. Immersed in the legendary Sound Workshop, he developed a refined sensitivity to sound-image relationships, narrative listening, and spatial perception &mdash; and notably collaborated with media theorist Marshall McLuhan.</p>
-      <p>Daoust pursued advanced training at the Institut international de musique &eacute;lectroacoustique de Bourges (IMEB), where he was deeply influenced by the concept of &ldquo;virtual cinema&rdquo; &mdash; treating sound as a dramaturgical space in itself. This approach became foundational to his aesthetic: music not merely as structure, but as a lived, cinematic experience for the ear.</p>
-      <p>In 1978, he co-founded ACREQ &mdash; an organization that would later evolve into Elektra &mdash; helping establish Qu&eacute;bec as a major hub of electroacoustic innovation. In 1981, he was appointed professor at the Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec, where he designed and institutionalized comprehensive electroacoustic programs.</p>
+
+      <h3>Early Training</h3>
+      <p>Daoust began piano studies at the age of seven with Alice Vigeant. At twenty, he entered the Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec in Montr&eacute;al &mdash; initially in the piano class of Irving Heller, subsequently in the composition class of Gilles Tremblay. He then studied analysis and composition in Paris under Gilbert Amy.</p>
+
+      <h3>National Film Board &amp; Bourges</h3>
+      <p>A decisive encounter with Maurice Blackburn led Daoust to the National Film Board of Canada (NFB), where he undertook specialized training in film music. Immersed in the legendary Sound Workshop (1976&ndash;1979), he developed a refined sensitivity to sound-image relationships, narrative listening, and spatial perception.</p>
+      <p>Daoust trained from 1973 to 1975 at the Groupe de musique exp&eacute;rimentale de Bourges (GMEB, later renamed IMEB), where he was deeply influenced by Alain Savouret&rsquo;s concept of &ldquo;virtual cinema&rdquo; &mdash; treating sound as a dramaturgical space in itself. This approach became foundational to his aesthetic: music not merely as structure, but as a lived, cinematic experience for the ear. He remained in touch with the IMEB until its closure in 2011 and composed many works on commission for the Institut.</p>
+
+      <h3>ACREQ &amp; The Conservatoire</h3>
+      <p>In 1978, together with Marcelle Deschênes, Michel Longtin, Philippe M&eacute;nard, Jean Sauvageau, and Pierre Trochu, he co-founded ACREQ (Association pour la cr&eacute;ation et la recherche &eacute;lectroacoustiques du Qu&eacute;bec) &mdash; an organization he would direct for ten years, and which later evolved into Elektra &mdash; helping establish Qu&eacute;bec as a major hub of electroacoustic innovation. In 1981, he was appointed professor at the Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec, where he designed and institutionalized comprehensive electroacoustic programs for both the Montr&eacute;al and Qu&eacute;bec City branches. He retired from the Conservatoire in 2011.</p>
+
+      <h3>Interdisciplinary Collaborations</h3>
+      <p>So-called mixed music &mdash; where instrumental and electroacoustic composition share the spotlight &mdash; represents a major aspect of Daoust&rsquo;s &oelig;uvre. His work has also been marked by a long-standing collaboration with Mimes Omnibus and its director Jean Asselin.</p>
+
       <h3>Recognition</h3>
       <p>In 2009, Yves Daoust received the <strong style="color:var(--gold);">Prix Serge-Garant</strong> from the Fondation &Eacute;mile-Nelligan in recognition of his lifelong contribution to musical creation, innovation, and transmission.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="container">
+    <h2 class="section-title">
+      Complete Works
+      <small>Catalogue &nbsp;|&nbsp; All Compositions</small>
+    </h2>
+
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">1976</div>
+        <div class="pub-title">Paris, les Grands-Magasins</div>
+        <div class="pub-meta">Electroacoustic &mdash; Phonography / daily environment sounds.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1979</div>
+        <div class="pub-title">Quatuor</div>
+        <div class="pub-meta">Musique concr&egrave;te.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1981</div>
+        <div class="pub-title">Valse</div>
+        <div class="pub-meta">Flute (and piccolo), Bb and Eb clarinets, alto, tenor and baritone saxophones, trumpet, electronic organ, amplified harpsichord, piano, electronic piano, violin, and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1981 / 2000</div>
+        <div class="pub-title">La gamme</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1982 &ndash; 1995</div>
+        <div class="pub-title">Maurice Blackburn, ou portrait d&rsquo;un m&eacute;connu</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1984</div>
+        <div class="pub-title">Petite musique sentimentale</div>
+        <div class="pub-meta">Piano and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1986</div>
+        <div class="pub-title">Adagio</div>
+        <div class="pub-meta">Flute and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1986</div>
+        <div class="pub-title">Fantaisie</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1986</div>
+        <div class="pub-title">Il &eacute;tait une fois&hellip; <em>(conte sans paroles)</em></div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1988</div>
+        <div class="pub-title">Variations sur un air d&rsquo;accord&eacute;on</div>
+        <div class="pub-meta">Comedian-accordionist and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1989</div>
+        <div class="pub-title">Ouverture</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1989</div>
+        <div class="pub-title">Suite Baroque</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1990</div>
+        <div class="pub-title">Mi b&eacute;mol</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1991</div>
+        <div class="pub-title">L&rsquo;Entrevue</div>
+        <div class="pub-meta">Accordion and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1991</div>
+        <div class="pub-title">Water Music</div>
+        <div class="pub-meta">Stereo support.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1992</div>
+        <div class="pub-title">Joie</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1992</div>
+        <div class="pub-title">R&eacute;sonances</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1994</div>
+        <div class="pub-title">Impromptu</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1995</div>
+        <div class="pub-title">Impromptu <em>[mixte]</em></div>
+        <div class="pub-meta">Piano, synthesizer / sampler, and tape.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">1997 &ndash; 2001</div>
+        <div class="pub-title">Bruits</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2002</div>
+        <div class="pub-title">Objets trouv&eacute;s</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2003</div>
+        <div class="pub-title">Solo</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2004</div>
+        <div class="pub-title">Le temps fix&eacute;</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2005</div>
+        <div class="pub-title">About Time</div>
+        <div class="pub-meta">Electroacoustic.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2007 &ndash; 2008</div>
+        <div class="pub-title">Chorals orn&eacute;s</div>
+        <div class="pub-meta">Organ and stereo fixed medium.</div>
+      </div>
+
     </div>
   </div>
 </section>
