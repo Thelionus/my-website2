@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fonofone | Yves Daoust</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #141414;
+      --gold: #C5A059;
+      --gold-light: #d4b47a;
+      --text: #ffffff;
+      --text-dim: #999;
+      --border: #222;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,10,0.97);
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    nav .brand {
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    nav .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 0;
+    }
+    nav .links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-left: 22px;
+      letter-spacing: 1.5px;
+      transition: color 0.25s;
+    }
+    nav .links a:hover { color: var(--gold); }
+    nav .lang-switch {
+      margin-left: 28px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #555;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-left: 1px solid #333;
+      padding-left: 20px;
+    }
+    nav .lang-switch:hover { color: var(--gold); }
+
+    /* HEADER */
+    header {
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(to right, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.25) 100%),
+                  url('https://i.postimg.cc/J0SJ5njV/Screenshot-2026-04-09-at-7-28-48-AM.png');
+      background-size: cover;
+      background-position: center 20%;
+    }
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 200;
+      margin-bottom: 12px;
+      letter-spacing: 3px;
+    }
+    header h1 span { color: var(--gold); font-style: italic; }
+    header .sub-brand {
+      letter-spacing: 8px;
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 30px;
+    }
+    .header-tags {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .header-tags span {
+      border: 1px solid #444;
+      color: #888;
+      padding: 4px 14px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 90px 20px;
+    }
+    section { border-bottom: 1px solid #181818; }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 20px 0;
+    }
+    .breadcrumb a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    /* SECTION TITLE */
+    .section-title {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 50px;
+      font-size: 1.6rem;
+      font-weight: 300;
+      border-bottom: 1px solid #222;
+      padding-bottom: 14px;
+    }
+    .section-title small {
+      display: block;
+      font-size: 0.6rem;
+      color: #555;
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
+
+    /* CONTENT BODY */
+    .content-body { font-size: 1.05rem; color: #ccc; }
+    .content-body p { margin-bottom: 22px; }
+    .content-body h3 {
+      color: #fff;
+      margin: 40px 0 16px;
+      font-weight: 400;
+      font-size: 1.3rem;
+    }
+    .work-highlight {
+      color: var(--gold);
+      font-weight: bold;
+      display: block;
+      margin-top: 18px;
+      margin-bottom: 4px;
+    }
+
+    /* CARDS / MEDIA */
+    .media-stack { display: flex; flex-direction: column; gap: 35px; }
+    .media-card {
+      background: var(--card);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      background: #000;
+      margin-bottom: 18px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .card-info h4 {
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-weight: 400;
+      font-size: 1.15rem;
+    }
+    .card-info p { color: var(--text-dim); font-size: 0.9rem; font-style: italic; }
+
+    /* PILL TAGS */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .tag {
+      background: #1c1c1c;
+      border: 1px solid #333;
+      color: #888;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* PUBLICATION LIST */
+    .pub-list { display: flex; flex-direction: column; gap: 20px; }
+    .pub-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+    }
+    .pub-item .pub-title {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .pub-item .pub-meta {
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      font-style: italic;
+    }
+    .pub-item .pub-year {
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    /* BUTTON */
+    .btn-gold {
+      display: inline-block;
+      padding: 11px 28px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.25s;
+      font-size: 0.78rem;
+    }
+    .btn-gold:hover { background: var(--gold); color: #000; }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+
+    /* DIVIDER */
+    .gold-rule {
+      border: none;
+      border-top: 1px solid #222;
+      margin: 50px 0;
+    }
+
+    /* QUOTE */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 14px 24px;
+      margin: 30px 0;
+      background: #111;
+      color: #aaa;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 10px;
+      color: #333;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="brand">YVES DAOUST</a>
+  <div class="links">
+    <a href="index.html#music">Music</a>
+    <a href="fonofone.html">Fonofone</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="index.html#analyse">Analysis</a>
+    <a href="biography.html">Biography</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="fonofone.fr.html" class="lang-switch">FR</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <div class="content">
+    <h1>Yves <span>Daoust</span></h1>
+    <div class="sub-brand">The Art of Sound</div>
+    <div class="header-tags">
+      <span>Electroacoustic Composer</span>
+      <span>Inventor</span>
+      <span>Educator</span>
+      <span>Qu&eacute;bec</span>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">&larr; Back to main page</a>
+</div>
+
+<!-- FONOFONE -->
+<section id="fonofone">
+  <div class="container">
+    <h2 class="section-title">
+      Fonofone
+      <small>Publications &nbsp;|&nbsp; Instrument &nbsp;|&nbsp; Educational Project</small>
+    </h2>
+
+    <div class="content-body">
+      <blockquote>
+        &ldquo;Listening is a learned, creative act &mdash; Fonofone gives young people the tools to discover that for themselves.&rdquo;
+      </blockquote>
+      <p>
+        Fonofone (also known as <em>Musicolateur</em>) is a sound-creation instrument conceived by Yves Daoust in 2004 to awaken musical creativity in young people. Designed to be intuitive yet musically rich, it has become the cornerstone of a sustained pedagogical engagement reaching thousands of students across Qu&eacute;bec and beyond.
+      </p>
+    </div>
+
+    <div class="media-stack">
+
+      <article class="media-card">
+        <div class="card-info">
+          <h4>Fonofone Launch Performance</h4>
+          <p>Young fonofonists from H&eacute;l&egrave;ne-Boull&eacute; Elementary School perform at the PHI Centre, Montr&eacute;al.</p>
+        </div>
+        <div class="video-container" style="margin-top:18px;">
+          <iframe src="https://www.youtube-nocookie.com/embed/TjP9VnDqiqE"
+            title="Fonofone Launch" allowfullscreen></iframe>
+        </div>
+      </article>
+
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Publications &amp; Documentation</h3>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-year">2004 &mdash; Ongoing</div>
+        <div class="pub-title">Fonofone Instrument &mdash; Concept &amp; Design</div>
+        <div class="pub-meta">Original conception and ongoing development of the Fonofone instrument, distributed to schools and cultural institutions.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Educational Material</div>
+        <div class="pub-title">Pedagogical Guides &amp; Workshop Kits</div>
+        <div class="pub-meta">A series of educator resources developed alongside the instrument to support in-class and concert use. Available via fonofone.ca.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Performances &amp; Events</div>
+        <div class="pub-title">Concert Productions &mdash; Schools &amp; Festivals</div>
+        <div class="pub-meta">Large-scale student performances at the PHI Centre (Montr&eacute;al), Elektra Festival, and partner schools across Qu&eacute;bec.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Press &amp; Research</div>
+        <div class="pub-title">Coverage in Electroacoustic &amp; Music Education Journals</div>
+        <div class="pub-meta">The Fonofone project has been documented in academic and professional publications on music pedagogy and instrument design.</div>
+      </div>
+
+    </div>
+
+    <div class="btn-row">
+      <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Explore Fonofone.ca</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Archive Yves Daoust &nbsp;|&nbsp; All rights reserved
+</footer>
+
+</body>
+</html>

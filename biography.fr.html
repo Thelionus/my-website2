@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biographie | Yves Daoust</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #141414;
+      --gold: #C5A059;
+      --gold-light: #d4b47a;
+      --text: #ffffff;
+      --text-dim: #999;
+      --border: #222;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,10,0.97);
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    nav .brand {
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    nav .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 0;
+      align-items: center;
+    }
+    nav .links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-left: 22px;
+      letter-spacing: 1.5px;
+      transition: color 0.25s;
+    }
+    nav .links a:hover { color: var(--gold); }
+    nav .lang-switch {
+      margin-left: 28px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #555;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-left: 1px solid #333;
+      padding-left: 20px;
+    }
+    nav .lang-switch:hover { color: var(--gold); }
+
+    /* HEADER */
+    header {
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(to right, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.25) 100%),
+                  url('https://i.postimg.cc/J0SJ5njV/Screenshot-2026-04-09-at-7-28-48-AM.png');
+      background-size: cover;
+      background-position: center 20%;
+    }
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 200;
+      margin-bottom: 12px;
+      letter-spacing: 3px;
+    }
+    header h1 span { color: var(--gold); font-style: italic; }
+    header .sub-brand {
+      letter-spacing: 8px;
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 30px;
+    }
+    .header-tags {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .header-tags span {
+      border: 1px solid #444;
+      color: #888;
+      padding: 4px 14px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 90px 20px;
+    }
+    section { border-bottom: 1px solid #181818; }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 20px 0;
+    }
+    .breadcrumb a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    /* SECTION TITLE */
+    .section-title {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 50px;
+      font-size: 1.6rem;
+      font-weight: 300;
+      border-bottom: 1px solid #222;
+      padding-bottom: 14px;
+    }
+    .section-title small {
+      display: block;
+      font-size: 0.6rem;
+      color: #555;
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
+
+    /* CONTENT BODY */
+    .content-body { font-size: 1.05rem; color: #ccc; }
+    .content-body p { margin-bottom: 22px; }
+    .content-body h3 {
+      color: #fff;
+      margin: 40px 0 16px;
+      font-weight: 400;
+      font-size: 1.3rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 10px;
+      color: #333;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.fr.html" class="brand">YVES DAOUST</a>
+  <div class="links">
+    <a href="index.fr.html#music">Musique</a>
+    <a href="fonofone.fr.html">Fonofone</a>
+    <a href="teaching.fr.html">Enseignement</a>
+    <a href="index.fr.html#analyse">Analyse</a>
+    <a href="biography.fr.html">Biographie</a>
+    <a href="index.fr.html#contact">Contact</a>
+    <a href="biography.html" class="lang-switch">EN</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <div class="content">
+    <h1>Yves <span>Daoust</span></h1>
+    <div class="sub-brand">L&rsquo;Art du Son</div>
+    <div class="header-tags">
+      <span>Compositeur &eacute;lectroacoustique</span>
+      <span>Inventeur</span>
+      <span>P&eacute;dagogue</span>
+      <span>Qu&eacute;bec</span>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.fr.html">&larr; Retour &agrave; la page principale</a>
+</div>
+
+<!-- BIOGRAPHIE -->
+<section id="bio">
+  <div class="container">
+    <h2 class="section-title">
+      Biographie
+      <small>Compositeur &nbsp;|&nbsp; Pionnier &nbsp;|&nbsp; B&acirc;tisseur d&rsquo;institutions</small>
+    </h2>
+    <div class="content-body">
+      <h3>Compositeur de renomm&eacute;e internationale et pionnier de la musique &eacute;lectroacoustique</h3>
+      <p>N&eacute; &agrave; Longueuil, au Qu&eacute;bec, Yves Daoust est l&rsquo;une des voix les plus singuli&egrave;res et influentes de la musique &eacute;lectroacoustique contemporaine. Son &oelig;uvre se situe au carrefour de la musique de concert, du cin&eacute;ma, de la p&eacute;dagogie et de la recherche sonore. Peu de compositeurs ont transform&eacute; avec autant de constance l&rsquo;&eacute;coute elle-m&ecirc;me en exp&eacute;rience artistique.</p>
+
+      <h3>Formation</h3>
+      <p>Daoust entreprend des &eacute;tudes de piano &agrave; l&rsquo;&acirc;ge de sept ans avec Alice Vigeant. &Agrave; vingt ans, il entre au Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec &agrave; Montr&eacute;al &mdash; d&rsquo;abord dans la classe de piano d&rsquo;Irving Heller, puis dans la classe de composition de Gilles Tremblay. Il poursuit ensuite des &eacute;tudes d&rsquo;analyse et de composition &agrave; Paris sous la direction de Gilbert Amy.</p>
+
+      <h3>Office national du film et Bourges</h3>
+      <p>Une rencontre d&eacute;cisive avec Maurice Blackburn conduit Daoust &agrave; l&rsquo;Office national du film du Canada (ONF), o&ugrave; il re&ccedil;oit une formation sp&eacute;cialis&eacute;e en musique de film. Plong&eacute; dans le l&eacute;gendaire Atelier de son (1976&ndash;1979), il d&eacute;veloppe une sensibilit&eacute; affin&eacute;e aux relations son-image, &agrave; l&rsquo;&eacute;coute narrative et &agrave; la perception spatiale.</p>
+      <p>Daoust se forme de 1973 &agrave; 1975 au Groupe de musique exp&eacute;rimentale de Bourges (GMEB, rebaptis&eacute; plus tard IMEB), o&ugrave; il est profond&eacute;ment influenc&eacute; par le concept de &laquo;&nbsp;cin&eacute;ma virtuel&nbsp;&raquo; d&rsquo;Alain Savouret &mdash; traiter le son comme un espace dramaturgique en soi. Cette approche devient fondatrice de son esth&eacute;tique&nbsp;: la musique non pas comme simple structure, mais comme exp&eacute;rience cin&eacute;matographique v&eacute;cue par l&rsquo;oreille. Il restera en contact avec l&rsquo;IMEB jusqu&rsquo;&agrave; sa fermeture en 2011 et composera de nombreuses &oelig;uvres sur commande pour l&rsquo;Institut.</p>
+
+      <h3>L&rsquo;ACREQ et le Conservatoire</h3>
+      <p>En 1978, avec Marcelle Desch&ecirc;nes, Michel Longtin, Philippe M&eacute;nard, Jean Sauvageau et Pierre Trochu, il cofonde l&rsquo;ACREQ (Association pour la cr&eacute;ation et la recherche &eacute;lectroacoustiques du Qu&eacute;bec) &mdash; organisme qu&rsquo;il dirigera pendant dix ans et qui deviendra plus tard Elektra &mdash; contribuant &agrave; faire du Qu&eacute;bec un p&ocirc;le majeur de l&rsquo;innovation &eacute;lectroacoustique. En 1981, il est nomm&eacute; professeur au Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec, o&ugrave; il con&ccedil;oit et institutionnalise des programmes &eacute;lectroacoustiques complets pour les campus de Montr&eacute;al et de Qu&eacute;bec. Il se retire du Conservatoire en 2011.</p>
+
+      <h3>Collaborations interdisciplinaires</h3>
+      <p>La musique dite mixte &mdash; o&ugrave; composition instrumentale et &eacute;lectroacoustique partagent la sc&egrave;ne &mdash; constitue un pan majeur de l&rsquo;&oelig;uvre de Daoust. Son travail a &eacute;galement &eacute;t&eacute; marqu&eacute; par une longue collaboration avec les Mimes Omnibus et leur directeur Jean Asselin.</p>
+
+      <h3>Reconnaissance</h3>
+      <p>En 2009, Yves Daoust re&ccedil;oit le <strong style="color:var(--gold);">Prix Serge-Garant</strong> de la Fondation &Eacute;mile-Nelligan, en reconnaissance de sa contribution &agrave; vie &agrave; la cr&eacute;ation musicale, &agrave; l&rsquo;innovation et &agrave; la transmission.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Archive Yves Daoust &nbsp;|&nbsp; Tous droits r&eacute;serv&eacute;s
+</footer>
+
+</body>
+</html>

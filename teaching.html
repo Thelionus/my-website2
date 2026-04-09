@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching | Yves Daoust</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #141414;
+      --gold: #C5A059;
+      --gold-light: #d4b47a;
+      --text: #ffffff;
+      --text-dim: #999;
+      --border: #222;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,10,0.97);
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    nav .brand {
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    nav .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 0;
+    }
+    nav .links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-left: 22px;
+      letter-spacing: 1.5px;
+      transition: color 0.25s;
+    }
+    nav .links a:hover { color: var(--gold); }
+    nav .lang-switch {
+      margin-left: 28px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #555;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-left: 1px solid #333;
+      padding-left: 20px;
+    }
+    nav .lang-switch:hover { color: var(--gold); }
+
+    /* HEADER */
+    header {
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(to right, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.25) 100%),
+                  url('https://i.postimg.cc/J0SJ5njV/Screenshot-2026-04-09-at-7-28-48-AM.png');
+      background-size: cover;
+      background-position: center 20%;
+    }
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 200;
+      margin-bottom: 12px;
+      letter-spacing: 3px;
+    }
+    header h1 span { color: var(--gold); font-style: italic; }
+    header .sub-brand {
+      letter-spacing: 8px;
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 30px;
+    }
+    .header-tags {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .header-tags span {
+      border: 1px solid #444;
+      color: #888;
+      padding: 4px 14px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 90px 20px;
+    }
+    section { border-bottom: 1px solid #181818; }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 20px 0;
+    }
+    .breadcrumb a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    /* SECTION TITLE */
+    .section-title {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 50px;
+      font-size: 1.6rem;
+      font-weight: 300;
+      border-bottom: 1px solid #222;
+      padding-bottom: 14px;
+    }
+    .section-title small {
+      display: block;
+      font-size: 0.6rem;
+      color: #555;
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
+
+    /* CONTENT BODY */
+    .content-body { font-size: 1.05rem; color: #ccc; }
+    .content-body p { margin-bottom: 22px; }
+    .content-body h3 {
+      color: #fff;
+      margin: 40px 0 16px;
+      font-weight: 400;
+      font-size: 1.3rem;
+    }
+
+    /* TEACHING BLOCKS */
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 720px) { .teaching-grid { grid-template-columns: 1fr; } }
+    .teaching-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 26px 22px;
+      text-align: center;
+    }
+    .teaching-card .t-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .teaching-card h4 {
+      color: var(--gold);
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .teaching-card p { color: #777; font-size: 0.85rem; }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px; top: 0; bottom: 0;
+      width: 1px;
+      background: #2a2a2a;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .timeline-item .t-year {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .timeline-item h4 {
+      color: #fff;
+      font-weight: 400;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .timeline-item p { color: #777; font-size: 0.9rem; }
+
+    /* TESTIMONIALS */
+    .testimonials-intro { color: #777; font-size: 0.95rem; margin-bottom: 36px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card .quote-mark {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.4;
+      font-family: Georgia, serif;
+      margin-bottom: 12px;
+    }
+    .testimonial-card .testimonial-name {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .testimonial-card .testimonial-highlights {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+    }
+    .testimonial-card .testimonial-highlights li {
+      color: #ccc;
+      font-size: 0.82rem;
+      padding: 5px 0 5px 16px;
+      border-bottom: 1px solid #1e1e1e;
+      position: relative;
+    }
+    .testimonial-card .testimonial-highlights li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+    .testimonial-card .testimonial-body {
+      color: #666;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    /* BUTTON */
+    .btn-gold {
+      display: inline-block;
+      padding: 11px 28px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.25s;
+      font-size: 0.78rem;
+    }
+    .btn-gold:hover { background: var(--gold); color: #000; }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+
+    /* DIVIDER */
+    .gold-rule {
+      border: none;
+      border-top: 1px solid #222;
+      margin: 50px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 10px;
+      color: #333;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="brand">YVES DAOUST</a>
+  <div class="links">
+    <a href="index.html#music">Music</a>
+    <a href="fonofone.html">Fonofone</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="index.html#analyse">Analysis</a>
+    <a href="biography.html">Biography</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="teaching.fr.html" class="lang-switch">FR</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <div class="content">
+    <h1>Yves <span>Daoust</span></h1>
+    <div class="sub-brand">The Art of Sound</div>
+    <div class="header-tags">
+      <span>Electroacoustic Composer</span>
+      <span>Inventor</span>
+      <span>Educator</span>
+      <span>Qu&eacute;bec</span>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">&larr; Back to main page</a>
+</div>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="container">
+    <h2 class="section-title">
+      Teaching
+      <small>Conservatoire &nbsp;|&nbsp; Workshops &nbsp;|&nbsp; Pedagogy</small>
+    </h2>
+
+    <div class="content-body">
+      <p>A central pillar of Daoust&rsquo;s practice is transmission &mdash; the conviction that listening, creativity, and sonic awareness can and must be taught. From founding electroacoustic programs at one of Qu&eacute;bec&rsquo;s most prestigious institutions to placing instruments in the hands of children, pedagogy runs through every dimension of his work.</p>
+    </div>
+
+    <div class="teaching-grid">
+      <div class="teaching-card">
+        <span class="t-icon">&#127891;</span>
+        <h4>Conservatoire de Musique</h4>
+        <p>Appointed professor in 1981 at the Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec. Designed and implemented the institution&rsquo;s first comprehensive electroacoustic programs.</p>
+      </div>
+      <div class="teaching-card">
+        <span class="t-icon">&#127929;</span>
+        <h4>Fonofone in Schools</h4>
+        <p>Since 2004, the Fonofone instrument has been deployed in elementary and secondary schools across Qu&eacute;bec, offering students a direct path to musical creation and sonic exploration.</p>
+      </div>
+      <div class="teaching-card">
+        <span class="t-icon">&#127911;</span>
+        <h4>Listening as Practice</h4>
+        <p>Daoust&rsquo;s pedagogical philosophy is rooted in the idea that active listening is itself a creative discipline &mdash; a skill to be cultivated with the same rigour as composition or performance.</p>
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:30px;">Teaching Timeline</h3>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="t-year">1978</div>
+        <h4>Co-founded ACREQ</h4>
+        <p>Co-founded the Association pour la cr&eacute;ation et la recherche &eacute;lectroacoustiques du Qu&eacute;bec &mdash; a hub for electroacoustic education, concerts, and international exchange. Later evolved into Elektra.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-year">1981 &mdash; 2011</div>
+        <h4>Professor &mdash; Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec</h4>
+        <p>Mandated to build electroacoustic programs from the ground up. Over three decades, shaped generations of composers and established electroacoustic composition as a rigorous academic discipline in Qu&eacute;bec. Retired from the Conservatoire in 2011.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-year">2004 &mdash; Present</div>
+        <h4>Fonofone Educational Program</h4>
+        <p>Designed the Fonofone instrument and its accompanying pedagogical framework. Deployed in schools and performed at major cultural venues including the PHI Centre, Montr&eacute;al.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="t-year">2009</div>
+        <h4>Prix Serge-Garant &mdash; Fondation &Eacute;mile-Nelligan</h4>
+        <p>Awarded in recognition of a lifetime of artistic creation, innovation, and transmission in Qu&eacute;bec&rsquo;s musical landscape.</p>
+      </div>
+
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:16px;">T&eacute;moignages d&rsquo;&eacute;tudiants</h3>
+    <p class="testimonials-intro">Paroles de compositeurs ayant suivi l&rsquo;enseignement d&rsquo;Yves Daoust.</p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="testimonial-name">Marc Tremblay</div>
+        <ul class="testimonial-highlights">
+          <li>Un lieu d&rsquo;ouverture radicale</li>
+          <li>L&rsquo;exploration du &laquo;&nbsp;total sonore&nbsp;&raquo;</li>
+          <li>Un atelier de discussion et de recherche</li>
+          <li>Un apprentissage du d&eacute;veloppement des id&eacute;es</li>
+          <li>Une p&eacute;dagogie fond&eacute;e sur la libert&eacute; artistique</li>
+          <li>Une invitation &agrave; &eacute;couter au-del&agrave; de ses pr&eacute;f&eacute;rences</li>
+        </ul>
+        <div class="testimonial-body">
+          Le point central qui ressort est que l&rsquo;enseignement d&rsquo;Yves Daoust est associ&eacute; &agrave; une grande ouverture d&rsquo;esprit. Son approche repose sur l&rsquo;id&eacute;e du &laquo;&nbsp;total sonore&nbsp;&raquo;&nbsp;: tout peut devenir mat&eacute;riau de composition. Il n&rsquo;y a pas de hi&eacute;rarchie rigide entre les sons, les r&eacute;f&eacute;rences ou les influences. Son cours prend la forme d&rsquo;un atelier vivant, presque un laboratoire de pens&eacute;e &mdash; un espace de discussion libre, de mise en commun des id&eacute;es, de questionnement et d&rsquo;exploration collective. L&rsquo;enseignement n&rsquo;est pas dogmatique&nbsp;; il cherche &agrave; provoquer la pens&eacute;e, &agrave; faire circuler les points de vue, et &agrave; nourrir la curiosit&eacute;. Il donnait le sentiment qu&rsquo;on &eacute;tait libre d&rsquo;&ecirc;tre ce qu&rsquo;on voulait &ecirc;tre artistiquement.
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="testimonial-name">Sylvain Carette</div>
+        <ul class="testimonial-highlights">
+          <li>Le travail de la boucle comme c&oelig;ur de la d&eacute;marche</li>
+          <li>Le son qui se transforme par la r&eacute;p&eacute;tition</li>
+          <li>Une p&eacute;dagogie de stimulation, non de prescription</li>
+          <li>Respect profond de l&rsquo;autonomie cr&eacute;atrice</li>
+          <li>Exigence d&rsquo;un jugement objectif et formul&eacute;</li>
+        </ul>
+        <div class="testimonial-body">
+          Ce qui marque chez Carette, c&rsquo;est l&rsquo;importance de la boucle&nbsp;: &agrave; force de r&eacute;p&eacute;tition, le son cesse d&rsquo;&ecirc;tre &laquo;&nbsp;le son de quelque chose&nbsp;&raquo; et devient une mati&egrave;re sonore en soi. Son enseignement ne vise pas &agrave; imposer une mani&egrave;re de faire&nbsp;; il stimule les &eacute;tudiants &agrave; faire ce qu&rsquo;ils veulent faire, en restant en arri&egrave;re-plan comme guide et accompagnateur. Il pouvait montrer des &oelig;uvres qui allaient &agrave; l&rsquo;encontre de ses propres pr&eacute;f&eacute;rences, simplement pour exposer les &eacute;tudiants &agrave; d&rsquo;autres points de vue. Il ne suffisait pas de dire &laquo;&nbsp;j&rsquo;aime&nbsp;&raquo; ou &laquo;&nbsp;je n&rsquo;aime pas&nbsp;&raquo;&nbsp;; il fallait pouvoir formuler des raisons et d&eacute;velopper un jugement fond&eacute;.
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="testimonial-name">Fran&ccedil;ois Aubin</div>
+        <ul class="testimonial-highlights">
+          <li>Le cours le plus marquant de toute ma vie</li>
+          <li>Un v&eacute;ritable atelier, esprit ma&icirc;tre-&eacute;l&egrave;ve</li>
+          <li>Libert&eacute; de cr&eacute;er, d&rsquo;explorer et de partager</li>
+          <li>Ouverture totale &mdash; y compris &agrave; d&rsquo;autres courants</li>
+          <li>Grande libert&eacute; intellectuelle et artistique</li>
+        </ul>
+        <div class="testimonial-body">
+          J&rsquo;ai eu la chance de suivre le cours d&rsquo;Yves pendant deux ans, et cela demeure le cours le plus marquant que j&rsquo;aie suivi de toute ma vie. C&rsquo;&eacute;tait un enseignement qui prenait la forme d&rsquo;un v&eacute;ritable atelier, dans un esprit tr&egrave;s proche de la relation ma&icirc;tre-&eacute;l&egrave;ve. Les &eacute;tudiants y &eacute;taient libres de cr&eacute;er, d&rsquo;explorer et de partager leurs d&eacute;marches. Ce qui frappait chez Yves, c&rsquo;&eacute;tait son ouverture totale&nbsp;: il ne se limitait pas &agrave; pr&eacute;senter sa propre vision, il nous exposait aussi &agrave; d&rsquo;autres courants, y compris &agrave; des approches avec lesquelles il n&rsquo;&eacute;tait pas toujours en accord. Cette attitude donnait au cours une grande libert&eacute; intellectuelle et artistique, et nous apprenait &agrave; &eacute;couter, &agrave; r&eacute;fl&eacute;chir et &agrave; construire notre propre jugement.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="btn-row">
+      <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Fonofone Project</a>
+      <a href="index.html#contact" class="btn-gold">Inquire About Workshops</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Archive Yves Daoust &nbsp;|&nbsp; All rights reserved
+</footer>
+
+</body>
+</html>
