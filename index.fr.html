@@ -389,6 +389,90 @@
       flex: 1;
     }
 
+    /* ANALYSE */
+    .analyse-intro { color: #777; font-size: 0.95rem; margin-bottom: 40px; }
+    .analyse-period {
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      overflow: hidden;
+    }
+    .analyse-period-header {
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .analyse-era-tag {
+      display: inline-block;
+      padding: 5px 14px;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .analyse-period-title {
+      color: #fff;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+    .analyse-period-body {
+      padding: 22px 28px 16px;
+      color: #888;
+      font-size: 0.88rem;
+      line-height: 1.85;
+    }
+    .analyse-period-body em { color: #aaa; font-style: italic; }
+    .analyse-works {
+      padding: 0 28px 20px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .analyse-work-tag {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      color: #666;
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      letter-spacing: 0.5px;
+    }
+    .traits-block {
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+      padding: 36px 34px;
+      margin-top: 40px;
+    }
+    .traits-block h3 {
+      color: var(--gold);
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .traits-grid-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+    @media (max-width: 620px) { .traits-grid-inner { grid-template-columns: 1fr; } }
+    .trait-item {
+      border-left: 2px solid var(--gold);
+      padding-left: 16px;
+    }
+    .trait-item h4 {
+      color: #ccc;
+      font-weight: 400;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+    .trait-item p { color: #666; font-size: 0.82rem; line-height: 1.75; }
+
     /* BUTTON */
     .btn-gold {
       display: inline-block;
@@ -445,6 +529,7 @@
     <a href="#fonofone">Fonofone</a>
     <a href="#collaborations">Collaborations</a>
     <a href="#teaching">Enseignement</a>
+    <a href="#analyse">Analyse</a>
     <a href="#bio">Biographie</a>
     <a href="#works">&OElig;uvres</a>
     <a href="#contact">Contact</a>
@@ -887,6 +972,109 @@
     <div class="btn-row">
       <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Projet Fonofone</a>
       <a href="#contact" class="btn-gold">Renseignements sur les ateliers</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ANALYSE -->
+<section id="analyse">
+  <div class="container">
+    <h2 class="section-title">
+      Analyse
+      <small>&Eacute;volution &nbsp;|&nbsp; Esth&eacute;tique &nbsp;|&nbsp; Langage musical</small>
+    </h2>
+
+    <p class="analyse-intro">Analyse de l&rsquo;&eacute;volution musicale d&rsquo;Yves Daoust, de ses d&eacute;buts radicaux en 1975 jusqu&rsquo;&agrave; ses &oelig;uvres les plus r&eacute;centes &mdash; l&rsquo;invention d&rsquo;un genre, la maturit&eacute; esth&eacute;tique et la plong&eacute;e dans la m&eacute;moire intime.</p>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#4a1a1a;color:#e8a090;">1975 &mdash; D&eacute;but</span>
+        <div class="analyse-period-title">Les origines : la rupture fondatrice</div>
+      </div>
+      <div class="analyse-period-body">
+        Daoust d&eacute;crit lui-m&ecirc;me ses d&eacute;buts comme un moment de n&eacute;gation radicale &mdash; il cherchait ce qu&rsquo;il ne voulait pas faire, plut&ocirc;t que ce qu&rsquo;il voulait construire. La r&eacute;v&eacute;lation vient d&rsquo;une pi&egrave;ce de Luc Ferrari, d&eacute;crite comme un coup de foudre qui lui donne enfin une direction. Sa premi&egrave;re pi&egrave;ce &eacute;lectroacoustique reconnue, <em>Paris, les grands magasins</em> (1975), est brute et frontale&nbsp;: une promenade sonore dans des grands magasins parisiens, sans couches esth&eacute;tiques, sans transformation. Il la qualifie lui-m&ecirc;me de &laquo;&nbsp;tr&egrave;s gauche&nbsp;&raquo; mais y reconna&icirc;t d&eacute;j&agrave; les pr&eacute;misses de son langage futur.
+      </div>
+      <div class="analyse-works">
+        <span class="analyse-work-tag">Paris, les grands magasins (1975)</span>
+        <span class="analyse-work-tag">Influence&nbsp;: Luc Ferrari</span>
+        <span class="analyse-work-tag">Musique concr&egrave;te radicale</span>
+        <span class="analyse-work-tag">Une seule couche</span>
+      </div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#3a2800;color:#c8900a;">Fin 1970s&ndash;80s</span>
+        <div class="analyse-period-title">L&rsquo;invention d&rsquo;un genre impossible : la musique mixte</div>
+      </div>
+      <div class="analyse-period-body">
+        C&rsquo;est ici que Daoust forge son identit&eacute; compositionnelle la plus originale. Il th&eacute;orise la musique mixte non comme une int&eacute;gration d&rsquo;un instrument et d&rsquo;une bande, mais comme la coexistence volontairement s&eacute;par&eacute;e de deux m&eacute;dias aux temporalit&eacute;s diff&eacute;rentes. Contrairement &agrave; la majorit&eacute; des compositeurs de l&rsquo;&eacute;poque &mdash; o&ugrave; la bande dicte ou soutient l&rsquo;instrumentiste &mdash;, Daoust donne &agrave; chaque m&eacute;dium son propre discours autonome. L&rsquo;entrevue avec l&rsquo;interpr&egrave;te devient la mati&egrave;re brute de la bande&nbsp;: paradoxe musical mis en sc&egrave;ne dans <em>L&rsquo;entrevue</em> (c.&nbsp;1982), o&ugrave; la pens&eacute;e th&eacute;orique d&rsquo;un accord&eacute;oniste jouant du Bach croise une &eacute;criture instrumentale issue des Suites anglaises.
+      </div>
+      <div class="analyse-works">
+        <span class="analyse-work-tag">L&rsquo;entrevue (c. 1982)</span>
+        <span class="analyse-work-tag">Bande + interpr&egrave;te vivant</span>
+        <span class="analyse-work-tag">Deux m&eacute;dias parall&egrave;les</span>
+        <span class="analyse-work-tag">Accord&eacute;on &middot; Bach transform&eacute;</span>
+        <span class="analyse-work-tag">Parole mont&eacute;e</span>
+      </div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#0a2a24;color:#50b89a;">Fin 1980s&ndash;90s</span>
+        <div class="analyse-period-title">Maturit&eacute;&nbsp;: th&eacute;&acirc;tre instrumental &amp; portrait</div>
+      </div>
+      <div class="analyse-period-body">
+        Cette p&eacute;riode voit l&rsquo;&eacute;closion compl&egrave;te de son esth&eacute;tique des couches de sens. Daoust travaille syst&eacute;matiquement par stratification &mdash; une narration en surface, un sujet profond cach&eacute; en dessous. Dans <em>Les agr&eacute;ments</em>, il juxtapose des extraits de Couperin avec une fl&ucirc;tiste en crise existentielle, superposant le trait&eacute; d&rsquo;ornementation du XVIIIe si&egrave;cle &agrave; l&rsquo;absurdit&eacute; d&rsquo;un piano virtuel sans pianiste. L&rsquo;humour y est assum&eacute;. La trilogie <em>Bruit</em> (Children&rsquo;s Corner / Nuit / F&ecirc;te) marque un tournant vers la fragmentation sonore urbaine, explorant une technique de pr&eacute;l&egrave;vement et reconstruction d&rsquo;&eacute;chantillons environnementaux &mdash; sons de climatiseurs, bruits de rue &mdash; avec une pr&eacute;cision analytique quasi-scientifique.
+      </div>
+      <div class="analyse-works">
+        <span class="analyse-work-tag">Les agr&eacute;ments &middot; Couperin &middot; ironie</span>
+        <span class="analyse-work-tag">Bruit (trilogie)</span>
+        <span class="analyse-work-tag">Sons urbains &middot; fragmentation</span>
+        <span class="analyse-work-tag">Couches multiples</span>
+        <span class="analyse-work-tag">Concepts extra-musicaux</span>
+        <span class="analyse-work-tag">Humour</span>
+      </div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#181430;color:#8880cc;">2000s</span>
+        <div class="analyse-period-title">Portrait intime et m&eacute;moire</div>
+      </div>
+      <div class="analyse-period-body">
+        Les &oelig;uvres les plus r&eacute;centes t&eacute;moignent d&rsquo;un approfondissement du geste&nbsp;: Daoust s&rsquo;approche de sujets humains vuln&eacute;rables &mdash; une courtisane (<em>Lili</em>), un chanteur en d&eacute;ch&eacute;ance cognitive (<em>Temps fix&eacute;</em>) &mdash; et tisse leurs voix fragment&eacute;es, r&eacute;p&eacute;titives, lacunaires, contre leur pass&eacute; glorieux. La r&eacute;p&eacute;tition des phrases du chanteur atteint de d&eacute;mence n&rsquo;est pas un d&eacute;faut de montage, mais une notation pr&eacute;cise de la d&eacute;gradation m&eacute;morielle. Le magn&eacute;tophone &agrave; bande dans <em>Temps fix&eacute;</em> devient lui-m&ecirc;me symbole&nbsp;: outil archa&iuml;que, il incarne l&rsquo;id&eacute;e m&ecirc;me du temps fig&eacute; que la pi&egrave;ce interroge.
+      </div>
+      <div class="analyse-works">
+        <span class="analyse-work-tag">Lili &mdash; courtisane &middot; solitude &middot; d&eacute;go&ucirc;t</span>
+        <span class="analyse-work-tag">Temps fix&eacute; &mdash; d&eacute;ch&eacute;ance &middot; m&eacute;moire</span>
+        <span class="analyse-work-tag">Magn&eacute;tophone &agrave; bande</span>
+        <span class="analyse-work-tag">Mozart &middot; d&eacute;gradation</span>
+        <span class="analyse-work-tag">R&eacute;cit de vie</span>
+      </div>
+    </div>
+
+    <div class="traits-block">
+      <h3>Traits permanents &agrave; travers toutes les p&eacute;riodes</h3>
+      <div class="traits-grid-inner">
+        <div class="trait-item">
+          <h4>Superposition de couches</h4>
+          <p>Signature formelle absolue de Daoust. Chaque pi&egrave;ce fonctionne sur au moins deux niveaux simultan&eacute;s&nbsp;: l&rsquo;apparent (la narration de surface) et le profond (le vrai sujet philosophique ou &eacute;motionnel).</p>
+        </div>
+        <div class="trait-item">
+          <h4>Ancrage dans la musique classique</h4>
+          <p>Bach, Couperin, Mozart, Debussy &mdash; non comme r&eacute;f&eacute;rences cultiv&eacute;es, mais comme continuation organique. Daoust se revendique d&rsquo;un continuum, refusant les brisures radicales valoris&eacute;es par le milieu contemporain.</p>
+        </div>
+        <div class="trait-item">
+          <h4>L&rsquo;entrevue comme mat&eacute;riau</h4>
+          <p>Constante m&eacute;thodologique&nbsp;: il enregistre, laisse parler, monte ensuite avec une discr&eacute;tion proche de l&rsquo;ethnographe. La voix de l&rsquo;autre devient notation musicale.</p>
+        </div>
+        <div class="trait-item">
+          <h4>Le jeu sur le temps</h4>
+          <p>Pr&eacute;sent vs pass&eacute;, temps fig&eacute; vs temps vivant, r&eacute;p&eacute;tition vs oubli &mdash; son obsession philosophique centrale, d&eacute;clin&eacute;e dans chaque &oelig;uvre sous une forme diff&eacute;rente.</p>
+        </div>
+      </div>
     </div>
 
   </div>

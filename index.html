@@ -388,6 +388,90 @@
       flex: 1;
     }
 
+    /* ANALYSE */
+    .analyse-intro { color: #777; font-size: 0.95rem; margin-bottom: 40px; }
+    .analyse-period {
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      overflow: hidden;
+    }
+    .analyse-period-header {
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .analyse-era-tag {
+      display: inline-block;
+      padding: 5px 14px;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .analyse-period-title {
+      color: #fff;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+    .analyse-period-body {
+      padding: 22px 28px 16px;
+      color: #888;
+      font-size: 0.88rem;
+      line-height: 1.85;
+    }
+    .analyse-period-body em { color: #aaa; font-style: italic; }
+    .analyse-works {
+      padding: 0 28px 20px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .analyse-work-tag {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      color: #666;
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      letter-spacing: 0.5px;
+    }
+    .traits-block {
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+      padding: 36px 34px;
+      margin-top: 40px;
+    }
+    .traits-block h3 {
+      color: var(--gold);
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .traits-grid-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+    @media (max-width: 620px) { .traits-grid-inner { grid-template-columns: 1fr; } }
+    .trait-item {
+      border-left: 2px solid var(--gold);
+      padding-left: 16px;
+    }
+    .trait-item h4 {
+      color: #ccc;
+      font-weight: 400;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+    .trait-item p { color: #666; font-size: 0.82rem; line-height: 1.75; }
+
     /* BUTTON */
     .btn-gold {
       display: inline-block;
@@ -444,6 +528,7 @@
     <a href="#fonofone">Fonofone</a>
     <a href="#collaborations">Collaborations</a>
     <a href="#teaching">Teaching</a>
+    <a href="#analyse">Analysis</a>
     <a href="#bio">Biography</a>
     <a href="#works">Works</a>
     <a href="#contact">Contact</a>
@@ -886,6 +971,109 @@
     <div class="btn-row">
       <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Fonofone Project</a>
       <a href="#contact" class="btn-gold">Inquire About Workshops</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ANALYSIS -->
+<section id="analyse">
+  <div class="container">
+    <h2 class="section-title">
+      Analysis
+      <small>Evolution &nbsp;|&nbsp; Aesthetics &nbsp;|&nbsp; Musical Language</small>
+    </h2>
+
+    <p class="analyse-intro">A study of Yves Daoust&rsquo;s musical evolution &mdash; from his radical beginnings in 1975, through the invention of a new genre, the full flowering of his aesthetic, and a late immersion in intimate memory.</p>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#4a1a1a;color:#e8a090;">1975 &mdash; Origins</span>
+        <div class="analyse-period-title">The Founding Rupture</div>
+      </div>
+      <div class="analyse-period-body">
+        Daoust describes his beginnings as a moment of radical negation &mdash; he was searching for what he did <em>not</em> want to do, rather than what he wished to build. The revelation came from a piece by Luc Ferrari, described as a lightning bolt that finally gave him a direction. His first recognized electroacoustic work, <em>Paris, les grands magasins</em> (1975), is raw and frontal: a sonic walk through Parisian department stores, with no aesthetic layering, no transformation. He calls it &ldquo;very clumsy&rdquo; himself, yet already recognizes in it the first seeds of his future language.
+      </div>
+      <div class="analyse-works">
+        <span class="analyse-work-tag">Paris, les grands magasins (1975)</span>
+        <span class="analyse-work-tag">Influence: Luc Ferrari</span>
+        <span class="analyse-work-tag">Radical musique concr&egrave;te</span>
+        <span class="analyse-work-tag">Single-layer soundscape</span>
+      </div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#3a2800;color:#c8900a;">Late 1970s&ndash;80s</span>
+        <div class="analyse-period-title">Inventing an Impossible Genre: Mixed Music</div>
+      </div>
+      <div class="analyse-period-body">
+        This is where Daoust forges his most original compositional identity. He theorizes mixed music not as the integration of an instrument and a tape, but as the deliberately separate coexistence of two media with different temporalities. Unlike most composers of the era &mdash; where the tape dictates or supports the performer &mdash; Daoust gives each medium its own autonomous discourse. The interview with the performer becomes the raw material of the tape: a musical paradox staged in <em>L&rsquo;entrevue</em> (c.&nbsp;1982), where an accordionist&rsquo;s theoretical thoughts on Bach cross an instrumental writing drawn from the English Suites.
+      </div>
+      <div class="analyse-works">
+        <span class="analyse-work-tag">L&rsquo;entrevue (c. 1982)</span>
+        <span class="analyse-work-tag">Tape + live performer</span>
+        <span class="analyse-work-tag">Two parallel media</span>
+        <span class="analyse-work-tag">Accordion &middot; Bach transformed</span>
+        <span class="analyse-work-tag">Spoken word as score</span>
+      </div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#0a2a24;color:#50b89a;">Late 1980s&ndash;90s</span>
+        <div class="analyse-period-title">Maturity: Instrumental Theatre &amp; Portrait</div>
+      </div>
+      <div class="analyse-period-body">
+        This period sees the full flowering of his aesthetic of layered meaning. Daoust works systematically through stratification &mdash; a surface narrative, a deeper hidden subject beneath. In <em>Les agr&eacute;ments</em>, he juxtaposes Couperin extracts with a flutist in existential crisis, superimposing an 18th-century ornamentation treatise onto the absurdity of a virtual piano with no pianist. Humour is fully embraced. The <em>Bruit</em> trilogy (Children&rsquo;s Corner / Nuit / F&ecirc;te) marks a turn toward urban sonic fragmentation, exploring a technique of sampling and reconstruction of environmental sounds &mdash; air conditioners, street noise &mdash; with near-scientific analytical precision.
+      </div>
+      <div class="analyse-works">
+        <span class="analyse-work-tag">Les agr&eacute;ments &middot; Couperin &middot; irony</span>
+        <span class="analyse-work-tag">Bruit (trilogy)</span>
+        <span class="analyse-work-tag">Urban sounds &middot; fragmentation</span>
+        <span class="analyse-work-tag">Multiple layers</span>
+        <span class="analyse-work-tag">Extra-musical concepts</span>
+        <span class="analyse-work-tag">Humour</span>
+      </div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#181430;color:#8880cc;">2000s</span>
+        <div class="analyse-period-title">Intimate Portrait &amp; Memory</div>
+      </div>
+      <div class="analyse-period-body">
+        The most recent works reveal a deepening of the gesture: Daoust draws close to vulnerable human subjects &mdash; a courtesan (<em>Lili</em>), a singer in cognitive decline (<em>Temps fix&eacute;</em>) &mdash; and weaves their fragmented, repetitive, lacunary voices against their glorious past. The repetition of phrases uttered by a singer with dementia is not an editing flaw but a precise notation of memorial degradation. The reel-to-reel tape machine in <em>Temps fix&eacute;</em> itself becomes symbol: an archaic tool, it embodies the very idea of frozen time that the piece interrogates.
+      </div>
+      <div class="analyse-works">
+        <span class="analyse-work-tag">Lili &mdash; courtesan &middot; solitude</span>
+        <span class="analyse-work-tag">Temps fix&eacute; &mdash; decline &middot; memory</span>
+        <span class="analyse-work-tag">Reel-to-reel tape machine</span>
+        <span class="analyse-work-tag">Mozart &middot; degradation</span>
+        <span class="analyse-work-tag">Life narrative</span>
+      </div>
+    </div>
+
+    <div class="traits-block">
+      <h3>Permanent traits across all periods</h3>
+      <div class="traits-grid-inner">
+        <div class="trait-item">
+          <h4>Layering as formal signature</h4>
+          <p>The absolute formal signature of Daoust. Every piece operates on at least two simultaneous levels: the apparent (the surface narrative) and the deep (the true philosophical or emotional subject).</p>
+        </div>
+        <div class="trait-item">
+          <h4>Rooted in classical music</h4>
+          <p>Bach, Couperin, Mozart, Debussy &mdash; not as cultivated references, but as organic continuation. Daoust claims a continuum, refusing the radical breaks valorized by the contemporary scene. His persistent tonality is its most audible trace.</p>
+        </div>
+        <div class="trait-item">
+          <h4>The interview as material</h4>
+          <p>A methodological constant: he records, lets the subject speak, then edits with a discretion close to an ethnographer&rsquo;s. The other&rsquo;s voice becomes musical notation.</p>
+        </div>
+        <div class="trait-item">
+          <h4>Playing with time</h4>
+          <p>Present vs past, frozen time vs living time, repetition vs forgetting &mdash; his central philosophical obsession, expressed in each work under a different form.</p>
+        </div>
+      </div>
     </div>
 
   </div>
