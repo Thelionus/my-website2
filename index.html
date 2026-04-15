@@ -613,122 +613,6 @@
       <p>Spanning five decades, Yves Daoust&rsquo;s catalogue embraces electroacoustic, mixed, and instrumental composition &mdash; each work treating listening itself as a dramatic act. His music has been performed and broadcast internationally, and is distributed on the empreintes DIGITALes label.</p>
     </div>
 
-    <div class="media-stack">
-
-      <article class="media-card">
-        <div class="card-info">
-          <h4>Selected Recordings &mdash; <em>Docu-fictions</em></h4>
-          <p>Available on empreintes DIGITALes. Stream or purchase the full album below.</p>
-        </div>
-        <div style="margin-top:20px;">
-          <iframe style="border:0;width:100%;height:120px;"
-            src="https://bandcamp.com/EmbeddedPlayer/album=1461539059/size=large/bgcol=1a1a1a/linkcol=C5A059/tracklist=false/artwork=small/transparent=true/"
-            seamless></iframe>
-        </div>
-      </article>
-
-      <article class="media-card">
-        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; margin-bottom:6px;">
-          <h4 style="color:var(--gold); font-weight:400; font-size:1.15rem; margin:0;">Nuit</h4>
-          <span style="color:#555; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase;">Yves Daoust &nbsp;&middot;&nbsp; Electroacoustic &nbsp;&middot;&nbsp; 8:33</span>
-        </div>
-        <p style="color:var(--text-dim); font-size:0.85rem; font-style:italic; margin-bottom:20px;">Part of the <em>Bruits</em> trilogy &mdash; Children&rsquo;s Corner / <strong style="color:#aaa;font-weight:400;">Nuit</strong> / F&ecirc;te</p>
-
-        <iframe id="nuit-sc" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/frank-aubin/nuit&auto_play=false&hide_related=true&show_comments=false&show_user=false"
-          style="position:absolute;left:-9999px;width:1px;height:1px;border:none;"></iframe>
-
-        <div style="background:#080808;border:1px solid #1e1e1e;border-radius:3px;padding:16px 18px 14px;">
-
-          <!-- Waveform: flex:1 bars fill full width -->
-          <div id="nuit-wf" style="display:flex;align-items:center;gap:1.5px;height:44px;margin-bottom:14px;cursor:pointer;" onclick="nuitSeekWf(event)"></div>
-
-          <div style="display:flex;align-items:center;gap:12px;">
-
-            <!-- Play/Pause — SVG icons centre perfectly -->
-            <button id="nuit-btn" onclick="nuitToggle()" aria-label="Play" style="width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);color:#000;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s;">
-              <svg id="nuit-ico-play" viewBox="0 0 10 12" width="11" height="13" style="margin-left:2px;"><polygon points="0,0 10,6 0,12" fill="currentColor"/></svg>
-              <svg id="nuit-ico-pause" viewBox="0 0 11 12" width="11" height="13" style="display:none;"><rect x="0" y="0" width="3.5" height="12" rx="0.5" fill="currentColor"/><rect x="7.5" y="0" width="3.5" height="12" rx="0.5" fill="currentColor"/></svg>
-            </button>
-
-            <span id="nuit-cur" style="color:#888;font-size:0.72rem;letter-spacing:1px;width:30px;flex-shrink:0;font-variant-numeric:tabular-nums;">0:00</span>
-
-            <!-- Slider: large invisible hit-area wrapper for easy dragging -->
-            <div id="nuit-wrap" style="flex:1;padding:10px 0;margin:-10px 0;cursor:pointer;touch-action:none;">
-              <div id="nuit-track" style="height:3px;background:#252525;border-radius:2px;position:relative;pointer-events:none;">
-                <div id="nuit-fill" style="height:100%;width:0%;background:var(--gold);border-radius:2px;position:relative;">
-                  <div style="position:absolute;right:-6px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 5px rgba(197,160,89,.45);"></div>
-                </div>
-              </div>
-            </div>
-
-            <span style="color:#444;font-size:0.72rem;letter-spacing:1px;width:30px;flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;">8:33</span>
-          </div>
-        </div>
-      </article>
-
-      <script src="https://w.soundcloud.com/player/api.js"></script>
-      <script>
-      (function(){
-        /* Waveform — flex:1 fills full width */
-        var wf=document.getElementById('nuit-wf');
-        var s=1234567;
-        function rnd(){ s=(s*1664525+1013904223)&0xffffffff; return (s>>>0)/4294967296; }
-        var html='';
-        for(var i=0;i<180;i++){
-          var h=Math.round(6+rnd()*36);
-          html+='<div class="nuit-bar" style="flex:1;min-width:0;height:'+h+'px;background:#2a2a2a;border-radius:1px;"></div>';
-        }
-        wf.innerHTML=html;
-
-        /* SC Widget */
-        var widget=null, dur=513000, playing=false, dragging=false;
-
-        function init(){
-          if(!window.SC) return;
-          widget=SC.Widget(document.getElementById('nuit-sc'));
-          widget.bind(SC.Widget.Events.READY,function(){ widget.getDuration(function(d){ dur=d; }); });
-          widget.bind(SC.Widget.Events.PLAY,function(){ playing=true; document.getElementById('nuit-ico-play').style.display='none'; document.getElementById('nuit-ico-pause').style.display=''; });
-          widget.bind(SC.Widget.Events.PAUSE,function(){ playing=false; document.getElementById('nuit-ico-play').style.display=''; document.getElementById('nuit-ico-pause').style.display='none'; });
-          widget.bind(SC.Widget.Events.FINISH,function(){ playing=false; document.getElementById('nuit-ico-play').style.display=''; document.getElementById('nuit-ico-pause').style.display='none'; update(0); });
-          widget.bind(SC.Widget.Events.PLAY_PROGRESS,function(e){ if(!dragging) update(e.currentPosition); });
-        }
-
-        function update(pos){
-          var pct=dur>0?pos/dur:0;
-          document.getElementById('nuit-fill').style.width=(pct*100)+'%';
-          var sec=Math.floor(pos/1000);
-          document.getElementById('nuit-cur').textContent=Math.floor(sec/60)+':'+(('0'+sec%60).slice(-2));
-          var bars=document.querySelectorAll('#nuit-wf .nuit-bar');
-          var active=Math.floor(pct*bars.length);
-          bars.forEach(function(b,i){ b.style.background=i<active?'#C5A059':'#2a2a2a'; });
-        }
-
-        function doSeek(cx){
-          var r=document.getElementById('nuit-track').getBoundingClientRect();
-          var pct=Math.max(0,Math.min(1,(cx-r.left)/r.width));
-          update(pct*dur);
-          if(widget) widget.seekTo(pct*dur);
-        }
-
-        /* Drag events */
-        var wrap=document.getElementById('nuit-wrap');
-        wrap.addEventListener('mousedown',function(e){ dragging=true; doSeek(e.clientX); e.preventDefault(); });
-        document.addEventListener('mousemove',function(e){ if(dragging) doSeek(e.clientX); });
-        document.addEventListener('mouseup',function(){ dragging=false; });
-        wrap.addEventListener('touchstart',function(e){ dragging=true; doSeek(e.touches[0].clientX); e.preventDefault(); },{passive:false});
-        document.addEventListener('touchmove',function(e){ if(dragging){ doSeek(e.changedTouches[0].clientX); e.preventDefault(); } },{passive:false});
-        document.addEventListener('touchend',function(){ dragging=false; });
-
-        window.nuitToggle=function(){ if(!widget){ init(); setTimeout(function(){ widget&&widget.play(); },400); return; } playing?widget.pause():widget.play(); };
-        window.nuitSeekWf=function(e){ if(!widget){ init(); return; } var r=e.currentTarget.getBoundingClientRect(); doSeek(e.clientX); };
-
-        if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',init); } else { init(); }
-      })();
-      </script>
-
-    </div>
-
     <hr class="gold-rule">
 
     <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Key Works</h3>
@@ -794,16 +678,28 @@
         <div class="pub-meta">Mixed &mdash; Piano, synthesizer / sampler, and tape.</div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-sc-pid="nuit" data-sc-slug="nuit">
         <div class="pub-year">1997 &ndash; 2001</div>
         <div class="pub-title">Bruits <span style="color:var(--text-dim);font-weight:normal;font-size:0.85em;">&mdash; trilogy: Children&rsquo;s Corner / <strong style="color:var(--gold);">Nuit</strong> / F&ecirc;te</span></div>
-        <div class="pub-meta">Electroacoustic &mdash; Urban sound fragmentation. <em>Nuit</em> is available to listen on SoundCloud (see player above).</div>
+        <div class="pub-meta">Electroacoustic &mdash; Urban sound fragmentation. Listen to <em>Nuit</em> below.</div>
       </div>
 
       <div class="pub-item" data-sc-pid="chorals" data-sc-slug="chorals-orne-s-1ere-partie">
         <div class="pub-year">2007 &ndash; 2008</div>
         <div class="pub-title">Chorals orn&eacute;s</div>
         <div class="pub-meta">Mixed &mdash; Organ and stereo fixed medium. Follows in the footsteps of the parallel-based approach established with Valse.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">Album</div>
+        <div class="pub-title">Docu-fictions &mdash; <em>Selected Recordings</em></div>
+        <div class="pub-meta">Available on empreintes DIGITALes. Stream or purchase the full album below.
+          <div style="margin-top:14px;">
+            <iframe style="border:0;width:100%;height:120px;"
+              src="https://bandcamp.com/EmbeddedPlayer/album=1461539059/size=large/bgcol=1a1a1a/linkcol=C5A059/tracklist=false/artwork=small/transparent=true/"
+              seamless></iframe>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1204,6 +1100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script src="https://w.soundcloud.com/player/api.js"></script>
 <!-- ── Shared SoundCloud player factory for Key Works ──────────── -->
 <script>
 (function(){
