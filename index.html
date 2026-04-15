@@ -634,37 +634,34 @@
         </div>
         <p style="color:var(--text-dim); font-size:0.85rem; font-style:italic; margin-bottom:20px;">Part of the <em>Bruits</em> trilogy &mdash; Children&rsquo;s Corner / <strong style="color:#aaa;font-weight:400;">Nuit</strong> / F&ecirc;te</p>
 
-        <!-- Hidden SoundCloud iframe — audio engine only -->
         <iframe id="nuit-sc" allow="autoplay"
           src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/frank-aubin/nuit&auto_play=false&hide_related=true&show_comments=false&show_user=false"
           style="position:absolute;left:-9999px;width:1px;height:1px;border:none;"></iframe>
 
-        <!-- Custom dark player -->
-        <div style="background:#080808; border:1px solid #1e1e1e; border-radius:3px; padding:16px 18px 14px;">
+        <div style="background:#080808;border:1px solid #1e1e1e;border-radius:3px;padding:16px 18px 14px;">
 
-          <!-- Waveform bars -->
-          <div id="nuit-wf" style="display:flex;align-items:center;gap:1.5px;height:44px;margin-bottom:14px;cursor:pointer;overflow:hidden;" onclick="nuitSeekWf(event)"></div>
+          <!-- Waveform: flex:1 bars fill full width -->
+          <div id="nuit-wf" style="display:flex;align-items:center;gap:1.5px;height:44px;margin-bottom:14px;cursor:pointer;" onclick="nuitSeekWf(event)"></div>
 
-          <!-- Controls row -->
           <div style="display:flex;align-items:center;gap:12px;">
-            <!-- Play / Pause -->
-            <button id="nuit-btn" onclick="nuitToggle()" aria-label="Play" style="
-              width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;
-              background:var(--gold);color:#000;font-size:13px;flex-shrink:0;
-              display:flex;align-items:center;justify-content:center;padding:0;
-              transition:background .2s;line-height:1;">&#9654;</button>
 
-            <!-- Elapsed time -->
+            <!-- Play/Pause — SVG icons centre perfectly -->
+            <button id="nuit-btn" onclick="nuitToggle()" aria-label="Play" style="width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);color:#000;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s;">
+              <svg id="nuit-ico-play" viewBox="0 0 10 12" width="11" height="13" style="margin-left:2px;"><polygon points="0,0 10,6 0,12" fill="currentColor"/></svg>
+              <svg id="nuit-ico-pause" viewBox="0 0 11 12" width="11" height="13" style="display:none;"><rect x="0" y="0" width="3.5" height="12" rx="0.5" fill="currentColor"/><rect x="7.5" y="0" width="3.5" height="12" rx="0.5" fill="currentColor"/></svg>
+            </button>
+
             <span id="nuit-cur" style="color:#888;font-size:0.72rem;letter-spacing:1px;width:30px;flex-shrink:0;font-variant-numeric:tabular-nums;">0:00</span>
 
-            <!-- Progress track + slider knob -->
-            <div id="nuit-track" style="flex:1;height:3px;background:#252525;border-radius:2px;cursor:pointer;position:relative;" onclick="nuitSeek(event)">
-              <div id="nuit-fill" style="height:100%;width:0%;background:var(--gold);border-radius:2px;position:relative;pointer-events:none;">
-                <div style="position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 4px rgba(197,160,89,.5);"></div>
+            <!-- Slider: large invisible hit-area wrapper for easy dragging -->
+            <div id="nuit-wrap" style="flex:1;padding:10px 0;margin:-10px 0;cursor:pointer;touch-action:none;">
+              <div id="nuit-track" style="height:3px;background:#252525;border-radius:2px;position:relative;pointer-events:none;">
+                <div id="nuit-fill" style="height:100%;width:0%;background:var(--gold);border-radius:2px;position:relative;">
+                  <div style="position:absolute;right:-6px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 5px rgba(197,160,89,.45);"></div>
+                </div>
               </div>
             </div>
 
-            <!-- Total duration -->
             <span style="color:#444;font-size:0.72rem;letter-spacing:1px;width:30px;flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;">8:33</span>
           </div>
         </div>
@@ -673,29 +670,28 @@
       <script src="https://w.soundcloud.com/player/api.js"></script>
       <script>
       (function(){
-        /* --- Seeded waveform bars --- */
-        var wf = document.getElementById('nuit-wf');
-        var s = 1234567;
+        /* Waveform — flex:1 fills full width */
+        var wf=document.getElementById('nuit-wf');
+        var s=1234567;
         function rnd(){ s=(s*1664525+1013904223)&0xffffffff; return (s>>>0)/4294967296; }
         var html='';
-        for(var i=0;i<110;i++){
+        for(var i=0;i<180;i++){
           var h=Math.round(6+rnd()*36);
-          html+='<div class="nuit-bar" style="width:2px;min-width:2px;flex-shrink:0;height:'+h+'px;background:#2a2a2a;border-radius:1px;"></div>';
+          html+='<div class="nuit-bar" style="flex:1;min-width:0;height:'+h+'px;background:#2a2a2a;border-radius:1px;"></div>';
         }
         wf.innerHTML=html;
 
-        /* --- SC Widget --- */
-        var widget=null, dur=513000, playing=false;
+        /* SC Widget */
+        var widget=null, dur=513000, playing=false, dragging=false;
+
         function init(){
           if(!window.SC) return;
           widget=SC.Widget(document.getElementById('nuit-sc'));
-          widget.bind(SC.Widget.Events.READY,function(){
-            widget.getDuration(function(d){ dur=d; });
-          });
-          widget.bind(SC.Widget.Events.PLAY,function(){ playing=true; document.getElementById('nuit-btn').innerHTML='&#9646;&#9646;'; });
-          widget.bind(SC.Widget.Events.PAUSE,function(){ playing=false; document.getElementById('nuit-btn').innerHTML='&#9654;'; });
-          widget.bind(SC.Widget.Events.FINISH,function(){ playing=false; document.getElementById('nuit-btn').innerHTML='&#9654;'; update(0); });
-          widget.bind(SC.Widget.Events.PLAY_PROGRESS,function(e){ update(e.currentPosition); });
+          widget.bind(SC.Widget.Events.READY,function(){ widget.getDuration(function(d){ dur=d; }); });
+          widget.bind(SC.Widget.Events.PLAY,function(){ playing=true; document.getElementById('nuit-ico-play').style.display='none'; document.getElementById('nuit-ico-pause').style.display=''; });
+          widget.bind(SC.Widget.Events.PAUSE,function(){ playing=false; document.getElementById('nuit-ico-play').style.display=''; document.getElementById('nuit-ico-pause').style.display='none'; });
+          widget.bind(SC.Widget.Events.FINISH,function(){ playing=false; document.getElementById('nuit-ico-play').style.display=''; document.getElementById('nuit-ico-pause').style.display='none'; update(0); });
+          widget.bind(SC.Widget.Events.PLAY_PROGRESS,function(e){ if(!dragging) update(e.currentPosition); });
         }
 
         function update(pos){
@@ -708,24 +704,26 @@
           bars.forEach(function(b,i){ b.style.background=i<active?'#C5A059':'#2a2a2a'; });
         }
 
-        window.nuitToggle=function(){
-          if(!widget){ init(); setTimeout(function(){ widget&&widget.play(); },400); return; }
-          playing?widget.pause():widget.play();
-        };
-        window.nuitSeek=function(e){
-          if(!widget){ init(); return; }
-          var r=e.currentTarget.getBoundingClientRect();
-          widget.seekTo(((e.clientX-r.left)/r.width)*dur);
-        };
-        window.nuitSeekWf=function(e){
-          if(!widget){ init(); return; }
-          var r=e.currentTarget.getBoundingClientRect();
-          widget.seekTo(((e.clientX-r.left)/r.width)*dur);
-        };
+        function doSeek(cx){
+          var r=document.getElementById('nuit-track').getBoundingClientRect();
+          var pct=Math.max(0,Math.min(1,(cx-r.left)/r.width));
+          update(pct*dur);
+          if(widget) widget.seekTo(pct*dur);
+        }
 
-        if(document.readyState==='loading'){
-          document.addEventListener('DOMContentLoaded',init);
-        } else { init(); }
+        /* Drag events */
+        var wrap=document.getElementById('nuit-wrap');
+        wrap.addEventListener('mousedown',function(e){ dragging=true; doSeek(e.clientX); e.preventDefault(); });
+        document.addEventListener('mousemove',function(e){ if(dragging) doSeek(e.clientX); });
+        document.addEventListener('mouseup',function(){ dragging=false; });
+        wrap.addEventListener('touchstart',function(e){ dragging=true; doSeek(e.touches[0].clientX); e.preventDefault(); },{passive:false});
+        document.addEventListener('touchmove',function(e){ if(dragging){ doSeek(e.changedTouches[0].clientX); e.preventDefault(); } },{passive:false});
+        document.addEventListener('touchend',function(){ dragging=false; });
+
+        window.nuitToggle=function(){ if(!widget){ init(); setTimeout(function(){ widget&&widget.play(); },400); return; } playing?widget.pause():widget.play(); };
+        window.nuitSeekWf=function(e){ if(!widget){ init(); return; } var r=e.currentTarget.getBoundingClientRect(); doSeek(e.clientX); };
+
+        if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',init); } else { init(); }
       })();
       </script>
 
