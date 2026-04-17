@@ -103,9 +103,7 @@
       flex-wrap: wrap;
     }
     .header-tags span {
-      border: 1px solid #444;
-      color: #888;
-      padding: 4px 14px;
+      color: #666;
       font-size: 9px;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -147,36 +145,15 @@
       font-weight: 400;
       font-size: 1.3rem;
     }
-    .work-highlight {
-      color: var(--gold);
-      font-weight: bold;
-      display: block;
-      margin-top: 18px;
-      margin-bottom: 4px;
-    }
 
-    /* CARDS / MEDIA */
-    .media-stack { display: flex; flex-direction: column; gap: 35px; }
+    /* MEDIA CARD */
     .media-card {
       background: var(--card);
       border-radius: 4px;
       overflow: hidden;
       border: 1px solid var(--border);
       padding: 28px;
-    }
-    .video-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-      background: #000;
-      margin-bottom: 18px;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: 0;
+      margin-bottom: 35px;
     }
     .card-info h4 {
       color: var(--gold);
@@ -185,23 +162,6 @@
       font-size: 1.15rem;
     }
     .card-info p { color: var(--text-dim); font-size: 0.9rem; font-style: italic; }
-
-    /* PILL TAGS */
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-    .tag {
-      background: #1c1c1c;
-      border: 1px solid #333;
-      color: #888;
-      padding: 4px 12px;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
 
     /* PUBLICATION LIST */
     .pub-list { display: flex; flex-direction: column; gap: 20px; }
@@ -229,163 +189,50 @@
       margin-bottom: 6px;
     }
 
-    /* COLLAB CARDS */
-    .collab-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin-bottom: 40px;
+    /* WORKS TABLE */
+    .works-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 8px;
     }
-    @media (max-width: 620px) { .collab-grid { grid-template-columns: 1fr; } }
-    .collab-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 28px;
-      position: relative;
-    }
-    .collab-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-    }
-    .collab-card .collab-type {
+    .works-table thead th {
+      text-align: left;
+      padding: 10px 14px;
       font-size: 0.65rem;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 12px;
-    }
-    .collab-card h4 {
-      color: #fff;
+      border-bottom: 1px solid #2a2a2a;
       font-weight: 400;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
     }
-    .collab-card p { color: #888; font-size: 0.9rem; }
-
-    /* TEACHING BLOCKS */
-    .teaching-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 50px;
+    .works-table tbody tr {
+      border-bottom: 1px solid #1a1a1a;
+      transition: background 0.2s;
     }
-    @media (max-width: 720px) { .teaching-grid { grid-template-columns: 1fr; } }
-    .teaching-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 26px 22px;
-      text-align: center;
+    .works-table tbody tr:hover { background: #111; }
+    .works-table tbody td {
+      padding: 10px 14px;
+      vertical-align: top;
     }
-    .teaching-card .t-icon {
-      font-size: 2rem;
-      margin-bottom: 14px;
-      display: block;
-    }
-    .teaching-card h4 {
+    .works-table td.yr {
       color: var(--gold);
-      font-weight: 400;
-      font-size: 1rem;
+      white-space: nowrap;
+      font-size: 0.78rem;
       letter-spacing: 1px;
-      margin-bottom: 10px;
+      width: 110px;
     }
-    .teaching-card p { color: #777; font-size: 0.85rem; }
+    .works-table td.title { color: #e0e0e0; }
+    .works-table td.medium { color: #666; font-style: italic; font-size: 0.82rem; }
 
-    /* TIMELINE */
-    .timeline { position: relative; padding-left: 30px; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 6px; top: 0; bottom: 0;
-      width: 1px;
-      background: #2a2a2a;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -27px;
-      top: 6px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-    .timeline-item .t-year {
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .timeline-item h4 {
+    /* SECTION LABEL */
+    .sub-heading {
       color: #fff;
       font-weight: 400;
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-    .timeline-item p { color: #777; font-size: 0.9rem; }
-
-    /* TESTIMONIALS */
-    .testimonials-intro { color: #777; font-size: 0.95rem; margin-bottom: 36px; }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 50px;
-    }
-    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
-    .testimonial-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--gold);
-      padding: 28px 24px 24px;
-      display: flex;
-      flex-direction: column;
-    }
-    .testimonial-card .quote-mark {
-      font-size: 3rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.4;
-      font-family: Georgia, serif;
-      margin-bottom: 12px;
-    }
-    .testimonial-card .testimonial-name {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .testimonial-card .testimonial-highlights {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 18px;
-    }
-    .testimonial-card .testimonial-highlights li {
-      color: #ccc;
-      font-size: 0.82rem;
-      padding: 5px 0 5px 16px;
+      font-size: 1.15rem;
+      margin: 50px 0 22px;
+      padding-bottom: 10px;
       border-bottom: 1px solid #1e1e1e;
-      position: relative;
-    }
-    .testimonial-card .testimonial-highlights li::before {
-      content: '–';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-    }
-    .testimonial-card .testimonial-body {
-      color: #666;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      flex: 1;
     }
 
     /* ANALYSE */
@@ -432,13 +279,12 @@
       flex-wrap: wrap;
     }
     .analyse-work-tag {
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      color: #666;
-      font-size: 0.72rem;
-      padding: 3px 10px;
+      color: #555;
+      font-size: 0.78rem;
       letter-spacing: 0.5px;
+      font-style: italic;
     }
+    .analyse-work-tag + .analyse-work-tag::before { content: ' · '; color: #333; }
     .traits-block {
       background: #0d0d0d;
       border: 1px solid var(--border);
@@ -460,17 +306,43 @@
       gap: 26px;
     }
     @media (max-width: 620px) { .traits-grid-inner { grid-template-columns: 1fr; } }
-    .trait-item {
-      border-left: 2px solid var(--gold);
-      padding-left: 16px;
-    }
-    .trait-item h4 {
-      color: #ccc;
-      font-weight: 400;
-      font-size: 0.88rem;
-      margin-bottom: 6px;
-    }
+    .trait-item { border-left: 2px solid var(--gold); padding-left: 16px; }
+    .trait-item h4 { color: #ccc; font-weight: 400; font-size: 0.88rem; margin-bottom: 6px; }
     .trait-item p { color: #666; font-size: 0.82rem; line-height: 1.75; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 620px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+      padding: 22px 24px;
+    }
+    .contact-item h4 {
+      color: var(--gold);
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .contact-item p { color: #777; font-size: 0.88rem; margin-bottom: 10px; }
+    .contact-item a {
+      color: #ccc;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--gold); }
+
+    /* DIVIDER */
+    .gold-rule { border: none; border-top: 1px solid #222; margin: 50px 0; }
 
     /* BUTTON */
     .btn-gold {
@@ -488,13 +360,6 @@
     }
     .btn-gold:hover { background: var(--gold); color: #000; }
     .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
-
-    /* DIVIDER */
-    .gold-rule {
-      border: none;
-      border-top: 1px solid #222;
-      margin: 50px 0;
-    }
 
     /* QUOTE */
     blockquote {
@@ -545,7 +410,7 @@
 
     /* RESPONSIVE — MOBILE */
     @media (max-width: 768px) {
-      nav { flex-wrap: wrap; align-items: center; }
+      nav { flex-wrap: wrap; }
       .nav-toggle { display: flex; }
       nav .links {
         display: none;
@@ -571,6 +436,8 @@
       header h1 { font-size: 2.5rem; letter-spacing: 1px; }
       .container { padding: 50px 18px; }
       .section-title { font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 30px; }
+      .works-table td.medium { display: none; }
+      .works-table td.yr { width: 80px; }
     }
   </style>
 </head>
@@ -598,6 +465,15 @@
   <div class="content">
     <h1>Yves <span>Daoust</span></h1>
     <div class="sub-brand">The Art of Sound</div>
+    <div class="header-tags">
+      <span>Electroacoustic Composer</span>
+      &nbsp;&middot;&nbsp;
+      <span>Inventor</span>
+      &nbsp;&middot;&nbsp;
+      <span>Educator</span>
+      &nbsp;&middot;&nbsp;
+      <span>Qu&eacute;bec</span>
+    </div>
   </div>
 </header>
 
@@ -613,21 +489,41 @@
       <p>Spanning five decades, Yves Daoust&rsquo;s catalogue embraces electroacoustic, mixed, and instrumental composition &mdash; each work treating listening itself as a dramatic act. His music has been performed and broadcast internationally, and is distributed on the empreintes DIGITALes label.</p>
     </div>
 
+    <!-- BANDCAMP -->
+    <div class="media-card">
+      <div class="card-info">
+        <h4>Latest Release &mdash; <em>Docu-fictions</em></h4>
+        <p>Available on empreintes DIGITALes. Stream or purchase the full album below.</p>
+      </div>
+      <div style="margin-top:20px;">
+        <iframe style="border:0;width:100%;height:120px;"
+          src="https://bandcamp.com/EmbeddedPlayer/album=1461539059/size=large/bgcol=1a1a1a/linkcol=C5A059/tracklist=false/artwork=small/transparent=true/"
+          seamless></iframe>
+      </div>
+    </div>
+
     <hr class="gold-rule">
 
-    <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Key Works</h3>
+    <!-- PRINCIPAL WORKS -->
+    <h3 class="sub-heading">Principal Works</h3>
     <div class="pub-list">
 
-      <div class="pub-item" data-sc-pid="quatuor" data-sc-slug="quatuor-48k">
-        <div class="pub-year">1979</div>
-        <div class="pub-title">Quatuor</div>
-        <div class="pub-meta">Musique concr&egrave;te &mdash; His first &ldquo;concrète&rdquo; work, revisiting musical heritage through cultural sound sources.</div>
+      <div class="pub-item">
+        <div class="pub-year">1976</div>
+        <div class="pub-title">Paris, les Grands-Magasins</div>
+        <div class="pub-meta">Electroacoustic &mdash; His first major work: a sonic walk through Parisian department stores, treating everyday urban sounds as raw compositional material.</div>
       </div>
 
-      <div class="pub-item" data-sc-pid="valse" data-sc-slug="valse-mix-sep13">
+      <div class="pub-item">
+        <div class="pub-year">1979</div>
+        <div class="pub-title">Quatuor</div>
+        <div class="pub-meta">Musique concr&egrave;te &mdash; His first fully &ldquo;concrète&rdquo; work, revisiting musical heritage through cultural sound sources.</div>
+      </div>
+
+      <div class="pub-item">
         <div class="pub-year">1981</div>
         <div class="pub-title">Valse</div>
-        <div class="pub-meta">Mixed &mdash; Flute (and piccolo), Bb and Eb clarinets, alto/tenor/baritone saxophones, trumpet, electronic organ, amplified harpsichord, piano, electronic piano, violin, and tape. The starting point of a unique writing process where &ldquo;nature&rdquo; and &ldquo;culture&rdquo; cohabit in parallel discourses.</div>
+        <div class="pub-meta">Mixed &mdash; Ensemble and tape. The founding work of his parallel-discourse method: nature and culture coexisting as autonomous layers, neither subordinate to the other.</div>
       </div>
 
       <div class="pub-item">
@@ -636,7 +532,7 @@
         <div class="pub-meta">Mixed &mdash; Piano and tape.</div>
       </div>
 
-      <div class="pub-item" data-sc-pid="adagio" data-sc-slug="adagio-bande">
+      <div class="pub-item">
         <div class="pub-year">1986</div>
         <div class="pub-title">Adagio</div>
         <div class="pub-meta">Mixed &mdash; Flute and tape.</div>
@@ -654,13 +550,13 @@
         <div class="pub-meta">Mixed &mdash; Comedian-accordionist and tape.</div>
       </div>
 
-      <div class="pub-item" data-sc-pid="entrevue" data-sc-slug="lentrevue">
+      <div class="pub-item">
         <div class="pub-year">1991</div>
         <div class="pub-title">L&rsquo;Entrevue</div>
-        <div class="pub-meta">Mixed &mdash; Accordion and tape.</div>
+        <div class="pub-meta">Mixed &mdash; Accordion and tape. An accordionist&rsquo;s spoken reflections on Bach cross an instrumental writing drawn from the English Suites.</div>
       </div>
 
-      <div class="pub-item" data-sc-pid="water" data-sc-slug="water-music">
+      <div class="pub-item">
         <div class="pub-year">1991</div>
         <div class="pub-title">Water Music</div>
         <div class="pub-meta">Electroacoustic &mdash; Stereo support.</div>
@@ -672,35 +568,36 @@
         <div class="pub-meta">Mixed &mdash; Piano, synthesizer / sampler, and tape.</div>
       </div>
 
-      <div class="pub-item" data-sc-pid="nuit" data-sc-slug="nuit">
-        <div class="pub-year">1997 &ndash; 2001</div>
-        <div class="pub-title">Bruits <span style="color:var(--text-dim);font-weight:normal;font-size:0.85em;">&mdash; trilogy: Children&rsquo;s Corner / <strong style="color:var(--gold);">Nuit</strong> / F&ecirc;te</span></div>
-        <div class="pub-meta">Electroacoustic &mdash; Urban sound fragmentation. Listen to <em>Nuit</em> below.</div>
-      </div>
-
-      <div class="pub-item" data-sc-pid="chorals" data-sc-slug="chorals-orne-s-1ere-partie">
-        <div class="pub-year">2007 &ndash; 2008</div>
-        <div class="pub-title">Chorals orn&eacute;s</div>
-        <div class="pub-meta">Mixed &mdash; Organ and stereo fixed medium. Follows in the footsteps of the parallel-based approach established with Valse.</div>
+      <div class="pub-item">
+        <div class="pub-year">1997&ndash;2001</div>
+        <div class="pub-title">Bruits</div>
+        <div class="pub-meta">Electroacoustic &mdash; A trilogy exploring urban sound fragmentation: <em>Children&rsquo;s Corner</em>, <em>Nuit</em>, and <em>F&ecirc;te</em>.</div>
       </div>
 
       <div class="pub-item">
-        <div class="pub-year">Album</div>
-        <div class="pub-title">Docu-fictions &mdash; <em>Selected Recordings</em></div>
-        <div class="pub-meta">Available on empreintes DIGITALes. Stream or purchase the full album below.
-          <div style="margin-top:14px;">
-            <iframe style="border:0;width:100%;height:120px;"
-              src="https://bandcamp.com/EmbeddedPlayer/album=1461539059/size=large/bgcol=1a1a1a/linkcol=C5A059/tracklist=false/artwork=small/transparent=true/"
-              seamless></iframe>
-          </div>
-        </div>
+        <div class="pub-year">2003</div>
+        <div class="pub-title">Lili</div>
+        <div class="pub-meta">Electroacoustic &mdash; A portrait of a courtesan; fragmented voice woven against memory and solitude.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2004</div>
+        <div class="pub-title">Le temps fix&eacute;</div>
+        <div class="pub-meta">Electroacoustic &mdash; A singer&rsquo;s voice in cognitive decline, her repetitions notated with ethnographic precision. The reel-to-reel tape machine itself becomes a symbol of frozen time.</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-year">2007&ndash;2008</div>
+        <div class="pub-title">Chorals orn&eacute;s</div>
+        <div class="pub-meta">Mixed &mdash; Organ and stereo fixed medium. Returns to the parallel-discourse approach of <em>Valse</em>, now applied to the organ&rsquo;s liturgical heritage.</div>
       </div>
 
     </div>
 
     <hr class="gold-rule">
 
-    <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Discography</h3>
+    <!-- DISCOGRAPHY -->
+    <h3 class="sub-heading">Discography</h3>
     <div class="pub-list">
 
       <div class="pub-item">
@@ -711,7 +608,7 @@
 
       <div class="pub-item">
         <div class="pub-year">1996</div>
-        <div class="pub-title">Filmusique-Film op&eacute;ra <em>(with Maurice Blackburn)</em></div>
+        <div class="pub-title">Filmusique &mdash; Film op&eacute;ra <em>(with Maurice Blackburn)</em></div>
         <div class="pub-meta">Analekta &mdash; AN 7005/06</div>
       </div>
 
@@ -727,214 +624,164 @@
         <div class="pub-meta">empreintes DIGITALes &mdash; IMED 0156</div>
       </div>
 
-    </div>
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-title">Docu-fictions</div>
+        <div class="pub-meta">empreintes DIGITALes &mdash; <a href="https://www.electrocd.com/en/cat/imed_24173/" target="_blank" style="color:var(--gold);text-decoration:none;">Available at electrocd.com</a></div>
+      </div>
 
-    <div class="tag-list">
-      <span class="tag">Electroacoustic</span>
-      <span class="tag">Mixed Music</span>
-      <span class="tag">Musique Concr&egrave;te</span>
-      <span class="tag">Instrumental</span>
-      <span class="tag">Sound Art</span>
-      <span class="tag">empreintes DIGITALes</span>
     </div>
 
     <hr class="gold-rule">
 
-    <h3 style="color:#fff;font-weight:400;font-size:1.3rem;margin-bottom:24px;">Complete Works Catalogue</h3>
-    <div class="pub-list">
-
-      <div class="pub-item">
-        <div class="pub-year">1976</div>
-        <div class="pub-title">Paris, les Grands-Magasins</div>
-        <div class="pub-meta">Electroacoustic &mdash; Phonography / daily environment sounds.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1979</div>
-        <div class="pub-title">Quatuor</div>
-        <div class="pub-meta">Musique concr&egrave;te.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1981</div>
-        <div class="pub-title">Valse</div>
-        <div class="pub-meta">Flute (and piccolo), Bb and Eb clarinets, alto, tenor and baritone saxophones, trumpet, electronic organ, amplified harpsichord, piano, electronic piano, violin, and tape.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1981 / 2000</div>
-        <div class="pub-title">La gamme</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1982 &ndash; 1995</div>
-        <div class="pub-title">Maurice Blackburn, ou portrait d&rsquo;un m&eacute;connu</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1984</div>
-        <div class="pub-title">Petite musique sentimentale</div>
-        <div class="pub-meta">Piano and tape.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1986</div>
-        <div class="pub-title">Adagio</div>
-        <div class="pub-meta">Flute and tape.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1986</div>
-        <div class="pub-title">Fantaisie</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1986</div>
-        <div class="pub-title">Il &eacute;tait une fois&hellip; <em>(conte sans paroles)</em></div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1988</div>
-        <div class="pub-title">Variations sur un air d&rsquo;accord&eacute;on</div>
-        <div class="pub-meta">Comedian-accordionist and tape.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1989</div>
-        <div class="pub-title">Ouverture</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1989</div>
-        <div class="pub-title">Suite Baroque</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1990</div>
-        <div class="pub-title">Mi b&eacute;mol</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1991</div>
-        <div class="pub-title">L&rsquo;Entrevue</div>
-        <div class="pub-meta">Accordion and tape.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1991</div>
-        <div class="pub-title">Water Music</div>
-        <div class="pub-meta">Stereo support.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1992</div>
-        <div class="pub-title">Joie</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1992</div>
-        <div class="pub-title">R&eacute;sonances</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1994</div>
-        <div class="pub-title">Impromptu</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1995</div>
-        <div class="pub-title">Impromptu <em>[mixte]</em></div>
-        <div class="pub-meta">Piano, synthesizer / sampler, and tape.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">1997 &ndash; 2001</div>
-        <div class="pub-title">Bruits</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2002</div>
-        <div class="pub-title">Objets trouv&eacute;s</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2003</div>
-        <div class="pub-title">Solo</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2004</div>
-        <div class="pub-title">Le temps fix&eacute;</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2005</div>
-        <div class="pub-title">About Time</div>
-        <div class="pub-meta">Electroacoustic.</div>
-      </div>
-
-      <div class="pub-item">
-        <div class="pub-year">2007 &ndash; 2008</div>
-        <div class="pub-title">Chorals orn&eacute;s</div>
-        <div class="pub-meta">Organ and stereo fixed medium.</div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- FONOFONE TEASER -->
-<section id="fonofone">
-  <div class="container">
-    <h2 class="section-title">
-      Fonofone
-      <small>Instrument &nbsp;|&nbsp; Educational Project &nbsp;|&nbsp; Publications</small>
-    </h2>
-
-    <div class="content-body">
-      <p>
-        Fonofone is a sound-creation instrument conceived by Yves Daoust in 2004 to awaken musical creativity in young people. It has become the cornerstone of a sustained pedagogical engagement reaching thousands of students across Qu&eacute;bec and beyond.
-      </p>
-    </div>
-
-    <div class="btn-row">
-      <a href="fonofone.html" class="btn-gold">Discover Fonofone &rarr;</a>
-      <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Fonofone.ca</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- TEACHING TEASER -->
-<section id="teaching">
-  <div class="container">
-    <h2 class="section-title">
-      Teaching
-      <small>Conservatoire &nbsp;|&nbsp; Workshops &nbsp;|&nbsp; Pedagogy</small>
-    </h2>
-
-    <div class="content-body">
-      <p>A central pillar of Daoust&rsquo;s practice is transmission &mdash; the conviction that listening, creativity, and sonic awareness can and must be taught. Over thirty years at the Conservatoire de musique et d&rsquo;art dramatique du Qu&eacute;bec, he shaped generations of electroacoustic composers and built enduring institutional programs.</p>
-    </div>
-
-    <div class="btn-row">
-      <a href="teaching.html" class="btn-gold">Teaching &amp; Testimonials &rarr;</a>
-    </div>
+    <!-- COMPLETE WORKS CATALOGUE -->
+    <h3 class="sub-heading">Complete Works Catalogue</h3>
+    <table class="works-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Title</th>
+          <th>Medium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="yr">1976</td>
+          <td class="title">Paris, les Grands-Magasins</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1979</td>
+          <td class="title">Quatuor</td>
+          <td class="medium">Musique concr&egrave;te</td>
+        </tr>
+        <tr>
+          <td class="yr">1981</td>
+          <td class="title">La gamme</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1981 / 2000</td>
+          <td class="title">Valse</td>
+          <td class="medium">Mixed &mdash; ensemble &amp; tape</td>
+        </tr>
+        <tr>
+          <td class="yr">1982&ndash;1995</td>
+          <td class="title">Maurice Blackburn, ou portrait d&rsquo;un m&eacute;connu</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1984</td>
+          <td class="title">Petite musique sentimentale</td>
+          <td class="medium">Mixed &mdash; piano &amp; tape</td>
+        </tr>
+        <tr>
+          <td class="yr">1986</td>
+          <td class="title">Adagio</td>
+          <td class="medium">Mixed &mdash; flute &amp; tape</td>
+        </tr>
+        <tr>
+          <td class="yr">1986</td>
+          <td class="title">Fantaisie</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1986</td>
+          <td class="title">Il &eacute;tait une fois&hellip; <em>(conte sans paroles)</em></td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1988</td>
+          <td class="title">Variations sur un air d&rsquo;accord&eacute;on</td>
+          <td class="medium">Mixed &mdash; comedian-accordionist &amp; tape</td>
+        </tr>
+        <tr>
+          <td class="yr">1989</td>
+          <td class="title">Ouverture</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1989</td>
+          <td class="title">Suite baroque</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1990</td>
+          <td class="title">Mi b&eacute;mol</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1991</td>
+          <td class="title">L&rsquo;Entrevue</td>
+          <td class="medium">Mixed &mdash; accordion &amp; tape</td>
+        </tr>
+        <tr>
+          <td class="yr">1991</td>
+          <td class="title">Water Music</td>
+          <td class="medium">Electroacoustic &mdash; stereo support</td>
+        </tr>
+        <tr>
+          <td class="yr">1992</td>
+          <td class="title">Joie</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1992</td>
+          <td class="title">R&eacute;sonances</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1994</td>
+          <td class="title">Impromptu</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">1995</td>
+          <td class="title">Les agr&eacute;ments</td>
+          <td class="medium">Mixed &mdash; flute &amp; tape</td>
+        </tr>
+        <tr>
+          <td class="yr">1995</td>
+          <td class="title">Impromptu <em>[mixte]</em></td>
+          <td class="medium">Mixed &mdash; piano, synth/sampler &amp; tape</td>
+        </tr>
+        <tr>
+          <td class="yr">1997&ndash;2001</td>
+          <td class="title">Bruits</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">2002</td>
+          <td class="title">Objets trouv&eacute;s</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">2003</td>
+          <td class="title">Lili</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">2003</td>
+          <td class="title">Solo</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">2004</td>
+          <td class="title">Le temps fix&eacute;</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">2005</td>
+          <td class="title">About Time</td>
+          <td class="medium">Electroacoustic</td>
+        </tr>
+        <tr>
+          <td class="yr">2007&ndash;2008</td>
+          <td class="title">Chorals orn&eacute;s</td>
+          <td class="medium">Mixed &mdash; organ &amp; stereo fixed medium</td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 </section>
@@ -955,10 +802,10 @@
         <div class="analyse-period-title">The Founding Rupture</div>
       </div>
       <div class="analyse-period-body">
-        Daoust describes his beginnings as a moment of radical negation &mdash; he was searching for what he did <em>not</em> want to do, rather than what he wished to build. The revelation came from a piece by Luc Ferrari, described as a lightning bolt that finally gave him a direction. His first recognized electroacoustic work, <em>Paris, les grands magasins</em> (1975), is raw and frontal: a sonic walk through Parisian department stores, with no aesthetic layering, no transformation. He calls it &ldquo;very clumsy&rdquo; himself, yet already recognizes in it the first seeds of his future language.
+        Daoust describes his beginnings as a moment of radical negation &mdash; he was searching for what he did <em>not</em> want to do, rather than what he wished to build. The revelation came from a piece by Luc Ferrari, described as a lightning bolt that finally gave him a direction. His first recognized electroacoustic work, <em>Paris, les grands magasins</em> (1976), is raw and frontal: a sonic walk through Parisian department stores, with no aesthetic layering, no transformation. He calls it &ldquo;very clumsy&rdquo; himself, yet already recognizes in it the first seeds of his future language.
       </div>
       <div class="analyse-works">
-        <span class="analyse-work-tag">Paris, les grands magasins (1975)</span>
+        <span class="analyse-work-tag">Paris, les grands magasins (1976)</span>
         <span class="analyse-work-tag">Influence: Luc Ferrari</span>
         <span class="analyse-work-tag">Radical musique concr&egrave;te</span>
         <span class="analyse-work-tag">Single-layer soundscape</span>
@@ -971,10 +818,10 @@
         <div class="analyse-period-title">Inventing an Impossible Genre: Mixed Music</div>
       </div>
       <div class="analyse-period-body">
-        This is where Daoust forges his most original compositional identity. He theorizes mixed music not as the integration of an instrument and a tape, but as the deliberately separate coexistence of two media with different temporalities. Unlike most composers of the era &mdash; where the tape dictates or supports the performer &mdash; Daoust gives each medium its own autonomous discourse. The interview with the performer becomes the raw material of the tape: a musical paradox staged in <em>L&rsquo;entrevue</em> (c.&nbsp;1982), where an accordionist&rsquo;s theoretical thoughts on Bach cross an instrumental writing drawn from the English Suites.
+        This is where Daoust forges his most original compositional identity. He theorizes mixed music not as the integration of an instrument and a tape, but as the deliberately separate coexistence of two media with different temporalities. Unlike most composers of the era &mdash; where the tape dictates or supports the performer &mdash; Daoust gives each medium its own autonomous discourse. The interview with the performer becomes the raw material of the tape: a musical paradox staged in <em>L&rsquo;entrevue</em>, where an accordionist&rsquo;s theoretical thoughts on Bach cross an instrumental writing drawn from the English Suites.
       </div>
       <div class="analyse-works">
-        <span class="analyse-work-tag">L&rsquo;entrevue (c. 1982)</span>
+        <span class="analyse-work-tag">L&rsquo;entrevue (1991)</span>
         <span class="analyse-work-tag">Tape + live performer</span>
         <span class="analyse-work-tag">Two parallel media</span>
         <span class="analyse-work-tag">Accordion &middot; Bach transformed</span>
@@ -988,13 +835,12 @@
         <div class="analyse-period-title">Maturity: Instrumental Theatre &amp; Portrait</div>
       </div>
       <div class="analyse-period-body">
-        This period sees the full flowering of his aesthetic of layered meaning. Daoust works systematically through stratification &mdash; a surface narrative, a deeper hidden subject beneath. In <em>Les agr&eacute;ments</em>, he juxtaposes Couperin extracts with a flutist in existential crisis, superimposing an 18th-century ornamentation treatise onto the absurdity of a virtual piano with no pianist. Humour is fully embraced. The <em>Bruit</em> trilogy (Children&rsquo;s Corner / Nuit / F&ecirc;te) marks a turn toward urban sonic fragmentation, exploring a technique of sampling and reconstruction of environmental sounds &mdash; air conditioners, street noise &mdash; with near-scientific analytical precision.
+        This period sees the full flowering of his aesthetic of layered meaning. Daoust works systematically through stratification &mdash; a surface narrative, a deeper hidden subject beneath. In <em>Les agr&eacute;ments</em>, he juxtaposes Couperin extracts with a flutist in existential crisis, superimposing an 18th-century ornamentation treatise onto the absurdity of a virtual piano with no pianist. Humour is fully embraced. The <em>Bruits</em> trilogy (<em>Children&rsquo;s Corner</em> / <em>Nuit</em> / <em>F&ecirc;te</em>) marks a turn toward urban sonic fragmentation, exploring a technique of sampling and reconstruction of environmental sounds with near-scientific analytical precision.
       </div>
       <div class="analyse-works">
         <span class="analyse-work-tag">Les agr&eacute;ments &middot; Couperin &middot; irony</span>
-        <span class="analyse-work-tag">Bruit (trilogy)</span>
+        <span class="analyse-work-tag">Bruits (trilogy)</span>
         <span class="analyse-work-tag">Urban sounds &middot; fragmentation</span>
-        <span class="analyse-work-tag">Multiple layers</span>
         <span class="analyse-work-tag">Extra-musical concepts</span>
         <span class="analyse-work-tag">Humour</span>
       </div>
@@ -1006,11 +852,11 @@
         <div class="analyse-period-title">Intimate Portrait &amp; Memory</div>
       </div>
       <div class="analyse-period-body">
-        The most recent works reveal a deepening of the gesture: Daoust draws close to vulnerable human subjects &mdash; a courtesan (<em>Lili</em>), a singer in cognitive decline (<em>Temps fix&eacute;</em>) &mdash; and weaves their fragmented, repetitive, lacunary voices against their glorious past. The repetition of phrases uttered by a singer with dementia is not an editing flaw but a precise notation of memorial degradation. The reel-to-reel tape machine in <em>Temps fix&eacute;</em> itself becomes symbol: an archaic tool, it embodies the very idea of frozen time that the piece interrogates.
+        The most recent works reveal a deepening of the gesture: Daoust draws close to vulnerable human subjects &mdash; a courtesan (<em>Lili</em>), a singer in cognitive decline (<em>Le temps fix&eacute;</em>) &mdash; and weaves their fragmented, repetitive voices against their glorious past. The repetition of phrases uttered by a singer with dementia is not an editing flaw but a precise notation of memorial degradation. The reel-to-reel tape machine in <em>Le temps fix&eacute;</em> itself becomes symbol: an archaic tool, it embodies the very idea of frozen time that the piece interrogates.
       </div>
       <div class="analyse-works">
         <span class="analyse-work-tag">Lili &mdash; courtesan &middot; solitude</span>
-        <span class="analyse-work-tag">Temps fix&eacute; &mdash; decline &middot; memory</span>
+        <span class="analyse-work-tag">Le temps fix&eacute; &mdash; decline &middot; memory</span>
         <span class="analyse-work-tag">Reel-to-reel tape machine</span>
         <span class="analyse-work-tag">Mozart &middot; degradation</span>
         <span class="analyse-work-tag">Life narrative</span>
@@ -1022,15 +868,15 @@
       <div class="traits-grid-inner">
         <div class="trait-item">
           <h4>Layering as formal signature</h4>
-          <p>The absolute formal signature of Daoust. Every piece operates on at least two simultaneous levels: the apparent (the surface narrative) and the deep (the true philosophical or emotional subject).</p>
+          <p>Every piece operates on at least two simultaneous levels: the apparent (the surface narrative) and the deep (the true philosophical or emotional subject).</p>
         </div>
         <div class="trait-item">
           <h4>Rooted in classical music</h4>
-          <p>Bach, Couperin, Mozart, Debussy &mdash; not as cultivated references, but as organic continuation. Daoust claims a continuum, refusing the radical breaks valorized by the contemporary scene. His persistent tonality is its most audible trace.</p>
+          <p>Bach, Couperin, Mozart, Debussy &mdash; not as cultivated references, but as organic continuation. Daoust claims a continuum, refusing the radical breaks valorized by the contemporary scene.</p>
         </div>
         <div class="trait-item">
           <h4>The interview as material</h4>
-          <p>A methodological constant: he records, lets the subject speak, then edits with a discretion close to an ethnographer&rsquo;s. The other&rsquo;s voice becomes musical notation.</p>
+          <p>A methodological constant: he records, lets the subject speak, then edits with the discretion of an ethnographer. The other&rsquo;s voice becomes musical notation.</p>
         </div>
         <div class="trait-item">
           <h4>Playing with time</h4>
@@ -1042,42 +888,31 @@
   </div>
 </section>
 
-<!-- BIOGRAPHY TEASER -->
-<section id="bio">
-  <div class="container">
-    <h2 class="section-title">
-      Biography
-      <small>Composer &nbsp;|&nbsp; Pioneer &nbsp;|&nbsp; Institution Builder</small>
-    </h2>
-    <div class="content-body">
-      <p>Born in Longueuil, Qu&eacute;bec, Yves Daoust is one of the most distinctive and influential voices in contemporary electroacoustic music &mdash; trained at the NFB, at the GMEB in Bourges, and at the Conservatoire de musique de Qu&eacute;bec, where he spent thirty years building the electroacoustic programs. Recipient of the Prix Serge-Garant (2009).</p>
-    </div>
-
-    <div style="margin-top:28px;">
-      <p style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">First Electroacoustic Composition</p>
-      <div data-sc-pid="paris" data-sc-slug="paris-les-grands-magasins" style="border-left:2px solid var(--gold);padding-left:16px;">
-        <div style="font-size:1rem;color:#fff;font-weight:400;margin-bottom:3px;">Paris, les Grands-Magasins <span style="color:var(--text-dim);font-size:0.8rem;font-weight:normal;">&nbsp;&mdash;&nbsp;1976</span></div>
-        <div style="font-size:0.82rem;color:var(--text-dim);margin-bottom:0;">Electroacoustic &mdash; Phonography / daily environment sounds. Exploring nature through captured urban soundscapes.</div>
-      </div>
-    </div>
-
-    <div class="btn-row">
-      <a href="biography.html" class="btn-gold">Full Biography &rarr;</a>
-    </div>
-
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <h2 class="section-title">Contact</h2>
-    <div class="content-body">
-      <p>For inquiries regarding scores, commissions, Fonofone, teaching, or collaborations:</p>
-    </div>
-    <div class="btn-row">
-      <a href="mailto:yvdt@videotron.ca" class="btn-gold">Send Email</a>
-      <a href="https://fonofone.ca/" target="_blank" class="btn-gold">Fonofone.ca</a>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <h4>General &amp; Management</h4>
+        <p>Inquiries about the composer, interviews, or collaborations.</p>
+        <a href="mailto:yvdt@videotron.ca">yvdt@videotron.ca</a>
+      </div>
+      <div class="contact-item">
+        <h4>Scores &amp; Commissions</h4>
+        <p>For score requests or new commissions.</p>
+        <a href="mailto:yvdt@videotron.ca">yvdt@videotron.ca</a>
+      </div>
+      <div class="contact-item">
+        <h4>Recordings &amp; Distribution</h4>
+        <p>Albums available through empreintes DIGITALes.</p>
+        <a href="https://www.electrocd.com/en/bio/daoust_yv/" target="_blank">electrocd.com</a>
+      </div>
+      <div class="contact-item">
+        <h4>Fonofone</h4>
+        <p>Pedagogical instrument, workshops, and educational projects.</p>
+        <a href="https://fonofone.ca/" target="_blank">fonofone.ca</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1100,122 +935,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-</script>
-
-<script src="https://w.soundcloud.com/player/api.js"></script>
-<!-- ── Shared SoundCloud player factory for Key Works ──────────── -->
-<script>
-(function(){
-  /* One set of document-level drag listeners shared by all players */
-  var _SC_DRAG = null;
-  document.addEventListener('mousemove', function(e){ if(_SC_DRAG) _SC_DRAG(e.clientX); });
-  document.addEventListener('mouseup',   function(){  _SC_DRAG = null; });
-  document.addEventListener('touchmove', function(e){ if(_SC_DRAG){ _SC_DRAG(e.changedTouches[0].clientX); e.preventDefault(); } },{passive:false});
-  document.addEventListener('touchend',  function(){  _SC_DRAG = null; });
-
-  function SCPlayer(pid, slug){
-    /* Build player HTML and inject into the pub-item */
-    var item = document.querySelector('[data-sc-pid="'+pid+'"]');
-    if(!item) return;
-    var wrap = document.createElement('div');
-    wrap.style.marginTop = '14px';
-    wrap.innerHTML =
-      '<iframe id="sc-iframe-'+pid+'" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/frank-aubin/'+slug+'&auto_play=false&hide_related=true&show_comments=false&show_user=false" style="position:absolute;left:-9999px;width:1px;height:1px;border:none;"></iframe>'+
-      '<div style="background:#080808;border:1px solid #1e1e1e;border-radius:3px;padding:12px 14px 10px;">'+
-        '<div id="sc-wf-'+pid+'" style="display:flex;align-items:center;gap:1.5px;height:36px;margin-bottom:10px;cursor:pointer;"></div>'+
-        '<div style="display:flex;align-items:center;gap:10px;">'+
-          '<button id="sc-btn-'+pid+'" aria-label="Play" style="width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);color:#000;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s;">'+
-            '<svg id="sc-ico-play-'+pid+'" viewBox="0 0 10 12" width="10" height="12" style="margin-left:2px;"><polygon points="0,0 10,6 0,12" fill="currentColor"/></svg>'+
-            '<svg id="sc-ico-pause-'+pid+'" viewBox="0 0 11 12" width="10" height="12" style="display:none;"><rect x="0" y="0" width="3.5" height="12" rx="0.5" fill="currentColor"/><rect x="7.5" y="0" width="3.5" height="12" rx="0.5" fill="currentColor"/></svg>'+
-          '</button>'+
-          '<span id="sc-cur-'+pid+'" style="color:#888;font-size:0.7rem;width:28px;flex-shrink:0;font-variant-numeric:tabular-nums;">0:00</span>'+
-          '<div id="sc-wrap-'+pid+'" style="flex:1;padding:10px 0;margin:-10px 0;cursor:pointer;touch-action:none;">'+
-            '<div id="sc-track-'+pid+'" style="height:3px;background:#252525;border-radius:2px;position:relative;pointer-events:none;">'+
-              '<div id="sc-fill-'+pid+'" style="height:100%;width:0%;background:var(--gold);border-radius:2px;position:relative;">'+
-                '<div style="position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 4px rgba(197,160,89,.4);"></div>'+
-              '</div>'+
-            '</div>'+
-          '</div>'+
-          '<span id="sc-dur-'+pid+'" style="color:#444;font-size:0.7rem;width:28px;flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;">—:—</span>'+
-        '</div>'+
-      '</div>';
-    item.appendChild(wrap);
-
-    /* Seeded waveform bars */
-    var wfEl = document.getElementById('sc-wf-'+pid);
-    var s = pid.split('').reduce(function(a,c){ return (a*31+c.charCodeAt(0))&0xffffffff; }, 0x9e3779b9)>>>0;
-    function rnd(){ s=(s*1664525+1013904223)&0xffffffff; return (s>>>0)/4294967296; }
-    var bars='';
-    for(var i=0;i<180;i++){
-      var h=Math.round(6+rnd()*30);
-      bars+='<div class="sc-bar sc-bar-'+pid+'" style="flex:1;min-width:0;height:'+h+'px;background:#2a2a2a;border-radius:1px;"></div>';
-    }
-    wfEl.innerHTML=bars;
-
-    /* SC Widget */
-    var widget=null, dur=0, playing=false;
-
-    function init(){
-      if(!window.SC) return;
-      var iframe=document.getElementById('sc-iframe-'+pid);
-      if(!iframe) return;
-      widget=SC.Widget(iframe);
-      widget.bind(SC.Widget.Events.READY,function(){
-        widget.getDuration(function(d){
-          dur=d;
-          var sec=Math.floor(d/1000);
-          var el=document.getElementById('sc-dur-'+pid);
-          if(el) el.textContent=Math.floor(sec/60)+':'+(('0'+sec%60).slice(-2));
-        });
-      });
-      widget.bind(SC.Widget.Events.PLAY,function(){ playing=true; document.getElementById('sc-ico-play-'+pid).style.display='none'; document.getElementById('sc-ico-pause-'+pid).style.display=''; });
-      widget.bind(SC.Widget.Events.PAUSE,function(){ playing=false; document.getElementById('sc-ico-play-'+pid).style.display=''; document.getElementById('sc-ico-pause-'+pid).style.display='none'; });
-      widget.bind(SC.Widget.Events.FINISH,function(){ playing=false; document.getElementById('sc-ico-play-'+pid).style.display=''; document.getElementById('sc-ico-pause-'+pid).style.display='none'; update(0); });
-      widget.bind(SC.Widget.Events.PLAY_PROGRESS,function(e){ if(_SC_DRAG!==doSeek) update(e.currentPosition); });
-    }
-
-    function update(pos){
-      var pct=dur>0?pos/dur:0;
-      document.getElementById('sc-fill-'+pid).style.width=(pct*100)+'%';
-      var sec=Math.floor(pos/1000);
-      document.getElementById('sc-cur-'+pid).textContent=Math.floor(sec/60)+':'+(('0'+sec%60).slice(-2));
-      var bs=document.querySelectorAll('.sc-bar-'+pid);
-      var active=Math.floor(pct*bs.length);
-      bs.forEach(function(b,i){ b.style.background=i<active?'#C5A059':'#2a2a2a'; });
-    }
-
-    function doSeek(cx){
-      var r=document.getElementById('sc-track-'+pid).getBoundingClientRect();
-      var pct=Math.max(0,Math.min(1,(cx-r.left)/r.width));
-      update(pct*dur);
-      if(widget) widget.seekTo(pct*dur);
-    }
-
-    /* Drag */
-    var sliderWrap=document.getElementById('sc-wrap-'+pid);
-    sliderWrap.addEventListener('mousedown',function(e){ _SC_DRAG=doSeek; doSeek(e.clientX); e.preventDefault(); });
-    sliderWrap.addEventListener('touchstart',function(e){ _SC_DRAG=doSeek; doSeek(e.touches[0].clientX); e.preventDefault(); },{passive:false});
-
-    /* Click waveform to seek */
-    wfEl.addEventListener('click',function(e){ if(widget) doSeek(e.clientX); });
-
-    /* Play/pause button */
-    document.getElementById('sc-btn-'+pid).addEventListener('click',function(){
-      if(!widget){ init(); setTimeout(function(){ widget&&widget.play(); },400); return; }
-      playing?widget.pause():widget.play();
-    });
-
-    if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',init); } else { init(); }
-  }
-
-  /* Auto-init all tagged pub-items */
-  function initAll(){
-    document.querySelectorAll('[data-sc-pid]').forEach(function(el){
-      SCPlayer(el.getAttribute('data-sc-pid'), el.getAttribute('data-sc-slug'));
-    });
-  }
-  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',initAll); } else { initAll(); }
-})();
 </script>
 </body>
 </html>
