@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伊夫·道斯特 | 作曲家与发明家</title>
+  <style>
+    :root { --bg:#0a0a0a; --card:#141414; --gold:#C5A059; --gold-light:#d4b47a; --text:#ffffff; --text-dim:#999; --border:#222; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.8; scroll-behavior:smooth; }
+    nav { position:fixed; width:100%; top:0; padding:18px 5%; display:flex; justify-content:space-between; align-items:center; background:rgba(10,10,10,0.97); z-index:100; border-bottom:1px solid var(--border); }
+    nav .brand { font-weight:700; letter-spacing:4px; color:var(--gold); text-decoration:none; font-size:0.9rem; }
+    nav .links { display:flex; flex-wrap:wrap; gap:4px 0; }
+    nav .links a { color:var(--text); text-decoration:none; font-size:10px; text-transform:uppercase; margin-left:22px; letter-spacing:1.5px; transition:color 0.25s; }
+    nav .links a:hover { color:var(--gold); }
+    nav .lang-switch { margin-left:28px; font-size:10px; letter-spacing:1.5px; color:#555; text-decoration:none; text-transform:uppercase; border-left:1px solid #333; padding-left:20px; }
+    nav .lang-switch:hover { color:var(--gold); }
+    header { height:90vh; display:flex; align-items:center; justify-content:center; text-align:center; background:linear-gradient(to right,rgba(0,0,0,0.92) 40%,rgba(0,0,0,0.25) 100%),url('https://i.postimg.cc/J0SJ5njV/Screenshot-2026-04-09-at-7-28-48-AM.png'); background-size:cover; background-position:center 20%; }
+    header.short { height:50vh; }
+    header h1 { font-size:4.5rem; font-weight:200; margin-bottom:12px; letter-spacing:3px; }
+    header h1 span { color:var(--gold); font-style:italic; }
+    header .sub-brand { letter-spacing:8px; color:#aaa; text-transform:uppercase; font-size:0.75rem; margin-bottom:30px; }
+    .header-tags { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .header-tags span { color:#666; font-size:9px; letter-spacing:2px; text-transform:uppercase; }
+    .container { max-width:920px; margin:0 auto; padding:90px 20px; }
+    section { border-bottom:1px solid #181818; }
+    .breadcrumb { max-width:920px; margin:0 auto; padding:28px 20px 0; }
+    .breadcrumb a { color:var(--gold); text-decoration:none; font-size:0.8rem; letter-spacing:1.5px; text-transform:uppercase; }
+    .section-title { color:var(--gold); text-transform:uppercase; letter-spacing:5px; margin-bottom:50px; font-size:1.6rem; font-weight:300; border-bottom:1px solid #222; padding-bottom:14px; }
+    .section-title small { display:block; font-size:0.6rem; color:#555; letter-spacing:3px; margin-top:4px; }
+    .content-body { font-size:1.05rem; color:#ccc; }
+    .content-body p { margin-bottom:22px; }
+    .content-body h3 { color:#fff; margin:40px 0 16px; font-weight:400; font-size:1.3rem; }
+    .pub-list { display:flex; flex-direction:column; gap:20px; }
+    .pub-item { background:var(--card); border:1px solid var(--border); border-left:3px solid var(--gold); padding:20px 24px; }
+    .pub-item .pub-title { color:#fff; font-size:1rem; margin-bottom:4px; }
+    .pub-item .pub-meta { color:var(--text-dim); font-size:0.82rem; font-style:italic; }
+    .pub-item .pub-year { color:var(--gold); font-size:0.75rem; font-weight:bold; letter-spacing:2px; margin-bottom:6px; }
+    .media-card { background:var(--card); border-radius:4px; overflow:hidden; border:1px solid var(--border); padding:28px; margin-bottom:35px; }
+    .card-info h4 { color:var(--gold); margin-bottom:8px; font-weight:400; font-size:1.15rem; }
+    .card-info p { color:var(--text-dim); font-size:0.9rem; font-style:italic; }
+    .video-container { position:relative; width:100%; padding-bottom:56.25%; height:0; background:#000; margin-top:18px; }
+    .video-container iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+    .works-table { width:100%; border-collapse:collapse; font-size:0.88rem; margin-top:8px; }
+    .works-table thead th { text-align:left; padding:10px 14px; font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); border-bottom:1px solid #2a2a2a; font-weight:400; }
+    .works-table tbody tr { border-bottom:1px solid #1a1a1a; transition:background 0.2s; }
+    .works-table tbody tr:hover { background:#111; }
+    .works-table tbody td { padding:10px 14px; vertical-align:top; }
+    .works-table td.yr { color:var(--gold); white-space:nowrap; font-size:0.78rem; letter-spacing:1px; width:110px; }
+    .works-table td.title { color:#e0e0e0; }
+    .works-table td.medium { color:#666; font-style:italic; font-size:0.82rem; }
+    .sub-heading { color:#fff; font-weight:400; font-size:1.15rem; margin:50px 0 22px; padding-bottom:10px; border-bottom:1px solid #1e1e1e; }
+    .analyse-intro { color:#777; font-size:0.95rem; margin-bottom:40px; }
+    .analyse-period { margin-bottom:28px; border:1px solid var(--border); background:var(--card); overflow:hidden; }
+    .analyse-period-header { padding:16px 28px; display:flex; align-items:center; gap:20px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .analyse-era-tag { display:inline-block; padding:5px 14px; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; font-weight:bold; white-space:nowrap; }
+    .analyse-period-title { color:#fff; font-weight:400; font-size:1rem; }
+    .analyse-period-body { padding:22px 28px 16px; color:#888; font-size:0.88rem; line-height:1.85; }
+    .analyse-period-body em { color:#aaa; font-style:italic; }
+    .analyse-works { padding:0 28px 20px; display:flex; gap:8px; flex-wrap:wrap; }
+    .analyse-work-tag { color:#555; font-size:0.78rem; font-style:italic; }
+    .analyse-work-tag+.analyse-work-tag::before { content:' · '; color:#333; }
+    .traits-block { background:#0d0d0d; border:1px solid var(--border); border-top:2px solid var(--gold); padding:36px 34px; margin-top:40px; }
+    .traits-block h3 { color:var(--gold); font-weight:300; font-size:0.9rem; letter-spacing:4px; text-transform:uppercase; margin-bottom:28px; }
+    .traits-grid-inner { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+    .trait-item { border-left:2px solid var(--gold); padding-left:16px; }
+    .trait-item h4 { color:#ccc; font-weight:400; font-size:0.88rem; margin-bottom:6px; }
+    .trait-item p { color:#666; font-size:0.82rem; line-height:1.75; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:30px; }
+    .contact-item { background:var(--card); border:1px solid var(--border); border-top:2px solid var(--gold); padding:22px 24px; }
+    .contact-item h4 { color:var(--gold); font-weight:400; font-size:0.75rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px; }
+    .contact-item p { color:#777; font-size:0.88rem; margin-bottom:10px; }
+    .contact-item a { color:#ccc; font-size:0.85rem; text-decoration:none; transition:color .2s; }
+    .contact-item a:hover { color:var(--gold); }
+    .btn-gold { display:inline-block; padding:11px 28px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; font-weight:bold; margin-top:12px; text-transform:uppercase; letter-spacing:2px; transition:0.25s; font-size:0.78rem; }
+    .btn-gold:hover { background:var(--gold); color:#000; }
+    .gold-rule { border:none; border-top:1px solid #222; margin:50px 0; }
+    blockquote { border-left:3px solid var(--gold); padding:14px 24px; margin:30px 0; background:#111; color:#aaa; font-style:italic; font-size:1.05rem; }
+    footer { text-align:center; padding:60px 20px; font-size:10px; color:#333; letter-spacing:2px; text-transform:uppercase; }
+    .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:10px 8px; flex-direction:column; gap:6px; min-width:44px; min-height:44px; justify-content:center; align-items:center; }
+    .nav-toggle span { display:block; width:24px; height:2px; background:var(--gold); transition:transform 0.3s,opacity 0.3s; transform-origin:center; }
+    .nav-toggle.active span:nth-child(1) { transform:translateY(8px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .nav-toggle.active span:nth-child(3) { transform:translateY(-8px) rotate(-45deg); }
+    @media (max-width:768px) {
+      nav { flex-wrap:wrap; }
+      .nav-toggle { display:flex; }
+      nav .links { display:none; width:100%; flex-direction:column; padding:6px 0 12px; margin-top:8px; border-top:1px solid var(--border); }
+      nav .links.open { display:flex; }
+      nav .links a { margin-left:0; padding:13px 4px; font-size:11px; border-bottom:1px solid #1a1a1a; letter-spacing:2px; }
+      nav .lang-switch { border-left:none; padding-left:0; margin-top:2px; }
+      header h1 { font-size:2.5rem; letter-spacing:1px; }
+      .container { padding:50px 18px; }
+      .section-title { font-size:1.2rem; letter-spacing:3px; margin-bottom:30px; }
+      .works-table td.medium { display:none; }
+      .works-table td.yr { width:80px; }
+      .traits-grid-inner { grid-template-columns:1fr; }
+      .contact-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="brand">YVES DAOUST</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="切换菜单" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="links" id="nav-links">
+    <a href="#music">音乐</a>
+    <a href="fonofone.zh.html">Fonofone</a>
+    <a href="teaching.zh.html">教学</a>
+    <a href="#analyse">分析</a>
+    <a href="biography.zh.html">传记</a>
+    <a href="#contact">联系</a>
+    <a href="index.html" class="lang-switch">EN</a>
+    <a href="index.fr.html" class="lang-switch" style="border-left:none;padding-left:8px;">FR</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <div class="content">
+    <h1>Yves <span>Daoust</span></h1>
+    <div class="sub-brand">声音的艺术</div>
+    <div class="header-tags">
+      <span>电子声学作曲家</span>
+      &nbsp;&middot;&nbsp;
+      <span>发明家</span>
+      &nbsp;&middot;&nbsp;
+      <span>教育家</span>
+      &nbsp;&middot;&nbsp;
+      <span>魁北克</span>
+    </div>
+  </div>
+</header>
+
+<!-- 音乐 -->
+<section id="music">
+  <div class="container">
+    <h2 class="section-title">
+      音乐
+      <small>电子声学 &nbsp;|&nbsp; 混合 &nbsp;|&nbsp; 器乐</small>
+    </h2>
+
+    <div class="content-body">
+      <p>伊夫·道斯特的创作跨越五十余年，涵盖电子声学、混合与器乐作曲——每部作品皆将聆听本身化为一种戏剧性行为。他的音乐已在世界各地演出与广播，并通过 empreintes DIGITALes 厂牌发行。</p>
+    </div>
+
+    <!-- BANDCAMP -->
+    <div class="media-card">
+      <div class="card-info">
+        <h4>最新专辑 &mdash; <em>Docu-fictions</em></h4>
+        <p>由 empreintes DIGITALes 发行。可在下方在线试听或购买。</p>
+      </div>
+      <div style="margin-top:20px;">
+        <iframe style="border:0;width:100%;height:120px;"
+          src="https://bandcamp.com/EmbeddedPlayer/album=1461539059/size=large/bgcol=1a1a1a/linkcol=C5A059/tracklist=false/artwork=small/transparent=true/"
+          seamless></iframe>
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 class="sub-heading">代表作品</h3>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-year">1976</div>
+        <div class="pub-title">Paris, les Grands-Magasins</div>
+        <div class="pub-meta">电子声学 &mdash; 他的首部重要作品：漫步于巴黎百货公司的声景，将日常城市声音作为原始创作素材。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1979</div>
+        <div class="pub-title">Quatuor</div>
+        <div class="pub-meta">具体音乐 &mdash; 他首部完整的"具体"作品，以文化声源重新审视音乐遗产。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1981</div>
+        <div class="pub-title">Valse</div>
+        <div class="pub-meta">混合 &mdash; 乐团与磁带。其平行话语方法的奠基之作：自然与文化作为自主层次共存，互不从属。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1984</div>
+        <div class="pub-title">Petite musique sentimentale</div>
+        <div class="pub-meta">混合 &mdash; 钢琴与磁带。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1986</div>
+        <div class="pub-title">Adagio</div>
+        <div class="pub-meta">混合 &mdash; 长笛与磁带。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1991</div>
+        <div class="pub-title">L&rsquo;Entrevue</div>
+        <div class="pub-meta">混合 &mdash; 手风琴与磁带。手风琴家对巴赫的口头思考与英国组曲器乐写作交织并置。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1991</div>
+        <div class="pub-title">Water Music</div>
+        <div class="pub-meta">电子声学 &mdash; 立体声支持。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1997&ndash;2001</div>
+        <div class="pub-title">Bruits</div>
+        <div class="pub-meta">电子声学 &mdash; 探索城市声音碎片化的三部曲：<em>Children&rsquo;s Corner</em>、<em>Nuit</em> 与 <em>Fête</em>。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2003</div>
+        <div class="pub-title">Lili</div>
+        <div class="pub-meta">电子声学 &mdash; 一位名妓的肖像；破碎的声音与记忆和孤独交织。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2004</div>
+        <div class="pub-title">Le temps fixé</div>
+        <div class="pub-meta">电子声学 &mdash; 一位认知衰退歌手的声音，其重复被以民族志精度记录。磁带录音机本身成为凝固时间的象征。</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2007&ndash;2008</div>
+        <div class="pub-title">Chorals ornés</div>
+        <div class="pub-meta">混合 &mdash; 管风琴与立体声固定媒介。回归 <em>Valse</em> 的平行话语方法，应用于管风琴的礼仪传统。</div>
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 class="sub-heading">唱片目录</h3>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-year">1991</div>
+        <div class="pub-title">Anecdotes</div>
+        <div class="pub-meta">empreintes DIGITALes &mdash; IMED 9106</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1996</div>
+        <div class="pub-title">Filmusique &mdash; Film opéra <em>（与 Maurice Blackburn 合作）</em></div>
+        <div class="pub-meta">Analekta &mdash; AN 7005/06</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">1998</div>
+        <div class="pub-title">Musiques naïves</div>
+        <div class="pub-meta">empreintes DIGITALes &mdash; IMED 9843</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2001</div>
+        <div class="pub-title">Bruits</div>
+        <div class="pub-meta">empreintes DIGITALes &mdash; IMED 0156</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2024</div>
+        <div class="pub-title">Docu-fictions</div>
+        <div class="pub-meta">empreintes DIGITALes &mdash; <a href="https://www.electrocd.com/en/cat/imed_24173/" target="_blank" style="color:var(--gold);text-decoration:none;">在 electrocd.com 购买</a></div>
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <h3 class="sub-heading">完整作品目录</h3>
+    <table class="works-table">
+      <thead><tr><th>年份</th><th>作品</th><th>形式</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">1976</td><td class="title">Paris, les Grands-Magasins</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1979</td><td class="title">Quatuor</td><td class="medium">具体音乐</td></tr>
+        <tr><td class="yr">1981</td><td class="title">La gamme</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1981 / 2000</td><td class="title">Valse</td><td class="medium">混合 &mdash; 乐团与磁带</td></tr>
+        <tr><td class="yr">1982&ndash;1995</td><td class="title">Maurice Blackburn, ou portrait d&rsquo;un méconnu</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1984</td><td class="title">Petite musique sentimentale</td><td class="medium">混合 &mdash; 钢琴与磁带</td></tr>
+        <tr><td class="yr">1986</td><td class="title">Adagio</td><td class="medium">混合 &mdash; 长笛与磁带</td></tr>
+        <tr><td class="yr">1986</td><td class="title">Fantaisie</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1986</td><td class="title">Il était une fois… <em>(conte sans paroles)</em></td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1988</td><td class="title">Variations sur un air d&rsquo;accordéon</td><td class="medium">混合 &mdash; 喜剧手风琴家与磁带</td></tr>
+        <tr><td class="yr">1989</td><td class="title">Ouverture</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1989</td><td class="title">Suite baroque</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1990</td><td class="title">Mi bémol</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1991</td><td class="title">L&rsquo;Entrevue</td><td class="medium">混合 &mdash; 手风琴与磁带</td></tr>
+        <tr><td class="yr">1991</td><td class="title">Water Music</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1992</td><td class="title">Joie</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1992</td><td class="title">Résonances</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1994</td><td class="title">Impromptu</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">1995</td><td class="title">Les agréments</td><td class="medium">混合 &mdash; 长笛与磁带</td></tr>
+        <tr><td class="yr">1995</td><td class="title">Impromptu <em>[mixte]</em></td><td class="medium">混合 &mdash; 钢琴、合成器与磁带</td></tr>
+        <tr><td class="yr">1997&ndash;2001</td><td class="title">Bruits</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">2002</td><td class="title">Objets trouvés</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">2003</td><td class="title">Lili</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">2003</td><td class="title">Solo</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">2004</td><td class="title">Le temps fixé</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">2005</td><td class="title">About Time</td><td class="medium">电子声学</td></tr>
+        <tr><td class="yr">2007&ndash;2008</td><td class="title">Chorals ornés</td><td class="medium">混合 &mdash; 管风琴与立体声固定媒介</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 分析 -->
+<section id="analyse">
+  <div class="container">
+    <h2 class="section-title">分析<small>演变 &nbsp;|&nbsp; 美学 &nbsp;|&nbsp; 音乐语言</small></h2>
+    <p class="analyse-intro">对伊夫·道斯特音乐演变的深度研究——从1975年的激进起点，到一种新体裁的发明，美学的全面绽放，以及晚期对私密记忆的沉浸。</p>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#4a1a1a;color:#e8a090;">1975 — 起源</span>
+        <div class="analyse-period-title">奠基性断裂</div>
+      </div>
+      <div class="analyse-period-body">道斯特将自己的起点描述为一种彻底否定的时刻——他在寻找自己<em>不</em>想做的事，而非渴望构建的目标。启示来自吕克·法拉利的一部作品，犹如闪电，终于给了他一个方向。他首部公认的电子声学作品 <em>Paris, les grands magasins</em>（1976）原始而直接：在没有任何美学层次或变换的情况下，漫步于巴黎百货公司。</div>
+      <div class="analyse-works"><span class="analyse-work-tag">Paris, les grands magasins (1976)</span><span class="analyse-work-tag">影响：吕克·法拉利</span><span class="analyse-work-tag">激进具体音乐</span></div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#3a2800;color:#c8900a;">1970年代末—80年代</span>
+        <div class="analyse-period-title">发明一种不可能的体裁：混合音乐</div>
+      </div>
+      <div class="analyse-period-body">道斯特在此锻造了其最具原创性的作曲身份。他将混合音乐理论化——不是乐器与磁带的融合，而是两种具有不同时间性的媒介刻意分离的共存。在 <em>L'entrevue</em> 中，手风琴家对巴赫的口头思考与英国组曲器乐写作交织，形成音乐悖论。</div>
+      <div class="analyse-works"><span class="analyse-work-tag">L'Entrevue (1991)</span><span class="analyse-work-tag">两种平行媒介</span><span class="analyse-work-tag">手风琴 · 巴赫变形</span></div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#0a2a24;color:#50b89a;">1980年代末—90年代</span>
+        <div class="analyse-period-title">成熟期：器乐剧场与肖像</div>
+      </div>
+      <div class="analyse-period-body">这一时期是他层叠意义美学的全面绽放。在 <em>Les agréments</em> 中，他将库普兰片段与处于存在危机中的长笛手并置。<em>Bruits</em> 三部曲转向城市声音碎片化探索。</div>
+      <div class="analyse-works"><span class="analyse-work-tag">Les agréments · 库普兰 · 反讽</span><span class="analyse-work-tag">Bruits（三部曲）</span><span class="analyse-work-tag">幽默</span></div>
+    </div>
+
+    <div class="analyse-period">
+      <div class="analyse-period-header">
+        <span class="analyse-era-tag" style="background:#181430;color:#8880cc;">2000年代</span>
+        <div class="analyse-period-title">私密肖像与记忆</div>
+      </div>
+      <div class="analyse-period-body">最近的作品揭示了姿态的深化：道斯特靠近脆弱的人类主体——一位名妓（<em>Lili</em>），一位认知衰退的歌手（<em>Le temps fixé</em>）——将他们破碎、重复的声音与辉煌的过去交织在一起。</div>
+      <div class="analyse-works"><span class="analyse-work-tag">Lili — 名妓 · 孤独</span><span class="analyse-work-tag">Le temps fixé — 衰退 · 记忆</span><span class="analyse-work-tag">磁带录音机</span></div>
+    </div>
+
+    <div class="traits-block">
+      <h3>各时期恒久特质</h3>
+      <div class="traits-grid-inner">
+        <div class="trait-item"><h4>叠加作为形式签名</h4><p>每部作品至少在两个同步层次上运作：表象（表层叙事）与深层（真正的哲学或情感主题）。</p></div>
+        <div class="trait-item"><h4>植根于古典音乐</h4><p>巴赫、库普兰、莫扎特、德彪西——不作为文化参照，而是有机延续。道斯特声称连续性，拒绝当代界对激进断裂的推崇。</p></div>
+        <div class="trait-item"><h4>访谈作为素材</h4><p>一贯的方法论常数：他录音，让主体说话，然后以近乎民族志学家的克制进行剪辑。他者的声音成为音乐符号。</p></div>
+        <div class="trait-item"><h4>与时间游戏</h4><p>现在对过去，凝固时间对生动时间，重复对遗忘——这是他核心的哲学执念，以不同形式体现于每部作品。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">联系</h2>
+    <div class="contact-grid">
+      <div class="contact-item"><h4>一般与管理</h4><p>关于作曲家的询问、采访或合作。</p><a href="mailto:yvdt@videotron.ca">yvdt@videotron.ca</a></div>
+      <div class="contact-item"><h4>乐谱与委约</h4><p>乐谱索取或新委约申请。</p><a href="mailto:yvdt@videotron.ca">yvdt@videotron.ca</a></div>
+      <div class="contact-item"><h4>录音与发行</h4><p>专辑由 empreintes DIGITALes 发行。</p><a href="https://www.electrocd.com/en/bio/daoust_yv/" target="_blank">electrocd.com</a></div>
+      <div class="contact-item"><h4>Fonofone</h4><p>教学乐器、工作坊及教育项目。</p><a href="https://fonofone.ca/" target="_blank">fonofone.ca</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 伊夫·道斯特档案馆 &nbsp;|&nbsp; 保留所有权利</footer>
+<script>
+function toggleNav() {
+  document.getElementById('nav-toggle').classList.toggle('active');
+  document.getElementById('nav-links').classList.toggle('open');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var links = document.querySelectorAll('#nav-links a');
+  links.forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('nav-toggle').classList.remove('active');
+      document.getElementById('nav-links').classList.remove('open');
+    });
+  });
+});
+</script>
+</body>
+</html>
