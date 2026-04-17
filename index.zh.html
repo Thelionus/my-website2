@@ -170,12 +170,12 @@
         <div class="pub-title">Paris, les Grands-Magasins</div>
         <div class="pub-meta">电子声学 &mdash; 他的首部重要作品：漫步于巴黎百货公司的声景，将日常城市声音作为原始创作素材。</div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-sc-pid="quatuor" data-sc-slug="quatuor-48k">
         <div class="pub-year">1979</div>
         <div class="pub-title">Quatuor</div>
         <div class="pub-meta">具体音乐 &mdash; 他首部完整的"具体"作品，以文化声源重新审视音乐遗产。</div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-sc-pid="valse" data-sc-slug="valse-mix-sep13">
         <div class="pub-year">1981</div>
         <div class="pub-title">Valse</div>
         <div class="pub-meta">混合 &mdash; 乐团与磁带。其平行话语方法的奠基之作：自然与文化作为自主层次共存，互不从属。</div>
@@ -185,22 +185,22 @@
         <div class="pub-title">Petite musique sentimentale</div>
         <div class="pub-meta">混合 &mdash; 钢琴与磁带。</div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-sc-pid="adagio" data-sc-slug="adagio-bande">
         <div class="pub-year">1986</div>
         <div class="pub-title">Adagio</div>
         <div class="pub-meta">混合 &mdash; 长笛与磁带。</div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-sc-pid="entrevue" data-sc-slug="lentrevue">
         <div class="pub-year">1991</div>
         <div class="pub-title">L&rsquo;Entrevue</div>
         <div class="pub-meta">混合 &mdash; 手风琴与磁带。手风琴家对巴赫的口头思考与英国组曲器乐写作交织并置。</div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-sc-pid="water" data-sc-slug="water-music">
         <div class="pub-year">1991</div>
         <div class="pub-title">Water Music</div>
         <div class="pub-meta">电子声学 &mdash; 立体声支持。</div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-sc-pid="nuit" data-sc-slug="nuit">
         <div class="pub-year">1997&ndash;2001</div>
         <div class="pub-title">Bruits</div>
         <div class="pub-meta">电子声学 &mdash; 探索城市声音碎片化的三部曲：<em>Children&rsquo;s Corner</em>、<em>Nuit</em> 与 <em>Fête</em>。</div>
@@ -215,7 +215,7 @@
         <div class="pub-title">Le temps fixé</div>
         <div class="pub-meta">电子声学 &mdash; 一位认知衰退歌手的声音，其重复被以民族志精度记录。磁带录音机本身成为凝固时间的象征。</div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-sc-pid="chorals" data-sc-slug="chorals-orne-s-1ere-partie">
         <div class="pub-year">2007&ndash;2008</div>
         <div class="pub-title">Chorals ornés</div>
         <div class="pub-meta">混合 &mdash; 管风琴与立体声固定媒介。回归 <em>Valse</em> 的平行话语方法，应用于管风琴的礼仪传统。</div>
@@ -359,6 +359,107 @@
 </section>
 
 <footer>&copy; 2026 伊夫·道斯特档案馆 &nbsp;|&nbsp; 保留所有权利</footer>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<script>
+(function(){
+  var _SC_DRAG=null;
+  document.addEventListener('mousemove',function(e){if(_SC_DRAG)_SC_DRAG(e.clientX);});
+  document.addEventListener('mouseup',function(){_SC_DRAG=null;});
+  document.addEventListener('touchmove',function(e){if(_SC_DRAG){_SC_DRAG(e.changedTouches[0].clientX);e.preventDefault();}},{passive:false});
+  document.addEventListener('touchend',function(){_SC_DRAG=null;});
+
+  function SCPlayer(pid,slug){
+    var item=document.querySelector('[data-sc-pid="'+pid+'"]');
+    if(!item)return;
+    var wrap=document.createElement('div');
+    wrap.style.marginTop='14px';
+    wrap.innerHTML=
+      '<iframe id="sc-iframe-'+pid+'" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/frank-aubin/'+slug+'&auto_play=false&hide_related=true&show_comments=false&show_user=false" style="position:absolute;left:-9999px;width:1px;height:1px;border:none;"></iframe>'+
+      '<div style="background:#080808;border:1px solid #1e1e1e;border-radius:3px;padding:12px 14px 10px;">'+
+        '<div id="sc-wf-'+pid+'" style="display:flex;align-items:center;gap:1.5px;height:36px;margin-bottom:10px;cursor:pointer;"></div>'+
+        '<div style="display:flex;align-items:center;gap:10px;">'+
+          '<button id="sc-btn-'+pid+'" aria-label="播放" style="width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);color:#000;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s;">'+
+            '<svg id="sc-ico-play-'+pid+'" viewBox="0 0 10 12" width="10" height="12" style="margin-left:2px;"><polygon points="0,0 10,6 0,12" fill="currentColor"/></svg>'+
+            '<svg id="sc-ico-pause-'+pid+'" viewBox="0 0 11 12" width="10" height="12" style="display:none;"><rect x="0" y="0" width="3.5" height="12" rx="0.5" fill="currentColor"/><rect x="7.5" y="0" width="3.5" height="12" rx="0.5" fill="currentColor"/></svg>'+
+          '</button>'+
+          '<span id="sc-cur-'+pid+'" style="color:#888;font-size:0.7rem;width:28px;flex-shrink:0;font-variant-numeric:tabular-nums;">0:00</span>'+
+          '<div id="sc-wrap-'+pid+'" style="flex:1;padding:10px 0;margin:-10px 0;cursor:pointer;touch-action:none;">'+
+            '<div id="sc-track-'+pid+'" style="height:3px;background:#252525;border-radius:2px;position:relative;pointer-events:none;">'+
+              '<div id="sc-fill-'+pid+'" style="height:100%;width:0%;background:var(--gold);border-radius:2px;position:relative;">'+
+                '<div style="position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 4px rgba(197,160,89,.4);"></div>'+
+              '</div>'+
+            '</div>'+
+          '</div>'+
+          '<span id="sc-dur-'+pid+'" style="color:#444;font-size:0.7rem;width:28px;flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;">&#8212;:&#8212;</span>'+
+        '</div>'+
+      '</div>';
+    item.appendChild(wrap);
+
+    var wfEl=document.getElementById('sc-wf-'+pid);
+    var s=pid.split('').reduce(function(a,c){return(a*31+c.charCodeAt(0))&0xffffffff;},0x9e3779b9)>>>0;
+    function rnd(){s=(s*1664525+1013904223)&0xffffffff;return(s>>>0)/4294967296;}
+    var bars='';
+    for(var i=0;i<180;i++){var h=Math.round(6+rnd()*30);bars+='<div class="sc-bar sc-bar-'+pid+'" style="flex:1;min-width:0;height:'+h+'px;background:#2a2a2a;border-radius:1px;"></div>';}
+    wfEl.innerHTML=bars;
+
+    var widget=null,dur=0,playing=false;
+
+    function init(){
+      if(!window.SC)return;
+      var iframe=document.getElementById('sc-iframe-'+pid);
+      if(!iframe)return;
+      widget=SC.Widget(iframe);
+      widget.bind(SC.Widget.Events.READY,function(){
+        widget.getDuration(function(d){
+          dur=d;
+          var sec=Math.floor(d/1000);
+          var el=document.getElementById('sc-dur-'+pid);
+          if(el)el.textContent=Math.floor(sec/60)+':'+(('0'+sec%60).slice(-2));
+        });
+      });
+      widget.bind(SC.Widget.Events.PLAY,function(){playing=true;document.getElementById('sc-ico-play-'+pid).style.display='none';document.getElementById('sc-ico-pause-'+pid).style.display='';});
+      widget.bind(SC.Widget.Events.PAUSE,function(){playing=false;document.getElementById('sc-ico-play-'+pid).style.display='';document.getElementById('sc-ico-pause-'+pid).style.display='none';});
+      widget.bind(SC.Widget.Events.FINISH,function(){playing=false;document.getElementById('sc-ico-play-'+pid).style.display='';document.getElementById('sc-ico-pause-'+pid).style.display='none';update(0);});
+      widget.bind(SC.Widget.Events.PLAY_PROGRESS,function(e){if(_SC_DRAG!==doSeek)update(e.currentPosition);});
+    }
+
+    function update(pos){
+      var pct=dur>0?pos/dur:0;
+      document.getElementById('sc-fill-'+pid).style.width=(pct*100)+'%';
+      var sec=Math.floor(pos/1000);
+      document.getElementById('sc-cur-'+pid).textContent=Math.floor(sec/60)+':'+(('0'+sec%60).slice(-2));
+      var bs=document.querySelectorAll('.sc-bar-'+pid);
+      var active=Math.floor(pct*bs.length);
+      bs.forEach(function(b,i){b.style.background=i<active?'#C5A059':'#2a2a2a';});
+    }
+
+    function doSeek(cx){
+      var r=document.getElementById('sc-track-'+pid).getBoundingClientRect();
+      var pct=Math.max(0,Math.min(1,(cx-r.left)/r.width));
+      update(pct*dur);
+      if(widget)widget.seekTo(pct*dur);
+    }
+
+    var sliderWrap=document.getElementById('sc-wrap-'+pid);
+    sliderWrap.addEventListener('mousedown',function(e){_SC_DRAG=doSeek;doSeek(e.clientX);e.preventDefault();});
+    sliderWrap.addEventListener('touchstart',function(e){_SC_DRAG=doSeek;doSeek(e.touches[0].clientX);e.preventDefault();},{passive:false});
+    wfEl.addEventListener('click',function(e){if(widget)doSeek(e.clientX);});
+    document.getElementById('sc-btn-'+pid).addEventListener('click',function(){
+      if(!widget){init();setTimeout(function(){widget&&widget.play();},400);return;}
+      playing?widget.pause():widget.play();
+    });
+
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  }
+
+  function initAll(){
+    document.querySelectorAll('[data-sc-pid]').forEach(function(el){
+      SCPlayer(el.getAttribute('data-sc-pid'),el.getAttribute('data-sc-slug'));
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initAll);}else{initAll();}
+})();
+</script>
 <script>
 function toggleNav() {
   document.getElementById('nav-toggle').classList.toggle('active');
